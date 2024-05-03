@@ -1,0 +1,4 @@
+package popacketservice.popacketservice.config;
+
+public class ModelMapperConfig {
+}
