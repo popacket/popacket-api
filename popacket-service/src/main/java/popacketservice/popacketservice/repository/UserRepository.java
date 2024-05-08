@@ -1,4 +1,8 @@
 package popacketservice.popacketservice.repository;
 
-public interface UserRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import popacketservice.popacketservice.model.entity.User;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+
 }
