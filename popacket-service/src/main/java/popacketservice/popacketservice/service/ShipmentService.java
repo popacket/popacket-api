@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 import popacketservice.popacketservice.model.dto.AddressRequestDTO;
-import popacketservice.popacketservice.model.dto.AddressResponseDTO;
 import popacketservice.popacketservice.model.dto.PackageRequestDTO;
 import popacketservice.popacketservice.model.dto.PaymentResponseDTO;
 import popacketservice.popacketservice.model.entity.Address;
@@ -26,9 +25,9 @@ public class ShipmentService {
     public PaymentResponseDTO getShippingCost(PackageRequestDTO packageRequestDTO, AddressRequestDTO originAddress, AddressRequestDTO destinationAddress ){
         String origin = originAddress.getAddress() + "," + originAddress.getDistrict()+ "," + originAddress.getProvince() + "," + originAddress.getDepartament();
         String destination = destinationAddress.getAddress() + "," + destinationAddress.getDistrict()+ "," + destinationAddress.getProvince() + "," + destinationAddress.getDepartament();
-        Address origneAd = getAddressWithLatLon(origin);
+        Address origenAd = getAddressWithLatLon(origin);
         Address destinationAd = getAddressWithLatLon(destination);
-        double distance = getDistance(origneAd, destinationAd);
+        double distance = getDistance(origenAd, destinationAd);
         double weigth = packageRequestDTO.getWeight();
         double height = packageRequestDTO.getHeight();
         double width = packageRequestDTO.getWidth();
