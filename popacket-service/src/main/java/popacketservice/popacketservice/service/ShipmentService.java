@@ -19,6 +19,7 @@ import java.math.BigDecimal;
 public class ShipmentService {
 
     private final double cuota = 0.1;
+    private final double IGV = 0.16;
 
     private GoogleMapsService googleMapsService;
 
@@ -34,6 +35,7 @@ public class ShipmentService {
         double depth = packageRequestDTO.getDepth();
 
         double price = cuota*distance + cuota*weigth + cuota*height + cuota*width + cuota*depth;
+        price = price + price*IGV;
         PaymentResponseDTO payment = new PaymentResponseDTO();
         payment.setPrice(BigDecimal.valueOf(price));
         return payment;
