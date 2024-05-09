@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/popacket-api.iml" filepath="$PROJECT_DIR$/.idea/popacket-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/popacket-service/popacket-service.iml" filepath="$PROJECT_DIR$/popacket-service/popacket-service.iml" />
+    </modules>
+  </component>
+</project>
