@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 public class AddressRequestDTO {
+
     @NotBlank(message = "La direccion no puede estar vacia")
     private String address;
     @NotBlank(message = "El departamento no puede estar vacio")

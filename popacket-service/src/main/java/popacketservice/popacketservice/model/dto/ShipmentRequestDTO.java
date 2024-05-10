@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 public class ShipmentRequestDTO {
+    private Long id;
     @NotBlank(message = "Descripcion no puede ser vacia")
     private String description;
     @NotBlank(message = "Estado no puede ser vacia")

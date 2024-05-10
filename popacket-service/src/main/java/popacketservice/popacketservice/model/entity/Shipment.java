@@ -31,7 +31,7 @@ public class Shipment {
     private Address destinationAddress;
     @ManyToOne()
     @JoinColumn(name = "user_id", nullable = false)
-    private User userId;
+    private User user;
     @ManyToOne()
     @JoinColumn(name = "package_id", nullable = false)
     private Package aPackage;
