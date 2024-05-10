@@ -20,9 +20,9 @@ public class UserService {
 
     @Transactional
     public UserResponseDTO createUser(UserRequestDTO userRequestDTO) {
-        User account = userMapper.convertToEntity(userRequestDTO);
-        account.setCreateAt(LocalDate.now());
-        User savedUser = userRepository.save(account);
+        User user = userMapper.convertToEntity(userRequestDTO);
+        user.setCreateAt(LocalDate.now());
+        User savedUser = userRepository.save(user);
         return userMapper.convertToDTO(savedUser);
     }
 }

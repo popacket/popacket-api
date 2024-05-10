@@ -21,7 +21,7 @@ public class User {
     @Column(name="name", nullable = false)
     private String name;
     @Column(name="last_name", nullable = false)
-    private String last_name;
+    private String lastName;
     @Column(name="email", nullable = false)
     private String email;
     @Column(name="pass" , nullable = false)
@@ -30,6 +30,6 @@ public class User {
     private String phone;
     @Column(name="address", nullable = false)
     private String address;
-    @Column(name="created_at", nullable = false)
+    @Column(name="created_at")
     private LocalDate createAt;
 }
