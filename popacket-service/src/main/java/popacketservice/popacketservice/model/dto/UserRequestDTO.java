@@ -16,7 +16,7 @@ public class UserRequestDTO {
     @NotNull(message = "El nombre no puede ser vacio")
     private String name;
     @NotBlank(message = "El apellido no puede ser vacio")
-    private String last_name;
+    private String lastName;
     @NotBlank(message = "El correo electronico no puede ser vacio")
     @Email
     private String email;
