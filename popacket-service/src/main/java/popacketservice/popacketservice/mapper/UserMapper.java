@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import popacketservice.popacketservice.model.dto.UserRequestDTO;
 import popacketservice.popacketservice.model.dto.UserResponseDTO;
-import org.modelmapper.ModelMapper;
 import popacketservice.popacketservice.model.entity.User;
+import org.modelmapper.ModelMapper;
 
 import java.util.List;
 
@@ -14,12 +14,12 @@ import java.util.List;
 public class UserMapper {
     private final ModelMapper modelMapper;
 
-    public User convertToEntity(UserRequestDTO accountRequestDTO) {
-        return modelMapper.map(accountRequestDTO, User.class);
+    public User convertToEntity(UserRequestDTO userRequestDTO) {
+        return modelMapper.map(userRequestDTO, User.class);
     }
 
-    public UserResponseDTO convertToDTO(User account) {
-        return modelMapper.map(account, UserResponseDTO.class);
+    public UserResponseDTO convertToDTO(User user) {
+        return modelMapper.map(user, UserResponseDTO.class);
     }
 
     public List<UserResponseDTO> convertToListDTO(List<User> accounts) {
