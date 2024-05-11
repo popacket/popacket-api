@@ -12,6 +12,7 @@ import java.util.List;
 @Component
 @AllArgsConstructor
 public class UserMapper {
+
     private final ModelMapper modelMapper;
 
     public User convertToEntity(UserRequestDTO userRequestDTO) {
