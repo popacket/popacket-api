@@ -21,13 +21,13 @@ import popacketservice.popacketservice.service.ShipmentService;
 public class ShipmentController {
 
     private final ShipmentService shipmentService;
-
+    /**,@Validated @RequestBody AddressRequestDTO addressOrigin,
+     @Validated @RequestBody AddressRequestDTO addressDestination*/
+    /**, addressOrigin, addressDestination*/
     @PostMapping("/cost")
-    public ResponseEntity<PaymentResponseDTO> shippingCost(@RequestBody PackageRequestDTO packageRequestDTO
-                                                           /**,@Validated @RequestBody AddressRequestDTO addressOrigin,
-                                                           @Validated @RequestBody AddressRequestDTO addressDestination*/){
+    public ResponseEntity<PaymentResponseDTO> shippingCost(@RequestBody PackageRequestDTO packageRequestDTO){
 
-        PaymentResponseDTO payment = shipmentService.getShippingCost(packageRequestDTO/**, addressOrigin, addressDestination*/);
+        PaymentResponseDTO payment = shipmentService.getShippingCost(packageRequestDTO);
 
     return new ResponseEntity<>(payment, HttpStatus.OK);
     }
