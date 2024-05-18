@@ -9,6 +9,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import popacketservice.popacketservice.exception.BadRequestException;
+import popacketservice.popacketservice.exception.ConflictException;
 import popacketservice.popacketservice.exception.ResourceNotFoundException;
 
 import java.util.*;
@@ -49,5 +50,10 @@ public class RestExceptionHandler {
     public ProblemDetail handleBadRequestException(BadRequestException ex) {
         return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST,
                 ex.getMessage());
+    }
+
+    @ExceptionHandler(ConflictException.class)
+    public ProblemDetail handleConflictException(ConflictException ex) {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, ex.getMessage());
     }
 }
