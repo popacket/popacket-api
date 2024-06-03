@@ -7,13 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserResponseDTO {
+public class LocationResponseDTO {
     private Long id;
-    private String document;
     private String name;
-    private String lastName;
-    private String email;
-    private String pass;
-    private String phone;
-    private Boolean isAdmin;
+    private String address;
+    private String type;
 }

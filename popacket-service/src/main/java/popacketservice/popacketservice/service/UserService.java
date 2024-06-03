@@ -19,7 +19,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
 
-    @Transactional
+    //@Transactional
     public UserResponseDTO createUser(UserRequestDTO userRequestDTO) {
         User user = userMapper.convertToEntity(userRequestDTO);
 
