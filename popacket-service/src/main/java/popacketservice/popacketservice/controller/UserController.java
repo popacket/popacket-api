@@ -21,4 +21,9 @@ public class UserController {
         UserResponseDTO createdUser = userService.createUser(userDTO);
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
+    @PostMapping("/updatePassword")
+    public ResponseEntity<UserResponseDTO> updatePasswordUser(@Validated @RequestBody UserRequestDTO userDTO, String password){
+        UserResponseDTO userResponseDTO = userService.updatePasswordUser(userDTO, password);
+        return new ResponseEntity<>(userResponseDTO, HttpStatus.CREATED);
+    }
 }

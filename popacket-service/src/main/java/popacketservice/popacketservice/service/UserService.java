@@ -32,4 +32,11 @@ public class UserService {
             throw new ConflictException("Un usuario ya se encuentra registrado con estos datos");
         }
     }
+
+    public UserResponseDTO updatePasswordUser(UserRequestDTO userRequestDTO, String password) {
+        User user = userRepository.findByEmail(userRequestDTO.getEmail()).orElseThrow();
+        user.setPass(password);
+        User savedUser = userRepository.save(user);
+        return userMapper.convertToDTO(savedUser);
+    }
 }
