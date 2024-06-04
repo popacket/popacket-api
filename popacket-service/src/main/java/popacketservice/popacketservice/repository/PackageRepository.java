@@ -11,7 +11,6 @@ import java.util.Optional;
 
 @Repository
 public interface PackageRepository extends JpaRepository<Package, Long> {
-
     @Query("SELECT p FROM Package p WHERE p.sender=:id")
     Optional<List<Package>> findAllByOrderBySenderId(@Param("id") Long senderId);
 }
