@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import popacketservice.popacketservice.model.dto.PackageRequestDTO;
 import popacketservice.popacketservice.model.dto.PackageResponseDTO;
+import popacketservice.popacketservice.model.entity.Package;
 import org.modelmapper.ModelMapper;
 
 import java.util.List;
