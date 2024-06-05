@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import popacketservice.popacketservice.model.dto.PackageRequestDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.service.ShipmentService;
 
@@ -28,9 +27,9 @@ public class ShipmentController {
         return new ResponseEntity<>(shipment, HttpStatus.OK);
     }
 
-    @PostMapping("/cost")
-    public ResponseEntity<BigDecimal> getQuoteShipment(@RequestBody PackageRequestDTO packageRequestDTO){
-        BigDecimal price = shipmentService.getShipmentCost(packageRequestDTO);
+    @PostMapping("/cost={weight}")
+    public ResponseEntity<BigDecimal> getQuoteShipment(@PathVariable("weight") Double weight){
+        BigDecimal price = shipmentService.getShipmentCost(weight);
         return new ResponseEntity<>(price, HttpStatus.OK);
     }
 }

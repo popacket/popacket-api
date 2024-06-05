@@ -5,8 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
-import popacketservice.popacketservice.model.dto.PackageRequestDTO;
-import popacketservice.popacketservice.model.dto.PaymentResponseDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.model.entity.Shipment;
 import popacketservice.popacketservice.repository.ShipmentRateRepository;
@@ -31,11 +29,11 @@ public class ShipmentService {
         return shipmentMapper.convertToDTO(shipmentTemp);
     }
 
-    public BigDecimal getShipmentCost(PackageRequestDTO packageRequestDTO) {
+    public BigDecimal getShipmentCost(Double weight) {
 
-        Double priceBase = shipmentRateRepository.getBasePrice(packageRequestDTO.getWeight());
+        Double priceBase = shipmentRateRepository.getBasePrice(BigDecimal.valueOf(weight));
 
-        Double pricePerKilometer = shipmentRateRepository.getPricePerKilometer(packageRequestDTO.getWeight());
+        Double pricePerKilometer = shipmentRateRepository.getPricePerKilometer(BigDecimal.valueOf(weight));
 
         return BigDecimal.valueOf(priceBase + pricePerKilometer);
     }
