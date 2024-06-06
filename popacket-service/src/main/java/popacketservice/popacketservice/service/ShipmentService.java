@@ -3,6 +3,7 @@ package popacketservice.popacketservice.service;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
@@ -15,7 +16,9 @@ import popacketservice.popacketservice.repository.ShipmentRepository;
 @NoArgsConstructor
 
 public class ShipmentService {
+    @Autowired
     private ShipmentRepository shipmentRepository;
+    @Autowired
     private ShipmentMapper shipmentMapper;
 
     public ShipmentResponseDTO cancelShipmentById(Long id) {
@@ -24,4 +27,5 @@ public class ShipmentService {
         shipmentRepository.save(shipmentTemp);
         return shipmentMapper.convertToDTO(shipmentTemp);
     }
+
 }
