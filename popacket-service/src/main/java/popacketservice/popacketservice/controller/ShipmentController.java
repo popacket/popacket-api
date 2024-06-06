@@ -3,6 +3,7 @@ package popacketservice.popacketservice.controller;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,7 @@ import java.math.BigDecimal;
 
 public class ShipmentController {
 
+    @Autowired
     private ShipmentService shipmentService;
 
     @PostMapping("/cancel={id}")
@@ -27,9 +29,9 @@ public class ShipmentController {
         return new ResponseEntity<>(shipment, HttpStatus.OK);
     }
 
-    @PostMapping("/cost={weight}")
-    public ResponseEntity<BigDecimal> getQuoteShipment(@PathVariable("weight") Double weight){
-        BigDecimal price = shipmentService.getShipmentCost(weight);
+    @GetMapping("/cost/{weight}/{serviceType}")
+    public ResponseEntity<Double> getQuoteShipment(@PathVariable("weight") Double weight, @PathVariable("serviceType") String serviceType){
+        Double price = shipmentService.getShipmentCost(weight, serviceType);
         return new ResponseEntity<>(price, HttpStatus.OK);
     }
 }
