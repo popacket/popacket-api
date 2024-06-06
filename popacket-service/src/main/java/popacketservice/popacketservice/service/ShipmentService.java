@@ -27,5 +27,9 @@ public class ShipmentService {
         shipmentRepository.save(shipmentTemp);
         return shipmentMapper.convertToDTO(shipmentTemp);
     }
+    public ShipmentResponseDTO getShipmentById(Long id) {
+        Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow();
+        return shipmentMapper.convertToDTO(shipmentTemp);
+    }
 
 }
