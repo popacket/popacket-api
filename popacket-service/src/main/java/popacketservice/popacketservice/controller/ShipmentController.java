@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.service.ShipmentService;
 
@@ -35,6 +36,11 @@ public class ShipmentController {
     public ResponseEntity<Object[]> getTrackingOb(@PathVariable("id") Long shipmentId) {
         //ShipmentResponseDTO shipment = shipmentService.getShipmentById(shipmentId);
         Object[] shipment = shipmentService.getStatusShipmentById(shipmentId);
+        return new ResponseEntity<>(shipment, HttpStatus.OK);
+    }
+    @PostMapping("updateSchedule/")
+    public ResponseEntity<ShipmentResponseDTO> updateScheduleShipment(@RequestBody ShipmentRequestDTO shipmentDTO) {
+        ShipmentResponseDTO shipment = shipmentService.updateScheduleShipment(shipmentDTO);
         return new ResponseEntity<>(shipment, HttpStatus.OK);
     }
 }

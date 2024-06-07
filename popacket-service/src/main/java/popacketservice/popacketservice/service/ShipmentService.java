@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
+import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.model.entity.Shipment;
 import popacketservice.popacketservice.repository.ShipmentRepository;
@@ -37,6 +38,15 @@ public class ShipmentService {
         //Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow();
         Object[] shipmentTemp = shipmentRepository.getStatusShipmentByIdOb(id).orElseThrow();
         return shipmentTemp;
+    }
+
+    public ShipmentResponseDTO updateScheduleShipment(ShipmentRequestDTO shipmentRequestDTO) {
+        Shipment shipment = shipmentMapper.convertToEntity(shipmentRequestDTO);
+        Shipment shipmentTemp = shipmentRepository.getShipmentById(shipment.getId()).orElseThrow();
+        shipmentTemp.setPickupDateTime(shipment.getPickupDateTime());
+        shipmentTemp.setDeliveryDateTime(shipment.getPickupDateTime().plusDays(3));
+        shipmentRepository.save(shipmentTemp);
+        return shipmentMapper.convertToDTO(shipmentTemp);
     }
 
 }
