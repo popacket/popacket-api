@@ -26,8 +26,15 @@ public class ShipmentController {
         return new ResponseEntity<>(shipment, HttpStatus.OK);
     }
     @GetMapping("/tracking/{id}")
-    public ResponseEntity<ShipmentResponseDTO> getTracking(@PathVariable("id") Long shipmentId) {
+    public ResponseEntity<ShipmentResponseDTO> getTrackingInfoById(@PathVariable("id") Long shipmentId) {
         ShipmentResponseDTO shipment = shipmentService.getShipmentById(shipmentId);
+        return new ResponseEntity<>(shipment, HttpStatus.OK);
+    }
+
+    @GetMapping("/tracking_2/{id}")
+    public ResponseEntity<Object[]> getTrackingOb(@PathVariable("id") Long shipmentId) {
+        //ShipmentResponseDTO shipment = shipmentService.getShipmentById(shipmentId);
+        Object[] shipment = shipmentService.getStatusShipmentById(shipmentId);
         return new ResponseEntity<>(shipment, HttpStatus.OK);
     }
 }

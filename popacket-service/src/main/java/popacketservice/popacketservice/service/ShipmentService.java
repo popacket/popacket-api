@@ -29,7 +29,14 @@ public class ShipmentService {
     }
     public ShipmentResponseDTO getShipmentById(Long id) {
         Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow();
+        //Object[] shipmentStatus = shipmentRepository.getStatusShipmentById(id).orElseThrow();
         return shipmentMapper.convertToDTO(shipmentTemp);
+    }
+
+    public Object[] getStatusShipmentById(Long id) {
+        //Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow();
+        Object[] shipmentTemp = shipmentRepository.getStatusShipmentByIdOb(id).orElseThrow();
+        return shipmentTemp;
     }
 
 }

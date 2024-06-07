@@ -14,4 +14,10 @@ public interface ShipmentRepository extends JpaRepository<Shipment, Long> {
     @Query("SELECT s FROM Shipment s WHERE s.id=:id")
     public Optional<Shipment> getShipmentById(@Param("id") Long id);
 
+    @Query("SELECT s.status,s.pickupDateTime, s.deliveryDateTime FROM Shipment s WHERE s.id=:id")
+    public Optional<Shipment> getStatusShipmentById(@Param("id") Long id);
+
+    @Query("SELECT s.status,s.pickupDateTime, s.deliveryDateTime FROM Shipment s WHERE s.id=:id")
+    public Optional<Object[]> getStatusShipmentByIdOb(@Param("id") Long id);
+
 }
