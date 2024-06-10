@@ -8,10 +8,7 @@ import org.springframework.stereotype.Service;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.model.entity.Shipment;
-import popacketservice.popacketservice.repository.ShipmentRateRepository;
 import popacketservice.popacketservice.repository.ShipmentRepository;
-
-import java.math.BigDecimal;
 
 @Service
 @Data
@@ -22,8 +19,6 @@ public class ShipmentService {
     @Autowired
     private ShipmentRepository shipmentRepository;
     @Autowired
-    private ShipmentRateRepository shipmentRateRepository;
-    @Autowired
     private ShipmentMapper shipmentMapper;
 
     public ShipmentResponseDTO cancelShipmentById(Long id) {
@@ -32,12 +27,16 @@ public class ShipmentService {
         shipmentRepository.save(shipmentTemp);
         return shipmentMapper.convertToDTO(shipmentTemp);
     }
+    public ShipmentResponseDTO getShipmentById(Long id) {
+        Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow();
+        //Object[] shipmentStatus = shipmentRepository.getStatusShipmentById(id).orElseThrow();
+        return shipmentMapper.convertToDTO(shipmentTemp);
+    }
 
-    public Double getShipmentCost(Double weight, String serviceType) {
-        BigDecimal priceBase = shipmentRateRepository.getBasePrice(BigDecimal.valueOf(weight), serviceType);
-        BigDecimal pricePerKilometer = shipmentRateRepository.getPricePerKilometer(BigDecimal.valueOf(weight), serviceType);
-        Double price = priceBase.add(pricePerKilometer).doubleValue();
-        return price;
+    public Object[] getStatusShipmentById(Long id) {
+        //Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow();
+        Object[] shipmentTemp = shipmentRepository.getStatusShipmentByIdOb(id).orElseThrow();
+        return shipmentTemp;
     }
 
 }
