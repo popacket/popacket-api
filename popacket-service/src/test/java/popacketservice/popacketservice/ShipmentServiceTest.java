@@ -1,4 +1,4 @@
-package popacketservice.popacketservice.service;
+package popacketservice.popacketservice;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -6,6 +6,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import popacketservice.popacketservice.repository.ShipmentRepository;
+import popacketservice.popacketservice.service.ShipmentService;
 
 import java.util.Optional;
 
