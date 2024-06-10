@@ -3,14 +3,14 @@ package popacketservice.popacketservice.controller;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.service.ShipmentService;
-
-import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("/shipments")
@@ -50,5 +50,11 @@ public class ShipmentController {
     public ResponseEntity<ShipmentResponseDTO> updateScheduleShipment(@RequestBody ShipmentRequestDTO shipmentDTO) {
         ShipmentResponseDTO shipment = shipmentService.updateScheduleShipment(shipmentDTO);
         return new ResponseEntity<>(shipment, HttpStatus.OK);
+    }
+
+    @GetMapping("/cost/{weight}/{serviceType}")
+    public ResponseEntity<Double> getQuoteShipment(@PathVariable("weight") Double weight, @PathVariable("serviceType") String serviceType){
+        Double price = shipmentService.getShipmentCost(weight, serviceType);
+        return new ResponseEntity<>(price, HttpStatus.OK);
     }
 }
