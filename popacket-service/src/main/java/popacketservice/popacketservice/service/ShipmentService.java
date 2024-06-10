@@ -23,7 +23,7 @@ public class ShipmentService {
 
     public ShipmentResponseDTO cancelShipmentById(Long id) {
         Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow(
-                () -> new RuntimeException("Shipment not found with id " + id)
+                () -> new RuntimeException("Envio no encontrado con el id ingresado" + id)
         );
         shipmentTemp.setStatus("cancelado");
         shipmentRepository.save(shipmentTemp);
