@@ -10,7 +10,7 @@ import popacketservice.popacketservice.model.entity.ShippingRate;
 import java.math.BigDecimal;
 
 @Repository
-public interface ShipmentRateRepository extends JpaRepository<ShippingRate,Long> {
+public interface ShippingRateRepository extends JpaRepository<ShippingRate,Long> {
 
     @Query("SELECT sr.basePrice FROM ShippingRate sr WHERE (:weight BETWEEN sr.weightMin AND sr.weightMax) AND sr.serviceType=:serviceType")
     public BigDecimal getBasePrice(@Param("weight") BigDecimal weight, @Param("serviceType") String serviceType);

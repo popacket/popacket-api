@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.model.entity.Shipment;
-import popacketservice.popacketservice.repository.ShipmentRateRepository;
 import popacketservice.popacketservice.repository.ShipmentRepository;
+import popacketservice.popacketservice.repository.ShippingRateRepository;
 
 import java.math.BigDecimal;
 
@@ -23,7 +23,7 @@ public class ShipmentService {
     @Autowired
     private ShipmentRepository shipmentRepository;
     @Autowired
-    private ShipmentRateRepository shipmentRateRepository;
+    private ShippingRateRepository shipmentRateRepository;
     @Autowired
     private ShipmentMapper shipmentMapper;
 
