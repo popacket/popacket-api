@@ -19,6 +19,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 
 public class ShipmentService {
+
     @Autowired
     private ShipmentRepository shipmentRepository;
     @Autowired
