@@ -64,6 +64,7 @@ public class ShipmentServiceTest {
         Shipment shipment = new Shipment();
         ShipmentResponseDTO shipmentResponseDTO = new ShipmentResponseDTO();
 
+        // When
         when(shipmentRepository.ifExistsByPackageID(shipmentRequestDTO.getPackageId())).thenReturn(false);
         when(locationRepository.findById(shipmentRequestDTO.getDestinationLocationId())).thenReturn(Optional.of(destinationLocation));
         when(locationRepository.findById(shipmentRequestDTO.getOriginLocationId())).thenReturn(Optional.of(originLocation));
@@ -73,10 +74,9 @@ public class ShipmentServiceTest {
         when(shipmentRepository.save(shipment)).thenReturn(shipment);
         when(shipmentMapper.convertToDTO(shipment)).thenReturn(shipmentResponseDTO);
 
-        // When
+        // Then
         ShipmentResponseDTO result = shipmentService.makeShipment(shipmentRequestDTO);
 
-        // Then
         assertNotNull(result);
         verify(shipmentRepository).save(shipment);
     }
@@ -87,9 +87,10 @@ public class ShipmentServiceTest {
         ShipmentRequestDTO shipmentRequestDTO = new ShipmentRequestDTO();
         shipmentRequestDTO.setPackageId(3L);
 
+        // When
         when(shipmentRepository.ifExistsByPackageID(shipmentRequestDTO.getPackageId())).thenReturn(true);
 
-        // When & Then
+        // Then
         ConflictException exception = assertThrows(ConflictException.class, () -> {
             shipmentService.makeShipment(shipmentRequestDTO);
         });
@@ -104,10 +105,11 @@ public class ShipmentServiceTest {
         ShipmentRequestDTO shipmentRequestDTO = new ShipmentRequestDTO();
         shipmentRequestDTO.setDestinationLocationId(1L);
 
+        // When
         when(shipmentRepository.ifExistsByPackageID(shipmentRequestDTO.getPackageId())).thenReturn(false);
         when(locationRepository.findById(shipmentRequestDTO.getDestinationLocationId())).thenReturn(Optional.empty());
 
-        // When & Then
+        // Then
         RuntimeException exception = assertThrows(RuntimeException.class, () -> {
             shipmentService.makeShipment(shipmentRequestDTO);
         });
@@ -120,12 +122,15 @@ public class ShipmentServiceTest {
     public void testMakeShipment_OriginLocationNotFound() {
         // Given
         ShipmentRequestDTO shipmentRequestDTO = new ShipmentRequestDTO();
-        shipmentRequestDTO.setOriginLocationId(1L);
+        Location destinationLocation = new Location();
+        shipmentRequestDTO.setOriginLocationId(45L);
 
+        // When
         when(shipmentRepository.ifExistsByPackageID(shipmentRequestDTO.getPackageId())).thenReturn(false);
+        when(locationRepository.findById(shipmentRequestDTO.getDestinationLocationId())).thenReturn(Optional.of(destinationLocation));
         when(locationRepository.findById(shipmentRequestDTO.getOriginLocationId())).thenReturn(Optional.empty());
 
-        // When & Then
+        // Then
         RuntimeException exception = assertThrows(RuntimeException.class, () -> {
             shipmentService.makeShipment(shipmentRequestDTO);
         });
@@ -138,12 +143,17 @@ public class ShipmentServiceTest {
     public void testMakeShipment_PackageNotFound() {
         // Given
         ShipmentRequestDTO shipmentRequestDTO = new ShipmentRequestDTO();
+        Location destinationLocation = new Location();
+        Location originLocation = new Location();
         shipmentRequestDTO.setPackageId(3L);
 
+        // When
         when(shipmentRepository.ifExistsByPackageID(shipmentRequestDTO.getPackageId())).thenReturn(false);
+        when(locationRepository.findById(shipmentRequestDTO.getDestinationLocationId())).thenReturn(Optional.of(destinationLocation));
+        when(locationRepository.findById(shipmentRequestDTO.getOriginLocationId())).thenReturn(Optional.of(originLocation));
         when(packageRepository.findById(shipmentRequestDTO.getPackageId())).thenReturn(Optional.empty());
 
-        // When & Then
+        // Then
         RuntimeException exception = assertThrows(RuntimeException.class, () -> {
             shipmentService.makeShipment(shipmentRequestDTO);
         });
@@ -156,12 +166,19 @@ public class ShipmentServiceTest {
     public void testMakeShipment_DeliveryPersonNotFound() {
         // Given
         ShipmentRequestDTO shipmentRequestDTO = new ShipmentRequestDTO();
+        Location destinationLocation = new Location();
+        Location originLocation = new Location();
+        Package pack = new Package();
         shipmentRequestDTO.setDeliveryPersonId(4L);
 
+        // When
         when(shipmentRepository.ifExistsByPackageID(shipmentRequestDTO.getPackageId())).thenReturn(false);
+        when(locationRepository.findById(shipmentRequestDTO.getDestinationLocationId())).thenReturn(Optional.of(destinationLocation));
+        when(locationRepository.findById(shipmentRequestDTO.getOriginLocationId())).thenReturn(Optional.of(originLocation));
+        when(packageRepository.findById(shipmentRequestDTO.getPackageId())).thenReturn(Optional.of(pack));
         when(deliveryPersonRepository.findById(shipmentRequestDTO.getDeliveryPersonId())).thenReturn(Optional.empty());
 
-        // When & Then
+        // Then
         RuntimeException exception = assertThrows(RuntimeException.class, () -> {
             shipmentService.makeShipment(shipmentRequestDTO);
         });
