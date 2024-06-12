@@ -9,6 +9,9 @@ import popacketservice.popacketservice.mapper.ShipmentMapper;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.model.entity.Shipment;
 import popacketservice.popacketservice.repository.ShipmentRepository;
+import popacketservice.popacketservice.repository.ShippingRateRepository;
+
+import java.math.BigDecimal;
 
 @Service
 @Data
@@ -16,8 +19,11 @@ import popacketservice.popacketservice.repository.ShipmentRepository;
 @NoArgsConstructor
 
 public class ShipmentService {
+
     @Autowired
     private ShipmentRepository shipmentRepository;
+    @Autowired
+    private ShippingRateRepository shipmentRateRepository;
     @Autowired
     private ShipmentMapper shipmentMapper;
 
@@ -28,5 +34,17 @@ public class ShipmentService {
         shipmentTemp.setStatus("cancelado");
         shipmentRepository.save(shipmentTemp);
         return shipmentMapper.convertToDTO(shipmentTemp);
+    }
+    public ShipmentResponseDTO getShipmentById(Long id) {
+        Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow();
+        //Object[] shipmentStatus = shipmentRepository.getStatusShipmentById(id).orElseThrow();
+        return shipmentMapper.convertToDTO(shipmentTemp);
+    }
+
+
+    public Object[] getStatusShipmentById(Long id) {
+        //Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow();
+        Object[] shipmentTemp = shipmentRepository.getStatusShipmentByIdOb(id).orElseThrow();
+        return shipmentTemp;
     }
 }
