@@ -13,8 +13,6 @@ import popacketservice.popacketservice.model.entity.User;
 import popacketservice.popacketservice.repository.UserRepository;
 import popacketservice.popacketservice.service.UserService;
 
-import java.time.LocalDate;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
