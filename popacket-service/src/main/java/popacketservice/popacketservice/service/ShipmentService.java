@@ -9,9 +9,13 @@ import popacketservice.popacketservice.exception.ConflictException;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
 import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
+
 import popacketservice.popacketservice.model.entity.*;
 import popacketservice.popacketservice.model.entity.Package;
 import popacketservice.popacketservice.repository.*;
+
+
+import java.math.BigDecimal;
 
 @Service
 @Data
@@ -20,8 +24,12 @@ import popacketservice.popacketservice.repository.*;
 
 public class ShipmentService {
 
-    private ShipmentRepository shipmentRepository;
 
+    @Autowired
+    private ShipmentRepository shipmentRepository;
+    @Autowired
+    private ShippingRateRepository shipmentRateRepository;
+    @Autowired
     private ShipmentMapper shipmentMapper;
 
     private PackageRepository packageRepository;
@@ -43,6 +51,7 @@ public class ShipmentService {
         //Object[] shipmentStatus = shipmentRepository.getStatusShipmentById(id).orElseThrow();
         return shipmentMapper.convertToDTO(shipmentTemp);
     }
+
 
     public Object[] getStatusShipmentById(Long id) {
         //Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow();
@@ -84,5 +93,4 @@ public class ShipmentService {
 
             return shipmentMapper.convertToDTO(savedShipment);}
     }
-
 }
