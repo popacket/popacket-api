@@ -28,9 +28,19 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 public class ShipmentServiceTest {
 
-
     @Mock
     private ShipmentRepository shipmentRepository;
+    @Mock
+    private LocationRepository locationRepository;
+
+    @Mock
+    private PackageRepository packageRepository;
+
+    @Mock
+    private DeliveryPersonRepository deliveryPersonRepository;
+
+    @Mock
+    private ShipmentMapper shipmentMapper;
 
     @Mock
     private LocationRepository locationRepository;
@@ -193,7 +203,8 @@ public class ShipmentServiceTest {
         verify(shipmentRepository, never()).save(any(Shipment.class));
     }
 }
-    public void getStatusShipmentById_Success() {
+   @Test
+   public void getStatusShipmentById_Success() {
 
         Long shipmentId = 1L;
         Object[] expectedShipmentStatus = {"En camino", "2024-06-10"};
@@ -224,4 +235,3 @@ public class ShipmentServiceTest {
         verify(shipmentRepository, times(1)).getStatusShipmentByIdOb(shipmentId);
     }
 }
-

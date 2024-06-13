@@ -52,4 +52,10 @@ public class ShipmentController {
         ShipmentResponseDTO shipment = shipmentService.updateScheduleShipment(shipmentDTO);
         return new ResponseEntity<>(shipment, HttpStatus.OK);
     }
+
+    @PutMapping("/makeShipment")
+    public ResponseEntity<ShipmentResponseDTO> makeShipment(@RequestBody ShipmentRequestDTO shipmentDTO) {
+        ShipmentResponseDTO shipmentResponseDTO = shipmentService.makeShipment(shipmentDTO);
+        return new ResponseEntity<>(shipmentResponseDTO, HttpStatus.OK);
+    }
 }
