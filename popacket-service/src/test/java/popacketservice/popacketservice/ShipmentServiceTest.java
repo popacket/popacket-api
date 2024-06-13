@@ -42,6 +42,19 @@ public class ShipmentServiceTest {
     @Mock
     private ShipmentMapper shipmentMapper;
 
+    @Mock
+    private LocationRepository locationRepository;
+
+    @Mock
+    private PackageRepository packageRepository;
+
+    @Mock
+    private DeliveryPersonRepository deliveryPersonRepository;
+
+    @Mock
+    private ShipmentMapper shipmentMapper;
+
+
     @InjectMocks
     private ShipmentService shipmentService;
 
@@ -52,7 +65,6 @@ public class ShipmentServiceTest {
     }
 
     @Test
-
     public void testMakeShipment_Success() {
         // Given
         ShipmentRequestDTO shipmentRequestDTO = new ShipmentRequestDTO();
@@ -191,7 +203,7 @@ public class ShipmentServiceTest {
         verify(shipmentRepository, never()).save(any(Shipment.class));
     }
 }
-
+   @Test
    public void getStatusShipmentById_Success() {
 
         Long shipmentId = 1L;
