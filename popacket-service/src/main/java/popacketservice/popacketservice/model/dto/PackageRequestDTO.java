@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PackageRequestDTO {
+
     @NotNull(message = "El ID del remitente no puede estar vacío")
     private Long senderId;
 
