@@ -36,6 +36,7 @@ public class ShipmentServiceTest {
 
     @Mock
     private ShipmentRepository shipmentRepository;
+  
     @Mock
     private LocationRepository locationRepository;
 
@@ -49,7 +50,13 @@ public class ShipmentServiceTest {
     private ShipmentMapper shipmentMapper;
 
     @Mock
-    private ShipmentMapper shipmentMapper;
+    private LocationRepository locationRepository;
+
+    @Mock
+    private PackageRepository packageRepository;
+
+    @Mock
+    private DeliveryPersonRepository deliveryPersonRepository;
 
     @InjectMocks
     private ShipmentService shipmentService;
@@ -199,7 +206,7 @@ public class ShipmentServiceTest {
         verify(shipmentRepository, never()).save(any(Shipment.class));
     }
 }
-
+   @Test
    public void getStatusShipmentById_Success() {
         Long shipmentId = 1L;
         Object[] expectedShipmentStatus = {"En camino", "2024-06-10"};
