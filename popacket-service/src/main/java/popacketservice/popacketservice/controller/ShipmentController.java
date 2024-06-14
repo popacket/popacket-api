@@ -20,7 +20,6 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 
 public class ShipmentController {
-
     @Autowired
     private ShipmentService shipmentService;
 

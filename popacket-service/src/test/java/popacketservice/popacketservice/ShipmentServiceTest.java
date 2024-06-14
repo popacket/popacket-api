@@ -1,11 +1,13 @@
 package popacketservice.popacketservice;
 
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+
 import org.mockito.junit.jupiter.MockitoExtension;
 import popacketservice.popacketservice.exception.ConflictException;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
@@ -16,12 +18,16 @@ import popacketservice.popacketservice.model.entity.Package;
 import popacketservice.popacketservice.repository.*;
 
 import popacketservice.popacketservice.service.ShipmentService;
+import static org.mockito.ArgumentMatchers.any;
+
 
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 import static org.mockito.ArgumentMatchers.any;
+
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
 
@@ -30,6 +36,7 @@ public class ShipmentServiceTest {
 
     @Mock
     private ShipmentRepository shipmentRepository;
+  
     @Mock
     private LocationRepository locationRepository;
 
@@ -50,10 +57,6 @@ public class ShipmentServiceTest {
 
     @Mock
     private DeliveryPersonRepository deliveryPersonRepository;
-
-    @Mock
-    private ShipmentMapper shipmentMapper;
-
 
     @InjectMocks
     private ShipmentService shipmentService;
@@ -205,7 +208,6 @@ public class ShipmentServiceTest {
 }
    @Test
    public void getStatusShipmentById_Success() {
-
         Long shipmentId = 1L;
         Object[] expectedShipmentStatus = {"En camino", "2024-06-10"};
 
