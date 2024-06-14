@@ -3,12 +3,10 @@ package popacketservice.popacketservice.controller;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.service.ShipmentService;
 
@@ -45,16 +43,5 @@ public class ShipmentController {
         //ShipmentResponseDTO shipment = shipmentService.getShipmentById(shipmentId);
         Object[] shipment = shipmentService.getStatusShipmentById(shipmentId);
         return new ResponseEntity<>(shipment, HttpStatus.OK);
-    }
-    @PostMapping("/updateSchedule/")
-    public ResponseEntity<ShipmentResponseDTO> updateScheduleShipment(@RequestBody ShipmentRequestDTO shipmentDTO) {
-        ShipmentResponseDTO shipment = shipmentService.updateScheduleShipment(shipmentDTO);
-        return new ResponseEntity<>(shipment, HttpStatus.OK);
-    }
-
-    @GetMapping("/cost/{weight}/{serviceType}")
-    public ResponseEntity<Double> getQuoteShipment(@PathVariable("weight") Double weight, @PathVariable("serviceType") String serviceType){
-        Double price = shipmentService.getShipmentCost(weight, serviceType);
-        return new ResponseEntity<>(price, HttpStatus.OK);
     }
 }
