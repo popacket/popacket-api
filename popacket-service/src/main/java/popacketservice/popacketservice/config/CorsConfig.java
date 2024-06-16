@@ -12,10 +12,12 @@ import java.io.IOException;
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class CorsConfig implements Filter {
-
+    @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         // TODO Auto-generated method stub
     }
+
+    @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
             throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
@@ -32,7 +34,7 @@ public class CorsConfig implements Filter {
             filterChain.doFilter(request, response);
         }
     }
-
+    @Override
     public void destroy() {
         // TODO Auto-generated method stub
     }
