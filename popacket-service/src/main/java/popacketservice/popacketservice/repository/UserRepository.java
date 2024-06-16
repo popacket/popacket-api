@@ -6,6 +6,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import popacketservice.popacketservice.model.entity.User;
 
+import java.util.Optional;
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     @Query("SELECT COUNT(u) > 0 FROM User u WHERE u.email=:email or u.document=:document")
