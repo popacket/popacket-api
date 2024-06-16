@@ -9,6 +9,8 @@ import popacketservice.popacketservice.model.dto.PackageRequestDTO;
 import popacketservice.popacketservice.model.dto.PackageResponseDTO;
 import popacketservice.popacketservice.service.PackageService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/packages")
 @AllArgsConstructor
@@ -20,5 +22,17 @@ public class PackageController {
     public ResponseEntity<PackageResponseDTO> createPackage(@Validated @RequestBody PackageRequestDTO packageDTO){
         PackageResponseDTO packageResponseDTO = packageService.createPackage(packageDTO);
         return new ResponseEntity<>(packageResponseDTO, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/by-sender/{senderId}")
+    public ResponseEntity<List<PackageResponseDTO>> getPackagesBySender(@PathVariable Long senderId) {
+        List<PackageResponseDTO> packages = packageService.getPackagesBySender(senderId);
+        return new ResponseEntity<>(packages, HttpStatus.OK);
+    }
+
+    @GetMapping("/by-recipient/{recipientId}")
+    public ResponseEntity<List<PackageResponseDTO>> getPackagesByRecipient(@PathVariable Long recipientId) {
+        List<PackageResponseDTO> packages = packageService.getPackagesByRecipient(recipientId);
+        return new ResponseEntity<>(packages, HttpStatus.OK);
     }
 }
