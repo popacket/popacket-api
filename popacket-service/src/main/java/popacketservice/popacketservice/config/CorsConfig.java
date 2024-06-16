@@ -8,8 +8,6 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.util.logging.Filter;
-import java.util.logging.LogRecord;
 
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
@@ -37,10 +35,5 @@ public class CorsConfig implements Filter {
 
     public void destroy() {
         // TODO Auto-generated method stub
-    }
-
-    @Override
-    public boolean isLoggable(LogRecord record) {
-        return false;
     }
 }
