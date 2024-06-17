@@ -13,7 +13,6 @@ import popacketservice.popacketservice.model.entity.User;
 import popacketservice.popacketservice.repository.UserRepository;
 import popacketservice.popacketservice.service.UserService;
 
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
