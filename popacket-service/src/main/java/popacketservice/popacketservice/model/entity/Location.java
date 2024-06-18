@@ -25,7 +25,4 @@ public class Location {
 
     @Column(name = "type", nullable = false, length = 20)
     private String type;
-
-    @OneToMany(mappedBy = "location", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<DeliveryPerson> deliveryPeople;
 }

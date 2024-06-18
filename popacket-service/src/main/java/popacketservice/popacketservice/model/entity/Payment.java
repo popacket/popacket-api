@@ -31,9 +31,6 @@ public class Payment {
     @Column(name = "payment_status", nullable = false, length = 20)
     private String paymentStatus;
 
-    @Column(name = "payment_timing", nullable = false, length = 20)
-    private String paymentTiming;
-
     @Column(name = "payment_date", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime paymentDate;
 }
