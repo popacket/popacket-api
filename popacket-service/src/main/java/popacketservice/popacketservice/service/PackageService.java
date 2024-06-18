@@ -18,7 +18,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class PackageService {
-
+    @Autowired
     private final PackageRepository packageRepository;
     private final PackageMapper packageMapper;
     private final UserRepository userRepository;

@@ -1,4 +1,4 @@
-package popacketservice.popacketservice;
+package popacketservice.popacketservice.service;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +12,6 @@ import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.model.entity.Shipment;
 import popacketservice.popacketservice.repository.ShipmentRateRepository;
 import popacketservice.popacketservice.repository.ShipmentRepository;
-import popacketservice.popacketservice.service.ShipmentService;
 
 import java.math.BigDecimal;
 import java.util.Optional;
