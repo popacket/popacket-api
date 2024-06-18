@@ -16,6 +16,8 @@ import popacketservice.popacketservice.repository.PackageRepository;
 import popacketservice.popacketservice.repository.UserRepository;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -83,6 +85,24 @@ public class PackageServiceTests {
         assertThrows(ResourceNotFoundException.class, () -> packageService.createPackage(requestDTO));
 
         verify(packageRepository, never()).save(any(Package.class));
+    }
+
+    @Test
+    void getPackagesByRecipientTest() {
+        Long recipientId = 3L;
+        Package pkg1 = new Package(); // setup package data if necessary
+        Package pkg2 = new Package();
+        List<Package> packages = Arrays.asList(pkg1, pkg2);
+        List<PackageResponseDTO> expectedDtoList = Arrays.asList(new PackageResponseDTO(), new PackageResponseDTO());
+
+        when(packageRepository.findByRecipientId(recipientId)).thenReturn(packages);
+        when(packageMapper.convertToListDTO(packages)).thenReturn(expectedDtoList);
+
+        List<PackageResponseDTO> result = packageService.getPackagesByRecipient(recipientId);
+
+        assertEquals(expectedDtoList, result);
+        verify(packageRepository).findByRecipientId(recipientId);
+        verify(packageMapper).convertToListDTO(packages);
     }
 
 }
