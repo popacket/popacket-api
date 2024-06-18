@@ -46,9 +46,4 @@ public class ShipmentController {
         Object[] shipment = shipmentService.getStatusShipmentById(shipmentId);
         return new ResponseEntity<>(shipment, HttpStatus.OK);
     }
-    @PostMapping("/updateSchedule/")
-    public ResponseEntity<ShipmentResponseDTO> updateScheduleShipment(@RequestBody ShipmentRequestDTO shipmentDTO) {
-        ShipmentResponseDTO shipment = shipmentService.updateScheduleShipment(shipmentDTO);
-        return new ResponseEntity<>(shipment, HttpStatus.OK);
-    }
 }
