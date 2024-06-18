@@ -26,7 +26,5 @@ public class DeliveryPerson {
     @Column(name = "type", nullable = false)
     private String type;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "location_id")
-    private Location location;
+
 }

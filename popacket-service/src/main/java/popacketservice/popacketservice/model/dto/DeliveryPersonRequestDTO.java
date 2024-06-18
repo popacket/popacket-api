@@ -22,6 +22,4 @@ public class DeliveryPersonRequestDTO {
     @Size(max = 20, message = "El tipo no debe exceder los 20 caracteres")
     private String type;
 
-    @NotNull(message = "La identificación de la ubicación no puede estar vacía")
-    private Long locationId;
 }
