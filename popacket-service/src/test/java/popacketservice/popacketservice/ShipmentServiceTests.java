@@ -10,7 +10,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.model.entity.Shipment;
-import popacketservice.popacketservice.repository.ShipmentRateRepository;
+import popacketservice.popacketservice.repository.ShippingRateRepository;
 import popacketservice.popacketservice.repository.ShipmentRepository;
 import popacketservice.popacketservice.service.ShipmentService;
 
@@ -29,7 +29,7 @@ public class ShipmentServiceTests {
     private ShipmentRepository shipmentRepository;
 
     @Mock
-    private ShipmentRateRepository shipmentRateRepository;
+    private ShippingRateRepository shipmentRateRepository;
 
     @Mock
     private ShipmentMapper shipmentMapper;
