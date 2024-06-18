@@ -3,6 +3,7 @@ package popacketservice.popacketservice.service;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import popacketservice.popacketservice.exception.ResourceNotFoundException;
 import popacketservice.popacketservice.mapper.PackageMapper;
@@ -20,7 +21,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PackageService {
-
+    @Autowired
     private PackageRepository packageRepository;
     private PackageMapper packageMapper;
     private UserRepository userRepository;
