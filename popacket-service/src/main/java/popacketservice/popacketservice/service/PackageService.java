@@ -1,6 +1,9 @@
 package popacketservice.popacketservice.service;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import popacketservice.popacketservice.exception.ResourceNotFoundException;
@@ -19,6 +22,7 @@ import java.util.List;
 @AllArgsConstructor
 public class PackageService {
 
+    @Autowired
     private final PackageRepository packageRepository;
     private final PackageMapper packageMapper;
     private final UserRepository userRepository;
