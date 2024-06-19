@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import popacketservice.popacketservice.model.dto.LoginRequestDTO;
 import popacketservice.popacketservice.model.dto.UserRequestDTO;
 import popacketservice.popacketservice.model.dto.UserResponseDTO;
 import popacketservice.popacketservice.service.UserService;
@@ -29,7 +30,7 @@ public class UserController {
        return new ResponseEntity<>(updateUser, HttpStatus.OK);
     }
     @PostMapping("/login")
-    public ResponseEntity<UserResponseDTO> login(@Validated @RequestBody UserRequestDTO userDTO){
+    public ResponseEntity<UserResponseDTO> login(@Validated @RequestBody LoginRequestDTO userDTO){
         UserResponseDTO user = userService.Login(userDTO);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }

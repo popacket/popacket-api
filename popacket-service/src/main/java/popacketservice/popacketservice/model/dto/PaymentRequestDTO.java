@@ -27,9 +27,5 @@ public class PaymentRequestDTO {
     @Size(max = 20, message = "El estado del pago no debe exceder los 20 caracteres")
     private String paymentStatus;
 
-    @NotBlank(message = "El momento del pago no puede estar vacío")
-    @Size(max = 20, message = "El momento del pago no debe exceder los 20 caracteres")
-    private String paymentTiming;
-
     private LocalDateTime paymentDate; // Optional, auto-set by the database if null
 }

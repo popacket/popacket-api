@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import popacketservice.popacketservice.exception.ConflictException;
 import popacketservice.popacketservice.mapper.UserMapper;
+import popacketservice.popacketservice.model.dto.LoginRequestDTO;
 import popacketservice.popacketservice.model.dto.UserRequestDTO;
 import popacketservice.popacketservice.model.dto.UserResponseDTO;
 import popacketservice.popacketservice.model.entity.User;
@@ -81,12 +82,12 @@ public class UserService {
         return userMapper.convertToDTO(user1);
     }
 
-    public UserResponseDTO Login(@NotNull UserRequestDTO user) {
-        boolean exists = userRepository.existsByEmail(user.getEmail());
+    public UserResponseDTO Login(@NotNull LoginRequestDTO user) {
+        boolean exists = userRepository.existsByEmail(user.getUsername());
+        User userEntity = userRepository.findByEmail(user.getUsername());
         if (exists) {
-            return userMapper.convertToDTO(userRepository.findByDocument(user.getDocument()));
+            return userMapper.convertToDTO(userRepository.findByDocument(userEntity.getDocument()));
         }
         throw new ConflictException("El usuario no existe");
     }
-
 }
