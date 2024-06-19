@@ -28,4 +28,9 @@ public class UserController {
        UserResponseDTO updateUser = userService.updateProfileUser(userDTO,type);
        return new ResponseEntity<>(updateUser, HttpStatus.OK);
     }
+    @PostMapping("/login")
+    public ResponseEntity<UserResponseDTO> login(@Validated @RequestBody UserRequestDTO userDTO){
+        UserResponseDTO user = userService.Login(userDTO);
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
 }

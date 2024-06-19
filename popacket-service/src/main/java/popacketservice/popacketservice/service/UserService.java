@@ -81,4 +81,12 @@ public class UserService {
         return userMapper.convertToDTO(user1);
     }
 
+    public UserResponseDTO Login(@NotNull UserRequestDTO user) {
+        boolean exists = userRepository.existsByEmail(user.getEmail());
+        if (exists) {
+            return userMapper.convertToDTO(userRepository.findByDocument(user.getDocument()));
+        }
+        throw new ConflictException("El usuario no existe");
+    }
+
 }
