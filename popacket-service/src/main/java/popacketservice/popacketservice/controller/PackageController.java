@@ -1,28 +1,40 @@
 package popacketservice.popacketservice.controller;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+import popacketservice.popacketservice.model.dto.PackageRequestDTO;
 import popacketservice.popacketservice.model.dto.PackageResponseDTO;
 import popacketservice.popacketservice.service.PackageService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping ("/user/packages")
-@Data
+@RequestMapping("/packages")
 @AllArgsConstructor
-@NoArgsConstructor
-
 public class PackageController {
 
-    public PackageService packageService;
+    private PackageService packageService;
+
+    @PostMapping
+    public ResponseEntity<PackageResponseDTO> createPackage(@Validated @RequestBody PackageRequestDTO packageDTO){
+        PackageResponseDTO packageResponseDTO = packageService.createPackage(packageDTO);
+        return new ResponseEntity<>(packageResponseDTO, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/by-sender/{senderId}")
+    public ResponseEntity<List<PackageResponseDTO>> getPackagesBySender(@PathVariable Long senderId) {
+        List<PackageResponseDTO> packages = packageService.getPackagesBySender(senderId);
+        return new ResponseEntity<>(packages, HttpStatus.OK);
+    }
+
+    @GetMapping("/by-recipient/{recipientId}")
+    public ResponseEntity<List<PackageResponseDTO>> getPackagesByRecipient(@PathVariable Long recipientId) {
+        List<PackageResponseDTO> packages = packageService.getPackagesByRecipient(recipientId);
+        return new ResponseEntity<>(packages, HttpStatus.OK);
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<List<PackageResponseDTO>> getAllPackageById(@PathVariable Long id) {

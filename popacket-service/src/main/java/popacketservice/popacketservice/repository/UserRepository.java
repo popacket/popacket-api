@@ -10,6 +10,10 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
+
+    @Query("SELECT u FROM User u WHERE u.document=:document")
+    User findByDocument(@Param("document") String document);
+
     boolean existsByEmailOrDocument(String email, String document);
 
     @Query("SELECT u FROM User u WHERE u.email=:email")

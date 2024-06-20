@@ -1,6 +1,7 @@
 package popacketservice.popacketservice.controller;
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -14,12 +15,18 @@ import popacketservice.popacketservice.service.UserService;
 @AllArgsConstructor
 public class UserController {
 
-    private final UserService userService;
+    @Autowired
+    private UserService userService;
 
     @PostMapping
     public ResponseEntity<UserResponseDTO> createUser(@Validated @RequestBody UserRequestDTO userDTO){
         UserResponseDTO createdUser = userService.createUser(userDTO);
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
+    }
+    @PostMapping("/configure_user/{type}")
+    public ResponseEntity<UserResponseDTO> updateUser(@Validated @RequestBody UserRequestDTO userDTO,@PathVariable("type") String type){
+       UserResponseDTO updateUser = userService.updateProfileUser(userDTO,type);
+       return new ResponseEntity<>(updateUser, HttpStatus.OK);
     }
     @PostMapping("/updatePassword")
     public ResponseEntity<UserResponseDTO> updatePasswordUser(@Validated @RequestBody UserRequestDTO userDTO, String password){
