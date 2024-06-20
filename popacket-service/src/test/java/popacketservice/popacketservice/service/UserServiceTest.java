@@ -7,6 +7,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import popacketservice.popacketservice.exception.ConflictException;
 import popacketservice.popacketservice.mapper.UserMapper;
+import popacketservice.popacketservice.model.dto.LoginRequestDTO;
 import popacketservice.popacketservice.model.dto.UserRequestDTO;
 import popacketservice.popacketservice.model.dto.UserResponseDTO;
 import popacketservice.popacketservice.model.entity.User;
@@ -162,4 +163,5 @@ class UserServiceTest {
         verify(userRepository).save(user);
         assertEquals("newemail@example.com", user.getEmail());
     }
+
 }

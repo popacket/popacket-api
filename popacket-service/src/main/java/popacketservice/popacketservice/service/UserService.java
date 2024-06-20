@@ -82,12 +82,16 @@ public class UserService {
         return userMapper.convertToDTO(user1);
     }
 
-    public UserResponseDTO Login(@NotNull LoginRequestDTO user) {
-        boolean exists = userRepository.existsByEmail(user.getUsername());
-        User userEntity = userRepository.findByEmail(user.getUsername());
-        if (exists) {
-            return userMapper.convertToDTO(userRepository.findByDocument(userEntity.getDocument()));
+    public UserResponseDTO login(@NotNull LoginRequestDTO loginRequest) {
+
+        User userEntity = userRepository.findByEmail(loginRequest.getUsername());
+        if (userEntity == null) {
+            throw new ConflictException("El usuario no existe");
         }
-        throw new ConflictException("El usuario no existe");
+
+        if (!userEntity.getPass().equals(loginRequest.getPassword())) {
+            throw new ConflictException("La contraseña es incorrecta");
+        }
+        return userMapper.convertToDTO(userEntity);
     }
 }
