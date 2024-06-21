@@ -164,4 +164,61 @@ class UserServiceTest {
         assertEquals("newemail@example.com", user.getEmail());
     }
 
+    // Verifica que el inicio de sesión sea exitoso cuando se proporcionan datos correctos
+    @Test
+    void testLoginSuccess() {
+        String email = "test@example.com";
+        String password = "password";
+        LoginRequestDTO loginRequest = new LoginRequestDTO(email, password);
+        User userEntity = new User();
+        userEntity.setEmail(email);
+        userEntity.setPass(password);
+        UserResponseDTO userResponse = new UserResponseDTO();
+        userResponse.setEmail(email);
+
+        when(userRepository.findByEmail(email)).thenReturn(userEntity);
+        when(userMapper.convertToDTO(userEntity)).thenReturn(userResponse);
+        UserResponseDTO result = userService.login(loginRequest);
+
+        assertNotNull(result);
+        assertEquals(email, result.getEmail());
+        verify(userRepository).findByEmail(email);
+        verify(userMapper).convertToDTO(userEntity);
+    }
+
+    // Verifica el inicio de sesión cuando el usuario no existe
+    @Test
+    void testLoginUserNotFound() {
+
+        String email = "unknown@example.com";
+        String password = "password";
+        LoginRequestDTO loginRequest = new LoginRequestDTO(email, password);
+
+        when(userRepository.findByEmail(email)).thenReturn(null);
+
+        ConflictException exception = assertThrows(ConflictException.class, () -> userService.login(loginRequest));
+
+        assertEquals("El usuario no existe", exception.getMessage());
+        verify(userRepository).findByEmail(email);
+    }
+
+    // Verifica que el inicio de sesión cuando la contraseña es incorrecta
+    @Test
+    void testLoginIncorrectPassword() {
+
+        String email = "test@example.com";
+        String correctPassword = "correctPassword";
+        String incorrectPassword = "wrongPassword";
+        LoginRequestDTO loginRequest = new LoginRequestDTO(email, incorrectPassword);
+        User userEntity = new User();
+        userEntity.setEmail(email);
+        userEntity.setPass(correctPassword);
+
+        when(userRepository.findByEmail(email)).thenReturn(userEntity);
+
+        ConflictException exception = assertThrows(ConflictException.class, () -> userService.login(loginRequest));
+
+        assertEquals("La contraseña es incorrecta", exception.getMessage());
+        verify(userRepository).findByEmail(email);
+    }
 }
