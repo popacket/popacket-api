@@ -29,13 +29,13 @@ public class ShipmentService {
     private ShippingRateRepository shipmentRateRepository;
     @Autowired
     private ShipmentMapper shipmentMapper;
-
+    @Autowired
     private PackageRepository packageRepository;
-
+    @Autowired
     private UserRepository userRepository;
-
+    @Autowired
     private LocationRepository locationRepository;
-
+    @Autowired
     private DeliveryPersonRepository deliveryPersonRepository;
 
     public ShipmentResponseDTO cancelShipmentById(Long id) {

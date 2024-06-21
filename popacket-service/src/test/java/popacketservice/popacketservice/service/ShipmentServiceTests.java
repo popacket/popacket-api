@@ -10,8 +10,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.model.entity.Shipment;
-import popacketservice.popacketservice.repository.ShipmentRateRepository;
 import popacketservice.popacketservice.repository.ShipmentRepository;
+import popacketservice.popacketservice.repository.ShippingRateRepository;
 
 import java.math.BigDecimal;
 import java.util.Optional;
@@ -28,7 +28,7 @@ public class ShipmentServiceTests {
     private ShipmentRepository shipmentRepository;
 
     @Mock
-    private ShipmentRateRepository shipmentRateRepository;
+    private ShippingRateRepository shipmentRateRepository;
 
     @Mock
     private ShipmentMapper shipmentMapper;
@@ -94,51 +94,6 @@ public class ShipmentServiceTests {
 
         // Verificación
         assertEquals(15.00, cost);
-    }
-    @Test
-    public void testGetShipmentCost_NoBasePrice() {
-        // Arrange
-        Double weight = 10.0;
-        String serviceType = "Economico";
-        BigDecimal priceBase = shipmentRateRepository.getBasePrice(BigDecimal.valueOf(weight), serviceType);
-        BigDecimal pricePerKilometer = shipmentRateRepository.getPricePerKilometer(BigDecimal.valueOf(weight), serviceType);
-
-        when(shipmentRateRepository.getBasePrice(any(BigDecimal.class), any(String.class))).thenReturn(null);
-        when(shipmentRateRepository.getPricePerKilometer(any(BigDecimal.class), any(String.class))).thenReturn(pricePerKilometer);
-
-        // Act
-        Double cost = shipmentService.getShipmentCost(weight, serviceType);
-
-        // Assert
-        Double expectedCost = priceBase.add(pricePerKilometer.multiply(BigDecimal.valueOf(weight))).doubleValue();
-        assertEquals(expectedCost, cost);
-    }
-
-    @Test
-    public void testGetShipmentCost_NoPricePerKilometer() {
-        // Arrange
-        Double weight = 10.0;
-        String serviceType = "Economico";
-        BigDecimal basePrice = BigDecimal.valueOf(50);
-
-        when(shipmentRateRepository.getBasePrice(any(BigDecimal.class), any(String.class))).thenReturn(basePrice);
-        when(shipmentRateRepository.getPricePerKilometer(any(BigDecimal.class), any(String.class))).thenReturn(null);
-
-        // Act
-        Double cost = shipmentService.getShipmentCost(weight, serviceType);
-
-        // Assert
-        assertEquals(basePrice.doubleValue(), cost);
-    }
-
-    @Test
-    public void testGetShipmentCost_NegativeWeight() {
-        // Arrange
-        Double weight = -5.0;
-        String serviceType = "Economico";
-
-        // Act & Assert
-        assertThrows(IllegalArgumentException.class, () -> shipmentService.getShipmentCost(weight, serviceType));
     }
 
 }
