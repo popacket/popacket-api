@@ -30,4 +30,13 @@ public class DeliveryPersonService {
             throw new ConflictException("El Delivery Person Ya existe en el sistema");
         }
     }
+
+    public String deleteDeliveryPersonById(Long deliveryPersonId) {
+        if(deliveryPersonRepository.findByIdDeliveryPerson(deliveryPersonId)){
+            deliveryPersonRepository.deleteById(deliveryPersonId);
+            return "DeliveryPerson Elimina Satgisfactoriqa mente";
+        } else {
+            return "No existe el deliveryPerson";
+        }
+    }
 }
