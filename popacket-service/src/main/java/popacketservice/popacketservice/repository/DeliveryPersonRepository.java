@@ -11,4 +11,7 @@ public interface DeliveryPersonRepository extends JpaRepository<DeliveryPerson, 
 
     @Query("SELECT COUNT(d) > 0 FROM DeliveryPerson d WHERE d.id=:id")
     boolean findByIdDeliveryPerson(@Param("id") Long id);
+
+    @Query("SELECT COUNT(d) > 0 FROM DeliveryPerson d WHERE d.name=:name and d.phone=:phone")
+    boolean existsByNameAndPhone(@Param("name") String name,@Param("phone") String phone);
 }

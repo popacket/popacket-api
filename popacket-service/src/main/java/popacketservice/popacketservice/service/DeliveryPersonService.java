@@ -22,7 +22,7 @@ public class DeliveryPersonService {
     public DeliveryPersonResponseDTO RegisterDeliveryPerson(DeliveryPersonRequestDTO deliveryPersonRequestDTO) {
         DeliveryPerson deliveryPerson = deliveryPersonMapper.convertToEntity(deliveryPersonRequestDTO);
 
-        boolean FindDeliveryPerson = deliveryPersonRepository.findByIdDeliveryPerson(deliveryPerson.getId());
+        boolean FindDeliveryPerson = deliveryPersonRepository.existsByNameAndPhone(deliveryPerson.getName(), deliveryPerson.getPhone());
         if (!FindDeliveryPerson) {
             DeliveryPerson savedDeliveryPerson = deliveryPersonRepository.save(deliveryPerson);
             return deliveryPersonMapper.convertToDTO(savedDeliveryPerson);
