@@ -78,21 +78,68 @@ public class ShipmentServiceTests {
     }
 
     @Test
-    public void testGetShipmentCost() {
-        // Datos de prueba
+    void testGetShipmentCost_Satisfactory() {
+        // Variables locales
+        Double weight = 10.0;
+        String serviceType = "standard";
+        BigDecimal priceBase = BigDecimal.valueOf(20.0);
+        BigDecimal pricePerKilometer = BigDecimal.valueOf(5.0);
+
+        // Configurar los mocks
+        when(shipmentRateRepository.getBasePrice(BigDecimal.valueOf(weight), serviceType)).thenReturn(priceBase);
+        when(shipmentRateRepository.getPricePerKilometer(BigDecimal.valueOf(weight), serviceType)).thenReturn(pricePerKilometer);
+
+        // Ejecutar el método
+        Double cost = shipmentService.getShipmentCost(weight, serviceType);
+
+        // Verificar el resultado
+        assertEquals(70.0, cost);
+    }
+
+    @Test
+    public void testGetShipmentCost_NoBasePrice() {
+        // Arrange
+        Double weight = 10.0;
+        String serviceType = "Economico";
+        BigDecimal priceBase = shipmentRateRepository.getBasePrice(BigDecimal.valueOf(weight), serviceType);
+        BigDecimal pricePerKilometer = shipmentRateRepository.getPricePerKilometer(BigDecimal.valueOf(weight), serviceType);
+
+        when(shipmentRateRepository.getBasePrice(any(BigDecimal.class), any(String.class))).thenReturn(null);
+        when(shipmentRateRepository.getPricePerKilometer(any(BigDecimal.class), any(String.class))).thenReturn(pricePerKilometer);
+
+        // Act
+        Double cost = shipmentService.getShipmentCost(weight, serviceType);
+
+        // Assert
+        Double expectedCost = priceBase.add(pricePerKilometer.multiply(BigDecimal.valueOf(weight))).doubleValue();
+        assertEquals(expectedCost, cost);
+    }
+
+    @Test
+    public void testGetShipmentCost_NoPricePerKilometer() {
+        // Arrange
         Double weight = 10.0;
         String serviceType = "Economico";
         BigDecimal basePrice = BigDecimal.valueOf(50);
-        BigDecimal pricePerKilometer = BigDecimal.valueOf(5);
 
-        // Simulación del comportamiento
-        when(shipmentRateRepository.getBasePrice(BigDecimal.valueOf(weight), serviceType)).thenReturn(basePrice);
-        when(shipmentRateRepository.getPricePerKilometer(BigDecimal.valueOf(weight), serviceType)).thenReturn(pricePerKilometer);
+        when(shipmentRateRepository.getBasePrice(any(BigDecimal.class), any(String.class))).thenReturn(basePrice);
+        when(shipmentRateRepository.getPricePerKilometer(any(BigDecimal.class), any(String.class))).thenReturn(null);
 
-        // Llamada al método a probar
+        // Act
         Double cost = shipmentService.getShipmentCost(weight, serviceType);
 
-        // Verificación
-        assertEquals(55.0, cost);
+        // Assert
+        assertEquals(basePrice.doubleValue(), cost);
     }
+
+    @Test
+    public void testGetShipmentCost_NegativeWeight() {
+        // Arrange
+        Double weight = -5.0;
+        String serviceType = "Economico";
+
+        // Act & Assert
+        assertThrows(IllegalArgumentException.class, () -> shipmentService.getShipmentCost(weight, serviceType));
+    }
+
 }

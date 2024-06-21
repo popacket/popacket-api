@@ -53,7 +53,6 @@ public class ShipmentService {
         Double price = pricePerKilometer.multiply(BigDecimal.valueOf(weight)).add(priceBase).doubleValue();
         return price;
     }
-
     public ShipmentResponseDTO getShipmentById(Long id) {
         Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow();
         //Object[] shipmentStatus = shipmentRepository.getStatusShipmentById(id).orElseThrow();
