@@ -38,7 +38,7 @@ public class ShipmentService {
     public Double getShipmentCost(Double weight, String serviceType) {
         BigDecimal priceBase = shipmentRateRepository.getBasePrice(BigDecimal.valueOf(weight), serviceType);
         BigDecimal pricePerKilometer = shipmentRateRepository.getPricePerKilometer(BigDecimal.valueOf(weight), serviceType);
-        Double price = priceBase.multiply(BigDecimal.valueOf(weight)).add(pricePerKilometer).doubleValue();
+        Double price = pricePerKilometer.multiply(BigDecimal.valueOf(weight)).add(priceBase).doubleValue();
         return price;
     }
     public ShipmentResponseDTO getShipmentById(Long id) {

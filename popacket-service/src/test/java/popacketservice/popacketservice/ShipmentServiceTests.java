@@ -83,8 +83,8 @@ public class ShipmentServiceTests {
         // Datos de prueba
         Double weight = 10.0;
         String serviceType = "Economico";
-        BigDecimal basePrice = BigDecimal.valueOf(0.5);
-        BigDecimal pricePerKilometer = BigDecimal.valueOf(5);
+        BigDecimal basePrice = BigDecimal.valueOf(10);
+        BigDecimal pricePerKilometer = BigDecimal.valueOf(0.5);
 
         // Simulación del comportamiento
         when(shipmentRateRepository.getBasePrice(BigDecimal.valueOf(weight), serviceType)).thenReturn(basePrice);
@@ -94,6 +94,6 @@ public class ShipmentServiceTests {
         Double cost = shipmentService.getShipmentCost(weight, serviceType);
 
         // Verificación
-        assertEquals(10.00, cost);
+        assertEquals(15.00, cost);
     }
 }
