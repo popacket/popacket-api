@@ -19,17 +19,17 @@ import popacketservice.popacketservice.repository.*;
 @NoArgsConstructor
 
 public class ShipmentService {
-
+    @Autowired
     private ShipmentRepository shipmentRepository;
-
+    @Autowired
     private ShipmentMapper shipmentMapper;
-
+    @Autowired
     private PackageRepository packageRepository;
-
+    @Autowired
     private UserRepository userRepository;
-
+     @Autowired
     private LocationRepository locationRepository;
-
+    @Autowired
     private DeliveryPersonRepository deliveryPersonRepository;
 
     public ShipmentResponseDTO cancelShipmentById(Long id) {
@@ -60,6 +60,7 @@ public class ShipmentService {
     }
 
     public ShipmentResponseDTO makeShipment(ShipmentRequestDTO shipmentRequestDTO){
+
         boolean resp = shipmentRepository.ifExistsByPackageID(shipmentRequestDTO.getPackageId());
         if(resp){
             throw new ConflictException("El envio ya se encuentra registrado");
