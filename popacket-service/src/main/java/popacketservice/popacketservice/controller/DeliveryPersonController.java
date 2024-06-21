@@ -26,7 +26,5 @@ public class DeliveryPersonController {
     public ResponseEntity<DeliveryPersonResponseDTO> createDeliveryPerson(@Validated @RequestBody DeliveryPersonRequestDTO deliveryPersonRequestDTO) {
         DeliveryPersonResponseDTO createdDeliveryPerson = deliveryPersonService.RegisterDeliveryPerson(deliveryPersonRequestDTO);
         return new ResponseEntity<>(createdDeliveryPerson, HttpStatus.CREATED);
-
-
     }
 }

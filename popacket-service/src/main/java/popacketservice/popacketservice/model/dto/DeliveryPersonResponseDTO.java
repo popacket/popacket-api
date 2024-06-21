@@ -12,5 +12,5 @@ public class DeliveryPersonResponseDTO {
     private String name;
     private String phone;
     private String type;
-    private Long locationId;
+
 }
