@@ -78,24 +78,23 @@ public class ShipmentServiceTests {
     }
 
     @Test
-    void testGetShipmentCost_Satisfactory() {
-        // Variables locales
+    public void testGetShipmentCost() {
+        // Datos de prueba
         Double weight = 10.0;
-        String serviceType = "standard";
-        BigDecimal priceBase = BigDecimal.valueOf(20.0);
-        BigDecimal pricePerKilometer = BigDecimal.valueOf(5.0);
+        String serviceType = "Economico";
+        BigDecimal basePrice = BigDecimal.valueOf(10);
+        BigDecimal pricePerKilometer = BigDecimal.valueOf(0.5);
 
-        // Configurar los mocks
-        when(shipmentRateRepository.getBasePrice(BigDecimal.valueOf(weight), serviceType)).thenReturn(priceBase);
+        // Simulación del comportamiento
+        when(shipmentRateRepository.getBasePrice(BigDecimal.valueOf(weight), serviceType)).thenReturn(basePrice);
         when(shipmentRateRepository.getPricePerKilometer(BigDecimal.valueOf(weight), serviceType)).thenReturn(pricePerKilometer);
 
-        // Ejecutar el método
+        // Llamada al método a probar
         Double cost = shipmentService.getShipmentCost(weight, serviceType);
 
-        // Verificar el resultado
-        assertEquals(70.0, cost);
+        // Verificación
+        assertEquals(15.00, cost);
     }
-
     @Test
     public void testGetShipmentCost_NoBasePrice() {
         // Arrange
