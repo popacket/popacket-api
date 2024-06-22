@@ -11,6 +11,8 @@ import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.service.ShipmentService;
 
+import java.math.BigDecimal;
+
 @RestController
 @RequestMapping("/shipments")
 @Data
@@ -22,7 +24,7 @@ public class ShipmentController {
     @Autowired
     private ShipmentService shipmentService;
 
-    @PostMapping("cancel/{id}")
+    @PostMapping("/cancel/{id}")
     public ResponseEntity<ShipmentResponseDTO> cancelShipment(@PathVariable("id") Long shipmentId) {
         ShipmentResponseDTO shipment = shipmentService.cancelShipmentById(shipmentId);
         return new ResponseEntity<>(shipment, HttpStatus.OK);
