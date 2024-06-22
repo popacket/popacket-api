@@ -36,7 +36,6 @@ public class UserController {
             UserResponseDTO user = userService.login(loginRequest);
             return ResponseEntity.ok(user);
         } catch (ConflictException ex) {
-            // Manejo de la excepción cuando las credenciales son incorrectas
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
     }
