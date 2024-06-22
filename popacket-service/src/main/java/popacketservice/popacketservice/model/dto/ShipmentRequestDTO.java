@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ShipmentRequestDTO {
+
     @NotNull(message = "El ID del paquete no puede estar vacío")
     private Long packageId;
 
