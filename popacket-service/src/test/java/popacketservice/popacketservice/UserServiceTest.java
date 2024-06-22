@@ -83,7 +83,7 @@ class UserServiceTest {
         when(userRepository.findByDocument(userRequestDTO.getDocument())).thenReturn(user);
         when(userMapper.convertToDTO(any(User.class))).thenReturn(new UserResponseDTO());
 
-        UserResponseDTO result = userService.updateProfileUser(userRequestDTO, "name");
+        UserResponseDTO result = userService.updateProfileUser(userRequestDTO);
 
         assertNotNull(result);
         verify(userRepository).save(user);
@@ -99,69 +99,9 @@ class UserServiceTest {
         when(userRepository.existsByEmailOrDocument(userRequestDTO.getEmail(), userRequestDTO.getDocument())).thenReturn(false);
 
         assertThrows(ConflictException.class, () -> {
-            userService.updateProfileUser(userRequestDTO, "name");
+            userService.updateProfileUser(userRequestDTO);
         });
 
         verify(userRepository, never()).save(any(User.class));
-    }
-
-    // Additional tests for other update scenarios
-
-    @Test
-    void testUpdateUserLastName() {
-        UserRequestDTO userRequestDTO = new UserRequestDTO();
-        userRequestDTO.setDocument("12345");
-        userRequestDTO.setLastName("NewLastName");
-
-        User user = new User();
-        user.setDocument("12345");
-
-        when(userRepository.existsByEmailOrDocument(userRequestDTO.getEmail(), userRequestDTO.getDocument())).thenReturn(true);
-        when(userRepository.findByDocument(userRequestDTO.getDocument())).thenReturn(user);
-        when(userMapper.convertToDTO(any(User.class))).thenReturn(new UserResponseDTO());
-
-        UserResponseDTO result = userService.updateProfileUser(userRequestDTO,"lastName");
-
-        assertNotNull(result);
-        verify(userRepository).save(user);
-        assertEquals("NewLastName", user.getLastName());
-    }
-
-    @Test
-    void testUpdateUserPhone() {
-        UserRequestDTO userRequestDTO = new UserRequestDTO();
-        userRequestDTO.setDocument("12345");
-        userRequestDTO.setPhone("555-5555");
-
-        User user = new User();
-        user.setDocument("12345");
-        when(userRepository.existsByEmailOrDocument(userRequestDTO.getEmail(), userRequestDTO.getDocument())).thenReturn(true);
-        when(userRepository.findByDocument(userRequestDTO.getDocument())).thenReturn(user);
-        when(userMapper.convertToDTO(any(User.class))).thenReturn(new UserResponseDTO());
-
-        UserResponseDTO result = userService.updateProfileUser(userRequestDTO, "phone");
-
-        assertNotNull(result);
-        verify(userRepository).save(user);
-        assertEquals("555-5555", user.getPhone());
-    }
-
-    @Test
-    void testUpdateUserEmail() {
-        UserRequestDTO userRequestDTO = new UserRequestDTO();
-        userRequestDTO.setDocument("12345");
-        userRequestDTO.setEmail("newemail@example.com");
-
-        User user = new User();
-        user.setDocument("12345");
-        when(userRepository.existsByEmailOrDocument(userRequestDTO.getEmail(), userRequestDTO.getDocument())).thenReturn(true);
-        when(userRepository.findByDocument(userRequestDTO.getDocument())).thenReturn(user);
-        when(userMapper.convertToDTO(any(User.class))).thenReturn(new UserResponseDTO());
-
-        UserResponseDTO result = userService.updateProfileUser(userRequestDTO,"email");
-
-        assertNotNull(result);
-        verify(userRepository).save(user);
-        assertEquals("newemail@example.com", user.getEmail());
     }
 }
