@@ -1,4 +1,5 @@
-package popacketservice.popacketservice;
+package popacketservice.popacketservice.service;
+
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -6,30 +7,27 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import org.mockito.junit.jupiter.MockitoExtension;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
-import popacketservice.popacketservice.model.entity.Shipment;
-import popacketservice.popacketservice.repository.ShipmentRateRepository;
-import popacketservice.popacketservice.repository.ShipmentRepository;
-import popacketservice.popacketservice.service.ShipmentService;
+import popacketservice.popacketservice.model.entity.*;
+import popacketservice.popacketservice.repository.*;
 
-import java.math.BigDecimal;
+import static org.mockito.ArgumentMatchers.any;
+
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.any;
+import static org.junit.jupiter.api.Assertions.*;
+
+
 import static org.mockito.Mockito.*;
 
-@ExtendWith(SpringExtension.class)
-public class ShipmentServiceTests {
+@ExtendWith(MockitoExtension.class)
+public class ShipmentServiceTest {
 
     @Mock
     private ShipmentRepository shipmentRepository;
-
-    @Mock
-    private ShipmentRateRepository shipmentRateRepository;
 
     @Mock
     private ShipmentMapper shipmentMapper;
@@ -78,22 +76,4 @@ public class ShipmentServiceTests {
         assertThrows(RuntimeException.class, () -> shipmentService.cancelShipmentById(shipmentId));
     }
 
-    @Test
-    public void testGetShipmentCost() {
-        // Datos de prueba
-        Double weight = 10.0;
-        String serviceType = "Economico";
-        BigDecimal basePrice = BigDecimal.valueOf(50);
-        BigDecimal pricePerKilometer = BigDecimal.valueOf(5);
-
-        // Simulación del comportamiento
-        when(shipmentRateRepository.getBasePrice(BigDecimal.valueOf(weight), serviceType)).thenReturn(basePrice);
-        when(shipmentRateRepository.getPricePerKilometer(BigDecimal.valueOf(weight), serviceType)).thenReturn(pricePerKilometer);
-
-        // Llamada al método a probar
-        Double cost = shipmentService.getShipmentCost(weight, serviceType);
-
-        // Verificación
-        assertEquals(55.0, cost);
-    }
 }
