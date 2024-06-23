@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import popacketservice.popacketservice.model.dto.UserPreferencesResponseDTO;
+import popacketservice.popacketservice.model.dto.UserPreferencesDTO;
 import popacketservice.popacketservice.model.dto.UserRequestDTO;
 import popacketservice.popacketservice.model.dto.UserResponseDTO;
 import popacketservice.popacketservice.service.UserService;
@@ -30,17 +30,10 @@ public class UserController {
        return new ResponseEntity<>(updateUser, HttpStatus.OK);
     }
 
-    @PostMapping("/updatePreferences/{userId}")
-    public ResponseEntity<UserResponseDTO> updatePreferences(
-            @PathVariable Long userId,
-            @RequestBody UserPreferencesResponseDTO preferencesResponseDTO) {
-
-        UserResponseDTO updatedUser = userService.updatePreferences(
-                userId,
-                preferencesResponseDTO.getDefaultShippingAddress(),
-                preferencesResponseDTO.getPreferredPaymentMethod(),
-                preferencesResponseDTO.getPreferredShippingType());
-
-        return new ResponseEntity<>(updatedUser, HttpStatus.OK);
+    @PutMapping("/preferences/{userId}")
+    public ResponseEntity<String> updatePreferences(@PathVariable Long userId, @RequestBody UserPreferencesDTO preferencesDto) {
+        userService.updatePreferences(userId, preferencesDto);
+        return ResponseEntity.ok("Preferencias actualizadas correctamente.");
     }
+
 }

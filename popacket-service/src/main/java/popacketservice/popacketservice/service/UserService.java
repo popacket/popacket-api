@@ -7,12 +7,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import popacketservice.popacketservice.exception.ConflictException;
 import popacketservice.popacketservice.mapper.UserMapper;
+import popacketservice.popacketservice.model.dto.UserPreferencesDTO;
 import popacketservice.popacketservice.model.dto.UserRequestDTO;
 import popacketservice.popacketservice.model.dto.UserResponseDTO;
 import popacketservice.popacketservice.model.entity.User;
 import popacketservice.popacketservice.repository.UserRepository;
 
 import java.time.LocalDate;
+import java.util.NoSuchElementException;
 
 @Service
 @AllArgsConstructor
@@ -81,13 +83,13 @@ public class UserService {
         return userMapper.convertToDTO(user1);
     }
 
-    public UserResponseDTO updatePreferences(@NotNull Long userId, String defaultShippingAddress, String preferredPaymentMethod, String preferredShippingType) {
-        User user = userRepository.findById(userId).orElseThrow(() -> new ConflictException("El usuario no existe"));
-        user.setDefaultShippingAddress(defaultShippingAddress);
-        user.setPreferredPaymentMethod(preferredPaymentMethod);
-        user.setPreferredShippingType(preferredShippingType);
-        userRepository.save(user);
-        return userMapper.convertToDTO(user);
+    public User updatePreferences(Long userId, UserPreferencesDTO preferences) {
+        User user = userRepository.findById(userId).orElseThrow(() ->
+                new NoSuchElementException("Usuario no encontrado con ID: " + userId));
+        user.setDefaultShippingAddress(preferences.getDefaultShippingAddress());
+        user.setPreferredPaymentMethod(preferences.getPreferredPaymentMethod());
+        user.setPreferredShippingType(preferences.getPreferredShippingType());
+        return userRepository.save(user);
     }
 
 }
