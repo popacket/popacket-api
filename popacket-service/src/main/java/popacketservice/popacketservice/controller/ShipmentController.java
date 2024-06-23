@@ -11,6 +11,8 @@ import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.service.ShipmentService;
 
+import java.math.BigDecimal;
+
 @RestController
 @RequestMapping("/shipments")
 @Data
@@ -18,19 +20,9 @@ import popacketservice.popacketservice.service.ShipmentService;
 @NoArgsConstructor
 
 public class ShipmentController {
+
     @Autowired
     private ShipmentService shipmentService;
-
-    @PostMapping("/cancel/{id}")
-    public ResponseEntity<ShipmentResponseDTO> cancelShipment(@PathVariable("id") Long shipmentId) {
-        ShipmentResponseDTO shipment = shipmentService.cancelShipmentById(shipmentId);
-        return new ResponseEntity<>(shipment, HttpStatus.OK);
-    }
-    @GetMapping("/tracking/{id}")
-    public ResponseEntity<ShipmentResponseDTO> getTrackingInfoById(@PathVariable("id") Long shipmentId) {
-        ShipmentResponseDTO shipment = shipmentService.getShipmentById(shipmentId);
-        return new ResponseEntity<>(shipment, HttpStatus.OK);
-    }
 
     @GetMapping("/cost/{weight}/{serviceType}")
     public ResponseEntity<Double> getQuoteShipment(@PathVariable("weight") Double weight, @PathVariable("serviceType") String serviceType){
@@ -43,10 +35,5 @@ public class ShipmentController {
         //ShipmentResponseDTO shipment = shipmentService.getShipmentById(shipmentId);
         Object[] shipment = shipmentService.getStatusShipmentById(shipmentId);
         return new ResponseEntity<>(shipment, HttpStatus.OK);
-    }
-    @PostMapping("/makeShipment")
-    public ResponseEntity<ShipmentResponseDTO> makeShipment(@RequestBody ShipmentRequestDTO shipmentDTO) {
-        ShipmentResponseDTO shipmentResponseDTO = shipmentService.makeShipment(shipmentDTO);
-        return new ResponseEntity<>(shipmentResponseDTO, HttpStatus.OK);
     }
 }
