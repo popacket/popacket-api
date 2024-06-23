@@ -33,7 +33,7 @@ public class UserController {
     @PutMapping("/preferences/{userId}")
     public ResponseEntity<String> updatePreferences(@PathVariable Long userId, @RequestBody UserPreferencesDTO preferencesDto) {
         userService.updatePreferences(userId, preferencesDto);
-        return ResponseEntity.ok("Preferencias actualizadas correctamente.");
+        return new ResponseEntity<>("Preferencias actualizadas correctamente.", HttpStatus.CREATED);
     }
 
 }
