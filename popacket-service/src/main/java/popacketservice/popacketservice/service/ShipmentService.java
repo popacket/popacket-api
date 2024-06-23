@@ -92,4 +92,13 @@ public class ShipmentService {
 
             return shipmentMapper.convertToDTO(savedShipment);}
     }
+
+    public ShipmentResponseDTO updateScheduleShipment(ShipmentRequestDTO shipmentRequestDTO) {
+        Shipment shipment = shipmentMapper.convertToEntity(shipmentRequestDTO);
+        Shipment shipmentTemp = shipmentRepository.getShipmentById(shipment.getId()).orElseThrow();
+        shipmentTemp.setPickupDateTime(shipment.getPickupDateTime());
+        shipmentTemp.setDeliveryDateTime(shipment.getPickupDateTime().plusDays(3));
+        shipmentRepository.save(shipmentTemp);
+        return shipmentMapper.convertToDTO(shipmentTemp);
+    }
 }
