@@ -81,4 +81,13 @@ public class UserService {
         return userMapper.convertToDTO(user1);
     }
 
+    public UserResponseDTO updatePreferences(@NotNull Long userId, String defaultShippingAddress, String preferredPaymentMethod, String preferredShippingType) {
+        User user = userRepository.findById(userId).orElseThrow(() -> new ConflictException("El usuario no existe"));
+        user.setDefaultShippingAddress(defaultShippingAddress);
+        user.setPreferredPaymentMethod(preferredPaymentMethod);
+        user.setPreferredShippingType(preferredShippingType);
+        userRepository.save(user);
+        return userMapper.convertToDTO(user);
+    }
+
 }
