@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
-import popacketservice.popacketservice.model.entity.Shipment;
-import popacketservice.popacketservice.repository.ShipmentRepository;
-import popacketservice.popacketservice.repository.ShippingRateRepository;
+
+import popacketservice.popacketservice.model.entity.*;
+import popacketservice.popacketservice.repository.*;
 
 
 @Service
