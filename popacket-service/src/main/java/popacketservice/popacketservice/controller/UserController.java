@@ -24,9 +24,9 @@ public class UserController {
         UserResponseDTO createdUser = userService.createUser(userDTO);
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
-    @PostMapping("/configure_user/{type}")
-    public ResponseEntity<UserResponseDTO> updateUser(@Validated @RequestBody UserRequestDTO userDTO,@PathVariable("type") String type){
-       UserResponseDTO updateUser = userService.updateProfileUser(userDTO,type);
+    @PostMapping("/configure_user")
+    public ResponseEntity<UserResponseDTO> updateUser(@Validated @RequestBody UserRequestDTO userDTO){
+       UserResponseDTO updateUser = userService.updateProfileUser(userDTO);
        return new ResponseEntity<>(updateUser, HttpStatus.OK);
     }
     @PostMapping("/login")

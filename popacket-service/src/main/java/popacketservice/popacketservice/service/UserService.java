@@ -38,23 +38,20 @@ public class UserService {
         }
     }
 
-    public UserResponseDTO updateProfileUser(@NotNull UserRequestDTO user, String type) {
+    public UserResponseDTO updateProfileUser(@NotNull UserRequestDTO user) {
         if (userRepository.existsByEmailOrDocument(user.getEmail(), user.getDocument())) {
-            switch (type) {
-                case "name":
-                    return updateUserName(user);
-                case "lastName":
-                    return updateUserLastName(user);
-                case "phone":
-                    return updateUserPhone(user);
-                case "email":
-                    return updateUserEmail(user);
-            }
-        } else {
-         throw new ConflictException("El usuario no existe");
+            User userTemp = userRepository.findByDocument(user.getDocument());
+            userTemp.setPhone(user.getPhone());
+            userTemp.setEmail(user.getEmail());
+            userTemp.setName(user.getName());
+            userTemp.setPass(user.getPass());
+            userRepository.save(userTemp);
+            return userMapper.convertToDTO(userTemp);
+            } else {
+            throw new ConflictException("El usuario no existe");
         }
-        return userMapper.convertToDTO(userRepository.findByDocument(user.getDocument()));
     }
+<<<<<<< HEAD
 
     //Configurar Perfil (metodos Privados)
     private UserResponseDTO updateUserName(@NotNull UserRequestDTO user) {
@@ -90,4 +87,6 @@ public class UserService {
         }
         throw new ConflictException("El usuario no existe");
     }
+=======
+>>>>>>> feature/ConfigureProfile
 }
