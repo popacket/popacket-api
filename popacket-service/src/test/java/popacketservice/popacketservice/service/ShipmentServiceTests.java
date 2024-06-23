@@ -22,7 +22,6 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(SpringExtension.class)
-
 public class ShipmentServiceTests {
 
     @Mock
@@ -80,6 +79,7 @@ public class ShipmentServiceTests {
 
         deliveryPerson = new DeliveryPerson();
         deliveryPerson.setId(1L);
+
         MockitoAnnotations.openMocks(this);
     }
 
@@ -174,4 +174,5 @@ public class ShipmentServiceTests {
         verify(deliveryPersonRepository, never()).findById(anyLong());
         verify(shipmentRepository, never()).save(any(Shipment.class));
     }
+
 }

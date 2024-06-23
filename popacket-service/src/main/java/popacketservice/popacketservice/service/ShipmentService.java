@@ -46,21 +46,25 @@ public class ShipmentService {
         shipmentRepository.save(shipmentTemp);
         return shipmentMapper.convertToDTO(shipmentTemp);
     }
+
     public Double getShipmentCost(Double weight, String serviceType) {
         BigDecimal priceBase = shipmentRateRepository.getBasePrice(BigDecimal.valueOf(weight), serviceType);
         BigDecimal pricePerKilometer = shipmentRateRepository.getPricePerKilometer(BigDecimal.valueOf(weight), serviceType);
         return pricePerKilometer.multiply(BigDecimal.valueOf(weight)).add(priceBase).doubleValue();
     }
+
     public ShipmentResponseDTO getShipmentById(Long id) {
         Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow();
         //Object[] shipmentStatus = shipmentRepository.getStatusShipmentById(id).orElseThrow();
         return shipmentMapper.convertToDTO(shipmentTemp);
     }
+
     public Object[] getStatusShipmentById(Long id) {
         //Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow();
         Object[] shipmentTemp = shipmentRepository.getStatusShipmentByIdOb(id).orElseThrow();
         return shipmentTemp;
     }
+
     public ShipmentResponseDTO makeShipment(ShipmentRequestDTO shipmentRequestDTO){
 
         boolean resp = shipmentRepository.ifExistsByPackageID(shipmentRequestDTO.getPackageId());
