@@ -21,21 +21,10 @@ public class ShipmentController {
     @Autowired
     private ShipmentService shipmentService;
 
-    @PostMapping("/cancel/{id}")
-    public ResponseEntity<ShipmentResponseDTO> cancelShipment(@PathVariable("id") Long shipmentId) {
-        ShipmentResponseDTO shipment = shipmentService.cancelShipmentById(shipmentId);
-        return new ResponseEntity<>(shipment, HttpStatus.OK);
-    }
     @GetMapping("/tracking/{id}")
     public ResponseEntity<ShipmentResponseDTO> getTrackingInfoById(@PathVariable("id") Long shipmentId) {
         ShipmentResponseDTO shipment = shipmentService.getShipmentById(shipmentId);
         return new ResponseEntity<>(shipment, HttpStatus.OK);
-    }
-
-    @GetMapping("/cost/{weight}/{serviceType}")
-    public ResponseEntity<Double> getQuoteShipment(@PathVariable("weight") Double weight, @PathVariable("serviceType") String serviceType){
-        Double price = shipmentService.getShipmentCost(weight, serviceType);
-        return new ResponseEntity<>(price, HttpStatus.OK);
     }
 
     @GetMapping("/tracking_2/{id}")
