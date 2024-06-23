@@ -9,6 +9,7 @@ import popacketservice.popacketservice.exception.ConflictException;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
 import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
+
 import popacketservice.popacketservice.model.entity.*;
 import popacketservice.popacketservice.model.entity.Package;
 import popacketservice.popacketservice.repository.*;
@@ -75,6 +76,7 @@ public class ShipmentService {
     }
 
     public ShipmentResponseDTO makeShipment(ShipmentRequestDTO shipmentRequestDTO){
+
         boolean resp = shipmentRepository.ifExistsByPackageID(shipmentRequestDTO.getPackageId());
         if(resp){
             throw new ConflictException("El envio ya se encuentra registrado");
@@ -99,4 +101,5 @@ public class ShipmentService {
 
             return shipmentMapper.convertToDTO(savedShipment);}
     }
+
 }

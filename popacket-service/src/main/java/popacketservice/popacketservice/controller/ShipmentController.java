@@ -36,4 +36,9 @@ public class ShipmentController {
         Object[] shipment = shipmentService.getStatusShipmentById(shipmentId);
         return new ResponseEntity<>(shipment, HttpStatus.OK);
     }
+    @PutMapping("/makeShipment")
+    public ResponseEntity<ShipmentResponseDTO> makeShipment(@RequestBody ShipmentRequestDTO shipmentDTO) {
+        ShipmentResponseDTO shipmentResponseDTO = shipmentService.makeShipment(shipmentDTO);
+        return new ResponseEntity<>(shipmentResponseDTO, HttpStatus.OK);
+    }
 }
