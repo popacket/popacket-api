@@ -41,4 +41,9 @@ public class ShipmentController {
         ShipmentResponseDTO shipmentResponseDTO = shipmentService.makeShipment(shipmentDTO);
         return new ResponseEntity<>(shipmentResponseDTO, HttpStatus.OK);
     }
+    @PostMapping("/cancel/{id}")
+    public ResponseEntity<ShipmentResponseDTO> cancelShipment(@PathVariable("id") Long shipmentId) {
+        ShipmentResponseDTO shipment = shipmentService.cancelShipmentById(shipmentId);
+        return new ResponseEntity<>(shipment, HttpStatus.OK);
+    }
 }
