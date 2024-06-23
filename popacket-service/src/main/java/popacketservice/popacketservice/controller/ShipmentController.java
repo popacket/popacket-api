@@ -11,8 +11,6 @@ import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.service.ShipmentService;
 
-import java.math.BigDecimal;
-
 @RestController
 @RequestMapping("/shipments")
 @Data
