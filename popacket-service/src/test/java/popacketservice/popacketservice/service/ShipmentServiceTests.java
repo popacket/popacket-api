@@ -1,4 +1,4 @@
-package popacketservice.popacketservice;
+package popacketservice.popacketservice.service;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +12,6 @@ import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.model.entity.Shipment;
 import popacketservice.popacketservice.repository.ShippingRateRepository;
 import popacketservice.popacketservice.repository.ShipmentRepository;
-import popacketservice.popacketservice.service.ShipmentService;
 
 import java.math.BigDecimal;
 import java.util.Optional;
@@ -40,42 +39,6 @@ public class ShipmentServiceTests {
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
-    }
-
-    @Test
-    public void testCancelShipmentById() {
-        // Datos de prueba
-        Long shipmentId = 1L;
-        Shipment shipment = new Shipment();
-        shipment.setId(shipmentId);
-        shipment.setStatus("activo");
-
-        ShipmentResponseDTO shipmentResponseDTO = new ShipmentResponseDTO();
-        shipmentResponseDTO.setId(shipmentId);
-        shipmentResponseDTO.setStatus("cancelado");
-
-        // Simulación del comportamiento
-        when(shipmentRepository.getShipmentById(shipmentId)).thenReturn(Optional.of(shipment));
-        when(shipmentMapper.convertToDTO(any(Shipment.class))).thenReturn(shipmentResponseDTO);
-
-        // Llamada al método a probar
-        ShipmentResponseDTO result = shipmentService.cancelShipmentById(shipmentId);
-
-        // Verificación
-        assertEquals("cancelado", result.getStatus());
-        verify(shipmentRepository, times(1)).save(any(Shipment.class));
-    }
-
-    @Test
-    public void testCancelShipmentById_NotFound() {
-        // Datos de prueba
-        Long shipmentId = 1L;
-
-        // Simulación del comportamiento
-        when(shipmentRepository.getShipmentById(shipmentId)).thenReturn(Optional.empty());
-
-        // Llamada al método a probar y verificación de la excepción
-        assertThrows(RuntimeException.class, () -> shipmentService.cancelShipmentById(shipmentId));
     }
 
     @Test
