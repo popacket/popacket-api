@@ -29,7 +29,6 @@ public class ShipmentService {
     private ShippingRateRepository shipmentRateRepository;
     @Autowired
     private ShipmentMapper shipmentMapper;
-<<<<<<< HEAD
     @Autowired
     private PackageRepository packageRepository;
     @Autowired
@@ -38,8 +37,6 @@ public class ShipmentService {
     private LocationRepository locationRepository;
     @Autowired
     private DeliveryPersonRepository deliveryPersonRepository;
-=======
->>>>>>> feature/CancelShipment
 
     public ShipmentResponseDTO cancelShipmentById(Long id) {
         Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow(
@@ -49,8 +46,6 @@ public class ShipmentService {
         shipmentRepository.save(shipmentTemp);
         return shipmentMapper.convertToDTO(shipmentTemp);
     }
-<<<<<<< HEAD
-
     public Double getShipmentCost(Double weight, String serviceType) {
         BigDecimal priceBase = shipmentRateRepository.getBasePrice(BigDecimal.valueOf(weight), serviceType);
         BigDecimal pricePerKilometer = shipmentRateRepository.getPricePerKilometer(BigDecimal.valueOf(weight), serviceType);
@@ -61,23 +56,11 @@ public class ShipmentService {
         //Object[] shipmentStatus = shipmentRepository.getStatusShipmentById(id).orElseThrow();
         return shipmentMapper.convertToDTO(shipmentTemp);
     }
-
-
     public Object[] getStatusShipmentById(Long id) {
         //Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow();
         Object[] shipmentTemp = shipmentRepository.getStatusShipmentByIdOb(id).orElseThrow();
         return shipmentTemp;
     }
-
-    public ShipmentResponseDTO updateScheduleShipment(ShipmentRequestDTO shipmentRequestDTO) {
-        Shipment shipment = shipmentMapper.convertToEntity(shipmentRequestDTO);
-        Shipment shipmentTemp = shipmentRepository.getShipmentById(shipment.getId()).orElseThrow();
-        shipmentTemp.setPickupDateTime(shipment.getPickupDateTime());
-        shipmentTemp.setDeliveryDateTime(shipment.getPickupDateTime().plusDays(3));
-        shipmentRepository.save(shipmentTemp);
-        return shipmentMapper.convertToDTO(shipmentTemp);
-    }
-
     public ShipmentResponseDTO makeShipment(ShipmentRequestDTO shipmentRequestDTO){
 
         boolean resp = shipmentRepository.ifExistsByPackageID(shipmentRequestDTO.getPackageId());
@@ -105,6 +88,4 @@ public class ShipmentService {
             return shipmentMapper.convertToDTO(savedShipment);}
     }
 
-=======
->>>>>>> feature/CancelShipment
 }
