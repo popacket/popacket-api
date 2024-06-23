@@ -67,16 +67,6 @@ public class ShipmentService {
         Object[] shipmentTemp = shipmentRepository.getStatusShipmentByIdOb(id).orElseThrow();
         return shipmentTemp;
     }
-
-    public ShipmentResponseDTO updateScheduleShipment(ShipmentRequestDTO shipmentRequestDTO) {
-        Shipment shipment = shipmentMapper.convertToEntity(shipmentRequestDTO);
-        Shipment shipmentTemp = shipmentRepository.getShipmentById(shipment.getId()).orElseThrow();
-        shipmentTemp.setPickupDateTime(shipment.getPickupDateTime());
-        shipmentTemp.setDeliveryDateTime(shipment.getPickupDateTime().plusDays(3));
-        shipmentRepository.save(shipmentTemp);
-        return shipmentMapper.convertToDTO(shipmentTemp);
-    }
-
     public ShipmentResponseDTO makeShipment(ShipmentRequestDTO shipmentRequestDTO){
         boolean resp = shipmentRepository.ifExistsByPackageID(shipmentRequestDTO.getPackageId());
         if(resp){
@@ -101,5 +91,14 @@ public class ShipmentService {
             Shipment savedShipment = shipmentRepository.save(shipment);
 
             return shipmentMapper.convertToDTO(savedShipment);}
+    }
+
+    public ShipmentResponseDTO updateScheduleShipment(ShipmentRequestDTO shipmentRequestDTO) {
+        Shipment shipment = shipmentMapper.convertToEntity(shipmentRequestDTO);
+        Shipment shipmentTemp = shipmentRepository.getShipmentById(shipment.getId()).orElseThrow();
+        shipmentTemp.setPickupDateTime(shipment.getPickupDateTime());
+        shipmentTemp.setDeliveryDateTime(shipment.getPickupDateTime().plusDays(3));
+        shipmentRepository.save(shipmentTemp);
+        return shipmentMapper.convertToDTO(shipmentTemp);
     }
 }
