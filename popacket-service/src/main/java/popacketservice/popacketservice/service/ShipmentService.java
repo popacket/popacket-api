@@ -5,16 +5,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import popacketservice.popacketservice.exception.ConflictException;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
-import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 
 import popacketservice.popacketservice.model.entity.*;
-import popacketservice.popacketservice.model.entity.Package;
 import popacketservice.popacketservice.repository.*;
 
-import java.math.BigDecimal;
 
 @Service
 @Data
@@ -29,7 +25,6 @@ public class ShipmentService {
     private ShippingRateRepository shipmentRateRepository;
     @Autowired
     private ShipmentMapper shipmentMapper;
-<<<<<<< HEAD
     @Autowired
     private PackageRepository packageRepository;
     @Autowired
@@ -38,8 +33,6 @@ public class ShipmentService {
     private LocationRepository locationRepository;
     @Autowired
     private DeliveryPersonRepository deliveryPersonRepository;
-=======
->>>>>>> feature/CancelShipment
 
     public ShipmentResponseDTO cancelShipmentById(Long id) {
         Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow(
@@ -49,33 +42,23 @@ public class ShipmentService {
         shipmentRepository.save(shipmentTemp);
         return shipmentMapper.convertToDTO(shipmentTemp);
     }
-<<<<<<< HEAD
 
     public Double getShipmentCost(Double weight, String serviceType) {
         BigDecimal priceBase = shipmentRateRepository.getBasePrice(BigDecimal.valueOf(weight), serviceType);
         BigDecimal pricePerKilometer = shipmentRateRepository.getPricePerKilometer(BigDecimal.valueOf(weight), serviceType);
         return pricePerKilometer.multiply(BigDecimal.valueOf(weight)).add(priceBase).doubleValue();
     }
+  
     public ShipmentResponseDTO getShipmentById(Long id) {
         Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow();
         //Object[] shipmentStatus = shipmentRepository.getStatusShipmentById(id).orElseThrow();
         return shipmentMapper.convertToDTO(shipmentTemp);
     }
 
-
     public Object[] getStatusShipmentById(Long id) {
         //Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow();
         Object[] shipmentTemp = shipmentRepository.getStatusShipmentByIdOb(id).orElseThrow();
         return shipmentTemp;
-    }
-
-    public ShipmentResponseDTO updateScheduleShipment(ShipmentRequestDTO shipmentRequestDTO) {
-        Shipment shipment = shipmentMapper.convertToEntity(shipmentRequestDTO);
-        Shipment shipmentTemp = shipmentRepository.getShipmentById(shipment.getId()).orElseThrow();
-        shipmentTemp.setPickupDateTime(shipment.getPickupDateTime());
-        shipmentTemp.setDeliveryDateTime(shipment.getPickupDateTime().plusDays(3));
-        shipmentRepository.save(shipmentTemp);
-        return shipmentMapper.convertToDTO(shipmentTemp);
     }
 
     public ShipmentResponseDTO makeShipment(ShipmentRequestDTO shipmentRequestDTO){
@@ -105,6 +88,4 @@ public class ShipmentService {
             return shipmentMapper.convertToDTO(savedShipment);}
     }
 
-=======
->>>>>>> feature/CancelShipment
 }
