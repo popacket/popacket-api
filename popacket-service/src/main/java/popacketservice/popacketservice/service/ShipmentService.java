@@ -9,7 +9,6 @@ import popacketservice.popacketservice.exception.ConflictException;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
 import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
-
 import popacketservice.popacketservice.model.entity.*;
 import popacketservice.popacketservice.model.entity.Package;
 import popacketservice.popacketservice.repository.*;
@@ -60,7 +59,6 @@ public class ShipmentService {
         //Object[] shipmentStatus = shipmentRepository.getStatusShipmentById(id).orElseThrow();
         return shipmentMapper.convertToDTO(shipmentTemp);
     }
-
 
     public Object[] getStatusShipmentById(Long id) {
         //Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow();

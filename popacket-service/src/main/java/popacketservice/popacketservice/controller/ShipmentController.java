@@ -55,5 +55,4 @@ public class ShipmentController {
         ShipmentResponseDTO shipment = shipmentService.updateScheduleShipment(shipmentDTO);
         return new ResponseEntity<>(shipment, HttpStatus.OK);
     }
-
 }
