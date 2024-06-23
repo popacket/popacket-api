@@ -24,29 +24,6 @@ public class ShipmentController {
     @Autowired
     private ShipmentService shipmentService;
 
-    @PostMapping("/cancel/{id}")
-    public ResponseEntity<ShipmentResponseDTO> cancelShipment(@PathVariable("id") Long shipmentId) {
-        ShipmentResponseDTO shipment = shipmentService.cancelShipmentById(shipmentId);
-        return new ResponseEntity<>(shipment, HttpStatus.OK);
-    }
-    @GetMapping("/tracking/{id}")
-    public ResponseEntity<ShipmentResponseDTO> getTrackingInfoById(@PathVariable("id") Long shipmentId) {
-        ShipmentResponseDTO shipment = shipmentService.getShipmentById(shipmentId);
-        return new ResponseEntity<>(shipment, HttpStatus.OK);
-    }
-
-    @GetMapping("/tracking_2/{id}")
-    public ResponseEntity<Object[]> getTrackingOb(@PathVariable("id") Long shipmentId) {
-        //ShipmentResponseDTO shipment = shipmentService.getShipmentById(shipmentId);
-        Object[] shipment = shipmentService.getStatusShipmentById(shipmentId);
-        return new ResponseEntity<>(shipment, HttpStatus.OK);
-    }
-    @PostMapping("/updateSchedule/")
-    public ResponseEntity<ShipmentResponseDTO> updateScheduleShipment(@RequestBody ShipmentRequestDTO shipmentDTO) {
-        ShipmentResponseDTO shipment = shipmentService.updateScheduleShipment(shipmentDTO);
-        return new ResponseEntity<>(shipment, HttpStatus.OK);
-    }
-
     @PutMapping("/makeShipment")
     public ResponseEntity<ShipmentResponseDTO> makeShipment(@RequestBody ShipmentRequestDTO shipmentDTO) {
         ShipmentResponseDTO shipmentResponseDTO = shipmentService.makeShipment(shipmentDTO);

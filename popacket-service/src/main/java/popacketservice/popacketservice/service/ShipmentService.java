@@ -15,8 +15,6 @@ import popacketservice.popacketservice.model.entity.Package;
 import popacketservice.popacketservice.repository.*;
 
 
-import java.math.BigDecimal;
-
 @Service
 @Data
 @AllArgsConstructor
@@ -35,33 +33,6 @@ public class ShipmentService {
     private LocationRepository locationRepository;
     @Autowired
     private DeliveryPersonRepository deliveryPersonRepository;
-
-    public ShipmentResponseDTO cancelShipmentById(Long id) {
-        Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow();
-        shipmentTemp.setStatus("cancelado");
-        shipmentRepository.save(shipmentTemp);
-        return shipmentMapper.convertToDTO(shipmentTemp);
-    }
-    public ShipmentResponseDTO getShipmentById(Long id) {
-        Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow();
-        //Object[] shipmentStatus = shipmentRepository.getStatusShipmentById(id).orElseThrow();
-        return shipmentMapper.convertToDTO(shipmentTemp);
-    }
-
-    public Object[] getStatusShipmentById(Long id) {
-        //Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow();
-        Object[] shipmentTemp = shipmentRepository.getStatusShipmentByIdOb(id).orElseThrow();
-        return shipmentTemp;
-    }
-
-    public ShipmentResponseDTO updateScheduleShipment(ShipmentRequestDTO shipmentRequestDTO) {
-        Shipment shipment = shipmentMapper.convertToEntity(shipmentRequestDTO);
-        Shipment shipmentTemp = shipmentRepository.getShipmentById(shipment.getId()).orElseThrow();
-        shipmentTemp.setPickupDateTime(shipment.getPickupDateTime());
-        shipmentTemp.setDeliveryDateTime(shipment.getPickupDateTime().plusDays(3));
-        shipmentRepository.save(shipmentTemp);
-        return shipmentMapper.convertToDTO(shipmentTemp);
-    }
 
     public ShipmentResponseDTO makeShipment(ShipmentRequestDTO shipmentRequestDTO){
 
