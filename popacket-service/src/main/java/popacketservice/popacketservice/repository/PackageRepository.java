@@ -10,5 +10,6 @@ import java.util.Optional;
 @Repository
 public interface PackageRepository extends JpaRepository<Package, Long> {
     List<Package> findBySenderId(Long senderId);
+
     List<Package> findByRecipientId(Long recipientId);
 }

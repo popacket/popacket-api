@@ -21,6 +21,7 @@ public class PackageController {
     @PostMapping
     public ResponseEntity<PackageResponseDTO> createPackage(@Validated @RequestBody PackageRequestDTO packageDTO){
         PackageResponseDTO packageResponseDTO = packageService.createPackage(packageDTO);
+        System.out.println(packageResponseDTO);
         return new ResponseEntity<>(packageResponseDTO, HttpStatus.CREATED);
     }
 
