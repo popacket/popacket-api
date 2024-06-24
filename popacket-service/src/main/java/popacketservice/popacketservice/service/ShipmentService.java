@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import popacketservice.popacketservice.exception.ConflictException;
+import popacketservice.popacketservice.exception.ResourceNotFoundException;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
 import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
@@ -42,7 +43,7 @@ public class ShipmentService {
     private DeliveryPersonRepository deliveryPersonRepository;
 
     public List<ShipmentResponseDTO> getAllShipmentsBySenderID(Long id) {
-        List<Shipment> shipmentList = shipmentRepository.findAllShipmentBySenderId(id).orElseThrow();
+        List<Shipment> shipmentList = shipmentRepository.findAllShipmentBySenderId(id).orElseThrow(()-> new ResourceNotFoundException("No shipment found with id " + id));
         return shipmentMapper.convertToListDTO(shipmentList);
     }
 }
