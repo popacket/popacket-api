@@ -18,8 +18,8 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class PackageService {
 
+public class PackageService {
     @Autowired
     private final PackageRepository packageRepository;
     private final PackageMapper packageMapper;
@@ -48,5 +48,12 @@ public class PackageService {
     public List<PackageResponseDTO> getPackagesByRecipient(Long recipientId) {
         List<Package> packages = packageRepository.findByRecipientId(recipientId);
         return packageMapper.convertToListDTO(packages);
+    }
+
+    public List<PackageResponseDTO> getAllPackageBySenderId(Long senderId) {
+        List<Package> packages = packageRepository.findAllByOrderBySenderId(senderId).orElseThrow();
+        //En esta linea conviertes la lista formato entity a DTO
+        List<PackageResponseDTO> paquetesDTO = packageMapper.convertToListDTO(packages);
+        return paquetesDTO;
     }
 }

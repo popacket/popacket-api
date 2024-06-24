@@ -36,4 +36,10 @@ public class PackageController {
         List<PackageResponseDTO> packages = packageService.getPackagesByRecipient(recipientId);
         return new ResponseEntity<>(packages, HttpStatus.OK);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<List<PackageResponseDTO>> getAllPackageById(@PathVariable Long id) {
+        List<PackageResponseDTO> paquetesDTO = packageService.getAllPackageBySenderId(id);
+        return new ResponseEntity<>(paquetesDTO, HttpStatus.OK);
+    }
 }
