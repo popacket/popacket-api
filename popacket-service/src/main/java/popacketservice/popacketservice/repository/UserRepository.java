@@ -15,4 +15,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query("SELECT u FROM User u WHERE u.document=:document")
     User findByDocument(@Param("document") String document);
+
+    @Query("SELECT u FROM User u WHERE u.email=:email")
+    Optional<User> findByEmail(@Param("email")String email);
+
+    @Query("SELECT u FROM User u WHERE u.resetToken=:token")
+    Optional<User> findByResetToken(@Param("token") String token);
 }

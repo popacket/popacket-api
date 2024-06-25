@@ -32,4 +32,8 @@ public class User {
     private Boolean isAdmin = false;
     @Column(name="created_at")
     private LocalDate createAt;
+
+    @Column
+    private String resetToken;
+    private LocalDate tokenCreationDate;
 }
