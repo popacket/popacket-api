@@ -35,6 +35,9 @@ public class ShipmentService {
                 () -> new RuntimeException("Envio no encontrado con el id ingresado" + id)
         );
         shipmentTemp.setStatus("cancelado");
+        Package pack = shipmentRepository.getPackageById(shipmentTemp.getPackageEntity().getSender().getId()).orElseThrow();
+        pack.setStatus("cancelado");
+        shipmentTemp.setPackageEntity(pack);
         shipmentRepository.save(shipmentTemp);
         return shipmentMapper.convertToDTO(shipmentTemp);
     }
