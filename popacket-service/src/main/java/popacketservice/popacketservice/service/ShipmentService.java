@@ -40,15 +40,17 @@ public class ShipmentService {
     private DeliveryPersonRepository deliveryPersonRepository;
 
     public ShipmentResponseDTO cancelShipmentById(Long id) {
-        Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow(
-                () -> new RuntimeException("Envio no encontrado con el id ingresado" + id)
-        );
-        shipmentTemp.setStatus("cancelado");
-        Package pack = shipmentRepository.getPackageById(id).orElseThrow();
-        pack.setStatus("cancelado");
-        shipmentTemp.setPackageEntity(pack);
-        shipmentRepository.save(shipmentTemp);
-        return shipmentMapper.convertToDTO(shipmentTemp);
+        if(shipmentRepository.ifExistsByPackageID(id)){
+           Shipment shipmentTemp = shipmentRepository.getShipmentByPackageId(id).orElseThrow();
+           shipmentTemp.setStatus("cancelado");
+           Package pack = packageRepository.findById(id).orElseThrow();
+           pack.setStatus("cancelado");
+           shipmentTemp.setPackageEntity(pack);
+           shipmentRepository.save(shipmentTemp);
+           return shipmentMapper.convertToDTO(shipmentTemp);
+        } else {
+            throw new ConflictException("El package no existe con el id " + id);
+        }
     }
 
     public Double getShipmentCost(Double weight, String serviceType) {

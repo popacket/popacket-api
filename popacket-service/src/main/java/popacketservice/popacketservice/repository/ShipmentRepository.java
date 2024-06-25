@@ -27,4 +27,7 @@ public interface ShipmentRepository extends JpaRepository<Shipment, Long> {
     @Query("SELECT s.packageEntity FROM Shipment s WHERE s.id=:id")
     Optional<Package> getPackageById(@Param("id") Long id);
 
+    @Query("SELECT s FROM Shipment s WHERE s.packageEntity.id=:packageId")
+    Optional<Shipment> getShipmentByPackageId(@Param("packageId") Long id);
+
 }
