@@ -24,7 +24,7 @@ public interface ShipmentRepository extends JpaRepository<Shipment, Long> {
     @Query("SELECT COUNT(s) > 0 FROM Shipment s WHERE s.packageEntity=:id")
     boolean ifExistsByPackageID(@Param("id") Long id);
 
-    @Query("SELECT s.packageEntity FROM Shipment s WHERE S.packageEntity.sender.id=:id")
+    @Query("SELECT s.packageEntity FROM Shipment s WHERE s.id=:id")
     Optional<Package> getPackageById(@Param("id") Long id);
 
 }
