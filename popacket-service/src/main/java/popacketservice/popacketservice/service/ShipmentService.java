@@ -14,6 +14,8 @@ import popacketservice.popacketservice.model.entity.*;
 import popacketservice.popacketservice.model.entity.Package;
 import popacketservice.popacketservice.repository.*;
 
+import java.time.LocalDateTime;
+
 
 @Service
 @Data
@@ -55,9 +57,9 @@ public class ShipmentService {
             shipment.setOriginLocation(originLocation);
             shipment.setPackageEntity(pack);
             shipment.setDeliveryPerson(deliveryPerson);
-
+            shipment.setPickupDateTime(LocalDateTime.now());
+            shipment.setDeliveryDateTime(LocalDateTime.now().plusDays(3));
             Shipment savedShipment = shipmentRepository.save(shipment);
-
             return shipmentMapper.convertToDTO(savedShipment);}
     }
 
