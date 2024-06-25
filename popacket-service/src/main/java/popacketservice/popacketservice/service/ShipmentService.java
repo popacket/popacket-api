@@ -15,6 +15,7 @@ import popacketservice.popacketservice.model.entity.Package;
 import popacketservice.popacketservice.repository.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Service
 @Data
@@ -43,6 +44,9 @@ public class ShipmentService {
                 () -> new RuntimeException("Envio no encontrado con el id ingresado" + id)
         );
         shipmentTemp.setStatus("cancelado");
+        Package pack = shipmentRepository.getPackageById(id).orElseThrow();
+        pack.setStatus("cancelado");
+        shipmentTemp.setPackageEntity(pack);
         shipmentRepository.save(shipmentTemp);
         return shipmentMapper.convertToDTO(shipmentTemp);
     }
@@ -86,9 +90,9 @@ public class ShipmentService {
             shipment.setOriginLocation(originLocation);
             shipment.setPackageEntity(pack);
             shipment.setDeliveryPerson(deliveryPerson);
-
+            shipment.setPickupDateTime(LocalDateTime.now());
+            shipment.setDeliveryDateTime(LocalDateTime.now().plusDays(3));
             Shipment savedShipment = shipmentRepository.save(shipment);
-
             return shipmentMapper.convertToDTO(savedShipment);}
     }
 

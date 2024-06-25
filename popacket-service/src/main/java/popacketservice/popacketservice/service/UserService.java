@@ -4,7 +4,6 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import popacketservice.popacketservice.exception.ConflictException;
 import popacketservice.popacketservice.mapper.UserMapper;
 import popacketservice.popacketservice.model.dto.LoginRequestDTO;
@@ -51,33 +50,6 @@ public class UserService {
             throw new ConflictException("El usuario no existe");
         }
     }
-<<<<<<< HEAD
-
-    //Configurar Perfil (metodos Privados)
-    private UserResponseDTO updateUserName(@NotNull UserRequestDTO user) {
-            User user1 = userRepository.findByDocument(user.getDocument());
-            user1.setName(user.getName());
-            userRepository.save(user1);
-            return userMapper.convertToDTO(user1);
-    }
-    private UserResponseDTO updateUserLastName(@NotNull UserRequestDTO user) {
-            User user1 = userRepository.findByDocument(user.getDocument());
-            user1.setLastName(user.getLastName());
-            userRepository.save(user1);
-            return userMapper.convertToDTO(user1);
-    }
-    private UserResponseDTO updateUserPhone(@NotNull UserRequestDTO user) {
-            User user1 = userRepository.findByDocument(user.getDocument());
-            user1.setPhone(user.getPhone());
-            userRepository.save(user1);
-            return userMapper.convertToDTO(user1);
-    }
-    private UserResponseDTO updateUserEmail(@NotNull UserRequestDTO user) {
-        User user1 = userRepository.findByDocument(user.getDocument());
-        user1.setEmail(user.getEmail());
-        userRepository.save(user1);
-        return userMapper.convertToDTO(user1);
-    }
 
     public UserResponseDTO Login(@NotNull LoginRequestDTO user) {
         boolean exists = userRepository.existsByEmail(user.getUsername());
@@ -87,6 +59,4 @@ public class UserService {
         }
         throw new ConflictException("El usuario no existe");
     }
-=======
->>>>>>> feature/ConfigureProfile
 }

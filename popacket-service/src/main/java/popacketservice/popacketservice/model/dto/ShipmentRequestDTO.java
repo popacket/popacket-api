@@ -25,11 +25,11 @@ public class ShipmentRequestDTO {
     @Size(max = 20, message = "El estado del envío no debe exceder los 20 caracteres")
     private String status;
 
-    @NotNull(message = "La fecha y hora de recogida no pueden estar vacías")
-    private LocalDateTime pickupDateTime;
-
-    @NotNull(message = "La fecha y hora de entrega no pueden estar vacías")
-    private LocalDateTime deliveryDateTime;
+//    @NotNull(message = "La fecha y hora de recogida no pueden estar vacías")
+//    private LocalDateTime pickupDateTime;
+//
+//    @NotNull(message = "La fecha y hora de entrega no pueden estar vacías")
+//    private LocalDateTime deliveryDateTime;
 
     @NotNull(message = "El ID del repartidor no puede estar vacío")
     private Long deliveryPersonId;

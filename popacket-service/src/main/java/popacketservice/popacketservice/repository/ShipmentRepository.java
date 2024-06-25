@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import popacketservice.popacketservice.model.entity.Package;
 import popacketservice.popacketservice.model.entity.Shipment;
 
 import java.util.Optional;
@@ -22,5 +23,8 @@ public interface ShipmentRepository extends JpaRepository<Shipment, Long> {
 
     @Query("SELECT COUNT(s) > 0 FROM Shipment s WHERE s.packageEntity.id=:id")
     boolean ifExistsByPackageID(@Param("id") Long id);
+
+    @Query("SELECT s.packageEntity FROM Shipment s WHERE s.id=:id")
+    Optional<Package> getPackageById(@Param("id") Long id);
 
 }
