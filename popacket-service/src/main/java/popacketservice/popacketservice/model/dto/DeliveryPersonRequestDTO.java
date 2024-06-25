@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class DeliveryPersonRequestDTO {
     @NotBlank(message = "El nombre no puede estar vacío")
     @Size(max = 100, message = "El nombre no debe exceder los 100 caracteres")
