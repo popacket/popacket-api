@@ -34,6 +34,6 @@ public class ShipmentRequestDTO {
     @NotNull(message = "El ID del repartidor no puede estar vacío")
     private Long deliveryPersonId;
 
-    @NotNull(message = "El ID del cotizador no puede estar vacío")
-    private Long shippingRateId;
+//    @NotNull(message = "El ID del cotizador no puede estar vacío")
+//    private Long shippingRateId;
 }

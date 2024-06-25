@@ -85,6 +85,7 @@ public class ShipmentService {
             DeliveryPerson deliveryPerson = deliveryPersonRepository.findById(shipmentRequestDTO.getDeliveryPersonId())
                     .orElseThrow(() -> new RuntimeException("Persona de entrega no encontrada"));
 
+            ShippingRate shippingRate = shipmentRateRepository.findByServiceTypeAndWeight(pack.getPaymentType(),pack.getWeight());
             Shipment shipment = shipmentMapper.convertToEntity(shipmentRequestDTO);
             shipment.setDestinationLocation(destinationLocation);
             shipment.setOriginLocation(originLocation);
@@ -92,6 +93,7 @@ public class ShipmentService {
             shipment.setDeliveryPerson(deliveryPerson);
             shipment.setPickupDateTime(LocalDateTime.now());
             shipment.setDeliveryDateTime(LocalDateTime.now().plusDays(3));
+            shipment.setShippingRate(shippingRate);
             Shipment savedShipment = shipmentRepository.save(shipment);
             return shipmentMapper.convertToDTO(savedShipment);}
     }
