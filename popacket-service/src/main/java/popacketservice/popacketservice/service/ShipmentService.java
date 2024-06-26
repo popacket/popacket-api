@@ -15,6 +15,9 @@ import popacketservice.popacketservice.model.entity.Package;
 import popacketservice.popacketservice.repository.*;
 
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 @Service
 @Data
@@ -102,4 +105,11 @@ public class ShipmentService {
 
             return shipmentMapper.convertToDTO(savedShipment);}
     }
+
+    public List<ShipmentResponseDTO> getAllShipmentAddresses() {
+        List<Shipment> shipments = shipmentRepository.findAll();
+        return shipmentMapper.convertToListDTO(shipments);
+    }
+
+
 }

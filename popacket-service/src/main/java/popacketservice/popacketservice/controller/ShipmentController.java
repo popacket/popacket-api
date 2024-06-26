@@ -11,6 +11,8 @@ import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.service.ShipmentService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/shipments")
 @Data
@@ -48,5 +50,11 @@ public class ShipmentController {
     public ResponseEntity<ShipmentResponseDTO> makeShipment(@RequestBody ShipmentRequestDTO shipmentDTO) {
         ShipmentResponseDTO shipmentResponseDTO = shipmentService.makeShipment(shipmentDTO);
         return new ResponseEntity<>(shipmentResponseDTO, HttpStatus.OK);
+    }
+
+    @GetMapping("/ListDestinationLocation")
+    public ResponseEntity<List<ShipmentResponseDTO>> getAllShipmentAddreses() {
+        List<ShipmentResponseDTO> adresses = shipmentService.getAllShipmentAddresses();
+        return new ResponseEntity<>(adresses, HttpStatus.OK);
     }
 }
