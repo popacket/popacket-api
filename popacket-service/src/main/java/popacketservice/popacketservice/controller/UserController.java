@@ -28,4 +28,5 @@ public class UserController {
        UserResponseDTO updateUser = userService.updateProfileUser(userDTO,type);
        return new ResponseEntity<>(updateUser, HttpStatus.OK);
     }
+
 }
