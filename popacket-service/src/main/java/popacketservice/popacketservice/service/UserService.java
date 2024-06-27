@@ -1,33 +1,24 @@
 package popacketservice.popacketservice.service;
 
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.webjars.NotFoundException;
 import popacketservice.popacketservice.exception.ConflictException;
 import popacketservice.popacketservice.mapper.UserMapper;
-import popacketservice.popacketservice.model.dto.ResetPasswordRequestDTO;
 import popacketservice.popacketservice.model.dto.UserRequestDTO;
 import popacketservice.popacketservice.model.dto.UserResponseDTO;
 import popacketservice.popacketservice.model.entity.User;
 import popacketservice.popacketservice.repository.UserRepository;
 
 import java.time.LocalDate;
-import java.util.Optional;
-import java.util.UUID;
 
 @Service
 @AllArgsConstructor
 public class UserService {
-
     @Autowired
     private final UserRepository userRepository;
     @Autowired
     private final UserMapper userMapper;
-    @Autowired
-    private final EmailService emailService;
 
     //@Transactional
     public UserResponseDTO createUser(UserRequestDTO userRequestDTO) {
@@ -42,85 +33,4 @@ public class UserService {
             throw new ConflictException("Un usuario ya se encuentra registrado con estos datos");
         }
     }
-
-    public UserResponseDTO updateProfileUser(@NotNull UserRequestDTO user, String type) {
-        if (userRepository.existsByEmailOrDocument(user.getEmail(), user.getDocument())) {
-            switch (type) {
-                case "name":
-                    return updateUserName(user);
-                case "lastName":
-                    return updateUserLastName(user);
-                case "phone":
-                    return updateUserPhone(user);
-                case "email":
-                    return updateUserEmail(user);
-            }
-        } else {
-         throw new ConflictException("El usuario no existe");
-        }
-        return userMapper.convertToDTO(userRepository.findByDocument(user.getDocument()));
-    }
-
-    //Configurar Perfil (metodos Privados)
-    private UserResponseDTO updateUserName(@NotNull UserRequestDTO user) {
-            User user1 = userRepository.findByDocument(user.getDocument());
-            user1.setName(user.getName());
-            userRepository.save(user1);
-            return userMapper.convertToDTO(user1);
-    }
-    private UserResponseDTO updateUserLastName(@NotNull UserRequestDTO user) {
-            User user1 = userRepository.findByDocument(user.getDocument());
-            user1.setLastName(user.getLastName());
-            userRepository.save(user1);
-            return userMapper.convertToDTO(user1);
-    }
-    private UserResponseDTO updateUserPhone(@NotNull UserRequestDTO user) {
-            User user1 = userRepository.findByDocument(user.getDocument());
-            user1.setPhone(user.getPhone());
-            userRepository.save(user1);
-            return userMapper.convertToDTO(user1);
-    }
-    private UserResponseDTO updateUserEmail(@NotNull UserRequestDTO user) {
-        User user1 = userRepository.findByDocument(user.getDocument());
-        user1.setEmail(user.getEmail());
-        userRepository.save(user1);
-        return userMapper.convertToDTO(user1);
-    }
-
-    public void initiatePasswordReset(String email) {
-        Optional<User> userOpt = userRepository.findByEmail(email);
-        if (!userOpt.isPresent()) {
-            throw new NotFoundException("Usuario no encontrado con el email proporcionado");
-        }
-        User user = userOpt.get();
-        String token = UUID.randomUUID().toString();
-        user.setResetToken(token);
-        user.setTokenCreationDate(LocalDate.now());
-        userRepository.save(user);
-
-        emailService.sendResetToken(email, token);
-    }
-
-    @Transactional
-    public void resetPassword(ResetPasswordRequestDTO requestDTO) {
-        Optional<User> userOpt = userRepository.findByResetToken(requestDTO.getToken());
-        if (!userOpt.isPresent()) {
-            throw new NotFoundException("Token de recuperación inválido");
-        }
-
-        User user = userOpt.get();
-        if (isTokenExpired(user.getTokenCreationDate())) {
-            throw new ConflictException("El token de recuperación ha expirado");
-        }
-
-        user.setPass(requestDTO.getNewPassword()); // Consider using a password encoder
-        user.setResetToken(null);
-        user.setTokenCreationDate(null);
-        userRepository.save(user);
-    }
-
-    private boolean isTokenExpired(LocalDate tokenCreationDate) {
-        return tokenCreationDate.isBefore(LocalDate.now().minusDays(1));
-    }
-
 }

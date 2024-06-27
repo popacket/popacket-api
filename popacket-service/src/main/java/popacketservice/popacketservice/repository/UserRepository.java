@@ -6,8 +6,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import popacketservice.popacketservice.model.entity.User;
 
-import java.util.Optional;
-
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     @Query("SELECT COUNT(u) > 0 FROM User u WHERE u.email=:email or u.document=:document")
@@ -17,8 +15,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     User findByDocument(@Param("document") String document);
 
     @Query("SELECT u FROM User u WHERE u.email=:email")
-    Optional<User> findByEmail(@Param("email")String email);
+    User findByEmail(@Param("email") String email);
 
-    @Query("SELECT u FROM User u WHERE u.resetToken=:token")
-    Optional<User> findByResetToken(@Param("token") String token);
+    @Query("SELECT COUNT(u) > 0 FROM User u WHERE u.email=:email")
+    boolean exisByEmail(@Param("email") String email);
 }
