@@ -49,4 +49,10 @@ public class ShipmentController {
         ShipmentResponseDTO shipmentResponseDTO = shipmentService.makeShipment(shipmentDTO);
         return new ResponseEntity<>(shipmentResponseDTO, HttpStatus.OK);
     }
+    @PutMapping("/return/{id}")
+    public ResponseEntity<ShipmentResponseDTO> requestReturn(@PathVariable("id") Long shipmentId) {
+        ShipmentResponseDTO shipment = shipmentService.requestReturn(shipmentId);
+        return new ResponseEntity<>(shipment, HttpStatus.OK);
+    }
+
 }

@@ -102,4 +102,13 @@ public class ShipmentService {
 
             return shipmentMapper.convertToDTO(savedShipment);}
     }
+
+    public ShipmentResponseDTO requestReturn(Long id) {
+        Shipment shipment = shipmentRepository.getShipmentById(id).orElseThrow(
+                () -> new RuntimeException("Envio no encontrado con el id ingresado: " + id)
+        );
+        shipment.setReturnRequested(true);
+        shipmentRepository.save(shipment);
+        return shipmentMapper.convertToDTO(shipment);
+    }
 }
