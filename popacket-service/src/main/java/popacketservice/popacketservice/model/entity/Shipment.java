@@ -45,4 +45,7 @@ public class Shipment {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "shipping_rate_id")
     private ShippingRate shippingRate;
+
+    @Column(name = "rating", nullable = true)
+    private Integer rating;
 }

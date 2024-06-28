@@ -15,6 +15,7 @@ import popacketservice.popacketservice.model.entity.Package;
 import popacketservice.popacketservice.repository.*;
 
 import java.math.BigDecimal;
+import java.util.NoSuchElementException;
 
 @Service
 @Data
@@ -101,4 +102,13 @@ public class ShipmentService {
         shipmentRepository.save(shipmentTemp);
         return shipmentMapper.convertToDTO(shipmentTemp);
     }
+
+    public ShipmentResponseDTO rateShipment(Long shipmentId, Integer rating) {
+        Shipment shipment = shipmentRepository.findById(shipmentId)
+                .orElseThrow(() -> new NoSuchElementException("Shipment not found with id: " + shipmentId));
+        shipment.setRating(rating);
+        Shipment updatedShipment = shipmentRepository.save(shipment);
+        return shipmentMapper.convertToDTO(updatedShipment);
+    }
+
 }
