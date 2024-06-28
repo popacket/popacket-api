@@ -59,9 +59,8 @@ public class ShipmentController {
 
     @PostMapping("/rate")
     public ResponseEntity<String> rateShipment(@RequestBody ShipmentRatingDTO ratingDto) {
-        ShipmentResponseDTO updatedShipment = shipmentService.rateShipment(ratingDto.getShipmentId(), ratingDto.getRating());
-        return ResponseEntity.ok("Shipment rated successfully with a rating of " + ratingDto.getRating());
+        shipmentService.rateShipment(ratingDto);
+        return ResponseEntity.ok("Shipment rated successfully with a rating of " + ratingDto.getRating() + " and comments: " + ratingDto.getComments());
     }
-
 
 }

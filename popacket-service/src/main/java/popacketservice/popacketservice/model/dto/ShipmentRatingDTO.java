@@ -3,6 +3,7 @@ package popacketservice.popacketservice.model.dto;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,4 +21,6 @@ public class ShipmentRatingDTO {
     @Min(value = 1, message = "La calificación debe ser al menos 1")
     @Max(value = 5, message = "La calificación no debe ser mayor a 5")
     private Integer rating;
+    @Size(max = 255, message = "Los comentarios deben tener menos de 255 caracteres")
+    private String comments;
 }

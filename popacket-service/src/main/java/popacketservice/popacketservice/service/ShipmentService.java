@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import popacketservice.popacketservice.exception.ConflictException;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
+import popacketservice.popacketservice.model.dto.ShipmentRatingDTO;
 import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 
@@ -103,12 +104,13 @@ public class ShipmentService {
         return shipmentMapper.convertToDTO(shipmentTemp);
     }
 
-    public ShipmentResponseDTO rateShipment(Long shipmentId, Integer rating) {
-        Shipment shipment = shipmentRepository.findById(shipmentId)
-                .orElseThrow(() -> new NoSuchElementException("Shipment not found with id: " + shipmentId));
-        shipment.setRating(rating);
-        Shipment updatedShipment = shipmentRepository.save(shipment);
-        return shipmentMapper.convertToDTO(updatedShipment);
+    public ShipmentResponseDTO rateShipment(ShipmentRatingDTO ratingDto) {
+        Shipment shipment = shipmentRepository.findById(ratingDto.getShipmentId())
+                .orElseThrow(() -> new NoSuchElementException("Shipment not found with id: " + ratingDto.getShipmentId()));
+        shipment.setRating(ratingDto.getRating());
+        shipment.setComments(ratingDto.getComments());
+        shipmentRepository.save(shipment);
+        return shipmentMapper.convertToDTO(shipment);
     }
 
 }

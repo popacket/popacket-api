@@ -48,4 +48,7 @@ public class Shipment {
 
     @Column(name = "rating", nullable = true)
     private Integer rating;
+
+    @Column(name = "comments", nullable = true, length = 255)
+    private String comments;
 }
