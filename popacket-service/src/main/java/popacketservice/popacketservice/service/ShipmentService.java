@@ -106,7 +106,7 @@ public class ShipmentService {
 
     public ShipmentResponseDTO rateShipment(ShipmentRatingDTO ratingDto) {
         Shipment shipment = shipmentRepository.findById(ratingDto.getShipmentId())
-                .orElseThrow(() -> new NoSuchElementException("Shipment not found with id: " + ratingDto.getShipmentId()));
+                .orElseThrow(() -> new NoSuchElementException("Envío no encontrado con id: " + ratingDto.getShipmentId()));
         shipment.setRating(ratingDto.getRating());
         shipment.setComments(ratingDto.getComments());
         shipmentRepository.save(shipment);

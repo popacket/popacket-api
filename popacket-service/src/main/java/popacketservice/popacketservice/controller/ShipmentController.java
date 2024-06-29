@@ -60,7 +60,7 @@ public class ShipmentController {
     @PostMapping("/rate")
     public ResponseEntity<String> rateShipment(@RequestBody ShipmentRatingDTO ratingDto) {
         shipmentService.rateShipment(ratingDto);
-        return ResponseEntity.ok("Shipment rated successfully with a rating of " + ratingDto.getRating() + " and comments: " + ratingDto.getComments());
+        return ResponseEntity.ok("Envío calificado exitosamente con una calificación de " + ratingDto.getRating() + "y comentarios: " + ratingDto.getComments());
     }
 
 }
