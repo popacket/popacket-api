@@ -35,7 +35,6 @@ public class ShipmentController {
     }
     @GetMapping("/tracking_2/{id}")
     public ResponseEntity<Object[]> getTrackingOb(@PathVariable("id") Long shipmentId) {
-        //ShipmentResponseDTO shipment = shipmentService.getShipmentById(shipmentId);
         Object[] shipment = shipmentService.getStatusShipmentById(shipmentId);
         return new ResponseEntity<>(shipment, HttpStatus.OK);
     }
