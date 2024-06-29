@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import popacketservice.popacketservice.exception.ConflictException;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
+import popacketservice.popacketservice.model.dto.ShipmentRatingDTO;
 import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 
@@ -15,6 +16,7 @@ import popacketservice.popacketservice.model.entity.Package;
 import popacketservice.popacketservice.repository.*;
 
 import java.math.BigDecimal;
+import java.util.NoSuchElementException;
 import java.time.LocalDateTime;
 
 @Service
@@ -100,4 +102,21 @@ public class ShipmentService {
             return shipmentMapper.convertToDTO(savedShipment);}
     }
 
+    public ShipmentResponseDTO updateScheduleShipment(ShipmentRequestDTO shipmentRequestDTO) {
+        Shipment shipment = shipmentMapper.convertToEntity(shipmentRequestDTO);
+        Shipment shipmentTemp = shipmentRepository.getShipmentById(shipment.getId()).orElseThrow();
+        shipmentTemp.setPickupDateTime(shipment.getPickupDateTime());
+        shipmentTemp.setDeliveryDateTime(shipment.getPickupDateTime().plusDays(3));
+        shipmentRepository.save(shipmentTemp);
+        return shipmentMapper.convertToDTO(shipmentTemp);
+    }
+
+    public ShipmentResponseDTO rateShipment(ShipmentRatingDTO ratingDto) {
+        Shipment shipment = shipmentRepository.findById(ratingDto.getShipmentId())
+                .orElseThrow(() -> new NoSuchElementException("Envío no encontrado con id: " + ratingDto.getShipmentId()));
+        shipment.setRating(ratingDto.getRating());
+        shipment.setComments(ratingDto.getComments());
+        shipmentRepository.save(shipment);
+        return shipmentMapper.convertToDTO(shipment);
+    }
 }
