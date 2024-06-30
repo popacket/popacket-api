@@ -14,6 +14,7 @@ import popacketservice.popacketservice.model.entity.Package;
 import popacketservice.popacketservice.repository.*;
 
 import java.math.BigDecimal;
+import java.util.NoSuchElementException;
 
 @Service
 @Data
@@ -92,11 +93,14 @@ public class ShipmentService {
     }
 
     public ShipmentResponseDTO updateScheduleShipment(ShipmentRequestDTO shipmentRequestDTO) {
-        Shipment shipment = shipmentMapper.convertToEntity(shipmentRequestDTO);
-        Shipment shipmentTemp = shipmentRepository.getShipmentById(shipment.getId()).orElseThrow();
-        shipmentTemp.setPickupDateTime(shipment.getPickupDateTime());
-        shipmentTemp.setDeliveryDateTime(shipment.getPickupDateTime().plusDays(3));
-        shipmentRepository.save(shipmentTemp);
-        return shipmentMapper.convertToDTO(shipmentTemp);
+        Shipment shipment = shipmentRepository.findById(shipmentRequestDTO.getPackageId())  // Asegúrate de que este ID sea correcto
+                .orElseThrow(() -> new RuntimeException("Shipment not found with id: " + shipmentRequestDTO.getPackageId()));
+
+        shipment.setPickupDateTime(shipmentRequestDTO.getPickupDateTime());
+        shipment.setDeliveryDateTime(shipmentRequestDTO.getDeliveryDateTime());
+        shipmentRepository.save(shipment);  // Verifica que se esté llamando save()
+
+        return shipmentMapper.convertToDTO(shipment);
     }
+
 }

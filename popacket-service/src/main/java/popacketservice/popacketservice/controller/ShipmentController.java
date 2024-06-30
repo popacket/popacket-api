@@ -50,9 +50,14 @@ public class ShipmentController {
         return new ResponseEntity<>(shipmentResponseDTO, HttpStatus.OK);
     }
 
-    @PostMapping("updateSchedule/")
+    @PostMapping("/update-schedule")
     public ResponseEntity<ShipmentResponseDTO> updateScheduleShipment(@RequestBody ShipmentRequestDTO shipmentDTO) {
-        ShipmentResponseDTO shipment = shipmentService.updateScheduleShipment(shipmentDTO);
-        return new ResponseEntity<>(shipment, HttpStatus.OK);
+        try {
+            ShipmentResponseDTO shipment = shipmentService.updateScheduleShipment(shipmentDTO);
+            return ResponseEntity.ok(shipment);
+        } catch (Exception e) {
+            // Puedes personalizar el manejo de excepciones dependiendo de los tipos de errores esperados
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
     }
 }
