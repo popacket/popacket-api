@@ -62,5 +62,4 @@ public class ShipmentController {
         shipmentService.rateShipment(ratingDto);
         return ResponseEntity.ok("Envío calificado exitosamente con una calificación de " + ratingDto.getRating() + "y comentarios: " + ratingDto.getComments());
     }
-
 }
