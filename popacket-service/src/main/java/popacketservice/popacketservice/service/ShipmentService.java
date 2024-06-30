@@ -17,6 +17,7 @@ import popacketservice.popacketservice.repository.*;
 
 import java.math.BigDecimal;
 import java.util.NoSuchElementException;
+import java.time.LocalDateTime;
 
 @Service
 @Data
@@ -25,36 +26,39 @@ import java.util.NoSuchElementException;
 
 public class ShipmentService {
 
-
     @Autowired
     private ShipmentRepository shipmentRepository;
     @Autowired
     private ShippingRateRepository shipmentRateRepository;
     @Autowired
     private ShipmentMapper shipmentMapper;
-
+    @Autowired
     private PackageRepository packageRepository;
-
+    @Autowired
     private UserRepository userRepository;
-
+    @Autowired
     private LocationRepository locationRepository;
-
+    @Autowired
     private DeliveryPersonRepository deliveryPersonRepository;
 
     public ShipmentResponseDTO cancelShipmentById(Long id) {
-        Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow(
-                () -> new RuntimeException("Envio no encontrado con el id ingresado" + id)
-        );
-        shipmentTemp.setStatus("cancelado");
-        shipmentRepository.save(shipmentTemp);
-        return shipmentMapper.convertToDTO(shipmentTemp);
+        if(shipmentRepository.ifExistsByPackageID(id)){
+           Shipment shipmentTemp = shipmentRepository.getShipmentByPackageId(id).orElseThrow();
+           shipmentTemp.setStatus("cancelado");
+           Package pack = packageRepository.findById(id).orElseThrow();
+           pack.setStatus("cancelado");
+           shipmentTemp.setPackageEntity(pack);
+           shipmentRepository.save(shipmentTemp);
+           return shipmentMapper.convertToDTO(shipmentTemp);
+        } else {
+            throw new ConflictException("El package no existe con el id " + id);
+        }
     }
 
     public Double getShipmentCost(Double weight, String serviceType) {
         BigDecimal priceBase = shipmentRateRepository.getBasePrice(BigDecimal.valueOf(weight), serviceType);
         BigDecimal pricePerKilometer = shipmentRateRepository.getPricePerKilometer(BigDecimal.valueOf(weight), serviceType);
-        Double price = priceBase.add(pricePerKilometer).doubleValue();
-        return price;
+        return pricePerKilometer.multiply(BigDecimal.valueOf(weight)).add(priceBase).doubleValue();
     }
 
     public ShipmentResponseDTO getShipmentById(Long id) {
@@ -63,13 +67,14 @@ public class ShipmentService {
         return shipmentMapper.convertToDTO(shipmentTemp);
     }
 
-
     public Object[] getStatusShipmentById(Long id) {
         //Shipment shipmentTemp = shipmentRepository.getShipmentById(id).orElseThrow();
         Object[] shipmentTemp = shipmentRepository.getStatusShipmentByIdOb(id).orElseThrow();
         return shipmentTemp;
     }
+
     public ShipmentResponseDTO makeShipment(ShipmentRequestDTO shipmentRequestDTO){
+
         boolean resp = shipmentRepository.ifExistsByPackageID(shipmentRequestDTO.getPackageId());
         if(resp){
             throw new ConflictException("El envio ya se encuentra registrado");
@@ -84,14 +89,16 @@ public class ShipmentService {
             DeliveryPerson deliveryPerson = deliveryPersonRepository.findById(shipmentRequestDTO.getDeliveryPersonId())
                     .orElseThrow(() -> new RuntimeException("Persona de entrega no encontrada"));
 
+            ShippingRate shippingRate = shipmentRateRepository.findByServiceTypeAndWeight(pack.getPaymentType(),pack.getWeight());
             Shipment shipment = shipmentMapper.convertToEntity(shipmentRequestDTO);
             shipment.setDestinationLocation(destinationLocation);
             shipment.setOriginLocation(originLocation);
             shipment.setPackageEntity(pack);
             shipment.setDeliveryPerson(deliveryPerson);
-
+            shipment.setPickupDateTime(LocalDateTime.now());
+            shipment.setDeliveryDateTime(LocalDateTime.now().plusDays(3));
+            shipment.setShippingRate(shippingRate);
             Shipment savedShipment = shipmentRepository.save(shipment);
-
             return shipmentMapper.convertToDTO(savedShipment);}
     }
 
@@ -115,5 +122,4 @@ public class ShipmentService {
         shipmentRepository.save(shipment);
         return shipmentMapper.convertToDTO(shipment);
     }
-
 }

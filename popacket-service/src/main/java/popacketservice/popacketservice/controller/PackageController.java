@@ -35,4 +35,10 @@ public class PackageController {
         List<PackageResponseDTO> packages = packageService.getPackagesByRecipient(recipientId);
         return new ResponseEntity<>(packages, HttpStatus.OK);
     }
+
+    @GetMapping("/by-shipment-to-collet")
+    public ResponseEntity<List<PackageResponseDTO>> getPackagesByShipmentToCollet(@RequestParam("senderId") Long senderID,@RequestParam("status") String status) {
+        List<PackageResponseDTO> packageResponseDTOList = packageService.getPackagesBySenderAndStatus(senderID, status);
+        return new ResponseEntity<>(packageResponseDTOList, HttpStatus.OK);
+    }
 }
