@@ -75,10 +75,14 @@ public class ShipmentService {
         if(resp){
             throw new ConflictException("El envio ya se encuentra registrado");
         } else {
-            Location destinationLocation = locationRepository.findById(shipmentRequestDTO.getDestinationLocationId()).orElseThrow(() -> new RuntimeException("Destino no encontrado"));
-            Location originLocation = locationRepository.findById(shipmentRequestDTO.getOriginLocationId()).orElseThrow(() -> new RuntimeException("Origen no encontrado"));
-            Package pack = packageRepository.findById(shipmentRequestDTO.getPackageId()).orElseThrow(() -> new RuntimeException("Paquete no encontrado"));
-            DeliveryPerson deliveryPerson = deliveryPersonRepository.findById(shipmentRequestDTO.getDeliveryPersonId()).orElseThrow(() -> new RuntimeException("Persona de entrega no encontrada"));
+            Location destinationLocation = locationRepository.findById(shipmentRequestDTO.getDestinationLocationId())
+                    .orElseThrow(() -> new RuntimeException("Destino no encontrado"));
+            Location originLocation = locationRepository.findById(shipmentRequestDTO.getOriginLocationId())
+                    .orElseThrow(() -> new RuntimeException("Origen no encontrado"));
+            Package pack = packageRepository.findById(shipmentRequestDTO.getPackageId())
+                    .orElseThrow(() -> new RuntimeException("Paquete no encontrado"));
+            DeliveryPerson deliveryPerson = deliveryPersonRepository.findById(shipmentRequestDTO.getDeliveryPersonId())
+                    .orElseThrow(() -> new RuntimeException("Persona de entrega no encontrada"));
             ShippingRate shippingRate = shipmentRateRepository.findByServiceTypeAndWeight(pack.getPaymentType(),pack.getWeight());
             Shipment shipment = shipmentMapper.convertToEntity(shipmentRequestDTO);
             shipment.setDestinationLocation(destinationLocation);
