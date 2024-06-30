@@ -163,10 +163,7 @@ class UserServiceTest {
         verify(userRepository).save(user);
         assertEquals("newemail@example.com", user.getEmail());
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 14b26f18b04e6e52012f041ab3cb2ae21df27b96
     // Verifica que el inicio de sesión sea exitoso cuando se proporcionan datos correctos
     @Test
     void testLoginSuccess() {

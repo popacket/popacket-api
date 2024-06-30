@@ -17,8 +17,5 @@ public class LoginRequestDTO {
 
     @NotNull
     private String password;
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> 14b26f18b04e6e52012f041ab3cb2ae21df27b96

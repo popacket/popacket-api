@@ -25,8 +25,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query("SELECT COUNT(u) > 0 FROM User u WHERE u.email = :email AND u.pass = :pass")
     boolean existsByEmailAndPassword(@Param("email") String email, @Param("pass") String pass);
-<<<<<<< HEAD
-=======
 
->>>>>>> 14b26f18b04e6e52012f041ab3cb2ae21df27b96
 }
