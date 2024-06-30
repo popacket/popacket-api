@@ -8,12 +8,14 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
+import popacketservice.popacketservice.model.dto.ShipmentRatingDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.model.entity.Shipment;
 import popacketservice.popacketservice.repository.ShipmentRateRepository;
 import popacketservice.popacketservice.repository.ShipmentRepository;
 
 import java.math.BigDecimal;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -95,4 +97,60 @@ public class ShipmentServiceTests {
         // Verificación
         assertEquals(55.0, cost);
     }
+
+    //Ecenario exitoso cuandos se encuentra todos los datos completdos exitosamente
+    @Test
+    void rateShipment_updatesRatingAndComments() {
+        // Dado (Given)
+        Long shipmentId = 1L;
+        ShipmentRatingDTO ratingDto = new ShipmentRatingDTO(shipmentId, 10, "Excellent service");
+        Shipment shipment = new Shipment();
+        shipment.setId(shipmentId);
+
+        when(shipmentRepository.findById(shipmentId)).thenReturn(Optional.of(shipment));
+
+        // Cuando (When)
+        shipmentService.rateShipment(ratingDto);
+
+        // Entonces (Then)
+        assertEquals(10, shipment.getRating());
+        assertEquals("Excellent service", shipment.getComments());
+        verify(shipmentRepository).save(shipment);
+        verify(shipmentMapper).convertToDTO(shipment);
+    }
+
+    //Prueba de Envío No Encontrado
+    @Test
+    void rateShipment_throwsExceptionWhenShipmentNotFound() {
+
+        Long shipmentId = 1L;
+        ShipmentRatingDTO ratingDto = new ShipmentRatingDTO(shipmentId, 10, "Excelente servicio");
+
+        when(shipmentRepository.findById(shipmentId)).thenReturn(Optional.empty());
+
+
+        assertThrows(NoSuchElementException.class, () -> {
+            shipmentService.rateShipment(ratingDto);
+        });
+
+        verify(shipmentRepository, never()).save(any(Shipment.class));
+    }
+
+    //Calificacion fuera de rango de 1-10
+    @Test
+    void rateShipment_throwsExceptionWhenRatingIsOutOfRange() {
+        Long shipmentId = 1L;
+        ShipmentRatingDTO ratingDto = new ShipmentRatingDTO(shipmentId, 0, "Pesimo servicio"); // Calificación es 0, fuera de rango
+
+        Shipment shipment = new Shipment();
+        shipment.setId(shipmentId);
+        when(shipmentRepository.findById(shipmentId)).thenReturn(Optional.of(shipment));
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            shipmentService.rateShipment(ratingDto);
+        });
+
+        verify(shipmentRepository, never()).save(any(Shipment.class));
+    }
+
 }
