@@ -94,8 +94,11 @@ public class ShipmentService {
 
     public ShipmentResponseDTO updateScheduleShipment(ShipmentRequestDTO shipmentRequestDTO) {
         Shipment shipment = shipmentRepository.findById(shipmentRequestDTO.getPackageId())  // Asegúrate de que este ID sea correcto
-                .orElseThrow(() -> new RuntimeException("Shipment not found with id: " + shipmentRequestDTO.getPackageId()));
+                .orElseThrow(() -> new NoSuchElementException("Envío no encontrado con id: "+ shipmentRequestDTO.getPackageId()));
 
+        if (shipmentRequestDTO.getDeliveryDateTime().isBefore(shipmentRequestDTO.getPickupDateTime())) {
+            throw new IllegalArgumentException("La fecha de entrega no puede ser anterior a la fecha de recogida.");
+        }
         shipment.setPickupDateTime(shipmentRequestDTO.getPickupDateTime());
         shipment.setDeliveryDateTime(shipmentRequestDTO.getDeliveryDateTime());
         shipmentRepository.save(shipment);  // Verifica que se esté llamando save()

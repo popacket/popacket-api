@@ -16,6 +16,7 @@ import popacketservice.popacketservice.repository.ShipmentRepository;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -97,6 +98,9 @@ public class ShipmentServiceTests {
         // Verificación
         assertEquals(55.0, cost);
     }
+
+    //Datos exitoso actualizada la reprogramacion
+
     @Test
     void updateScheduleShipment_updatesShipmentDates() {
         // Given las condiciones iniciales y preparamos los datos de prueba
@@ -121,4 +125,43 @@ public class ShipmentServiceTests {
         assertEquals(newPickupDateTime, shipment.getPickupDateTime(), "La fecha de recogida debe ser actualizada correctamente");
         assertEquals(newDeliveryDateTime, shipment.getDeliveryDateTime(), "La fecha de entrega debe ser actualizada correctamente");
     }
+
+    //Envio no existe no se puede reprogramar
+    @Test
+    void updateScheduleShipment_throwsExceptionWhenShipmentNotFound() {
+        // Given
+        Long shipmentId = 1L;
+        ShipmentRequestDTO requestDTO = new ShipmentRequestDTO();
+        requestDTO.setPackageId(shipmentId);
+
+        when(shipmentRepository.findById(shipmentId)).thenReturn(Optional.empty());
+
+        // When & Then
+        assertThrows(NoSuchElementException.class, () -> shipmentService.updateScheduleShipment(requestDTO),
+                "Debe lanzar una excepción cuando el envío no se encuentra.");
+    }
+
+    //Verifica las fechas no se cruzen
+
+    @Test
+    void updateScheduleShipment_throwsExceptionWhenDeliveryBeforePickup() {
+        // Given
+        Long shipmentId = 1L;
+        LocalDateTime newPickupDateTime = LocalDateTime.now();
+        LocalDateTime newDeliveryDateTime = newPickupDateTime.minusDays(1); // Incorrecto
+        ShipmentRequestDTO requestDTO = new ShipmentRequestDTO();
+        requestDTO.setPackageId(shipmentId);
+        requestDTO.setPickupDateTime(newPickupDateTime);
+        requestDTO.setDeliveryDateTime(newDeliveryDateTime);
+
+        Shipment shipment = new Shipment();
+        shipment.setId(shipmentId);
+
+        when(shipmentRepository.findById(shipmentId)).thenReturn(Optional.of(shipment));
+
+        // When & Then
+        assertThrows(IllegalArgumentException.class, () -> shipmentService.updateScheduleShipment(requestDTO),
+                "Debe lanzar una excepción cuando la fecha de entrega es anterior a la fecha de recogida.");
+    }
+
 }
