@@ -145,12 +145,9 @@ public class ShipmentServiceTests {
         Shipment shipment = new Shipment();
         shipment.setId(shipmentId);
         when(shipmentRepository.findById(shipmentId)).thenReturn(Optional.of(shipment));
-
         assertThrows(IllegalArgumentException.class, () -> {
             shipmentService.rateShipment(ratingDto);
         });
-
         verify(shipmentRepository, never()).save(any(Shipment.class));
     }
-
 }
