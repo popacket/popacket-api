@@ -8,12 +8,14 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
+import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.model.entity.Shipment;
 import popacketservice.popacketservice.repository.ShipmentRateRepository;
 import popacketservice.popacketservice.repository.ShipmentRepository;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -94,5 +96,29 @@ public class ShipmentServiceTests {
 
         // Verificación
         assertEquals(55.0, cost);
+    }
+    @Test
+    void updateScheduleShipment_updatesShipmentDates() {
+        // Given las condiciones iniciales y preparamos los datos de prueba
+        Long shipmentId = 1L;
+        LocalDateTime newPickupDateTime = LocalDateTime.now();
+        LocalDateTime newDeliveryDateTime = newPickupDateTime.plusDays(3);
+        ShipmentRequestDTO requestDTO = new ShipmentRequestDTO();
+        requestDTO.setPackageId(shipmentId);
+        requestDTO.setPickupDateTime(newPickupDateTime);
+        requestDTO.setDeliveryDateTime(newDeliveryDateTime);
+
+        Shipment shipment = new Shipment();
+        shipment.setId(shipmentId);
+
+        when(shipmentRepository.findById(shipmentId)).thenReturn(Optional.of(shipment));
+
+        // When
+        shipmentService.updateScheduleShipment(requestDTO);
+
+        //Then los resultados esperados
+        verify(shipmentRepository).save(shipment);
+        assertEquals(newPickupDateTime, shipment.getPickupDateTime(), "La fecha de recogida debe ser actualizada correctamente");
+        assertEquals(newDeliveryDateTime, shipment.getDeliveryDateTime(), "La fecha de entrega debe ser actualizada correctamente");
     }
 }
