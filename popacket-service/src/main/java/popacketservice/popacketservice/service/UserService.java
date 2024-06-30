@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import popacketservice.popacketservice.exception.ConflictException;
 import popacketservice.popacketservice.mapper.UserMapper;
+import popacketservice.popacketservice.model.dto.LoginRequestDTO;
 import popacketservice.popacketservice.model.dto.UserRequestDTO;
 import popacketservice.popacketservice.model.dto.UserResponseDTO;
 import popacketservice.popacketservice.model.entity.User;
@@ -79,6 +80,19 @@ public class UserService {
         user1.setEmail(user.getEmail());
         userRepository.save(user1);
         return userMapper.convertToDTO(user1);
+    }
+
+    public UserResponseDTO login(@NotNull LoginRequestDTO loginRequest) {
+
+        User userEntity = userRepository.findByEmail(loginRequest.getUsername());
+        if (userEntity == null) {
+            throw new ConflictException("El usuario no existe");
+        }
+
+        if (!userEntity.getPass().equals(loginRequest.getPassword())) {
+            throw new ConflictException("La contraseña es incorrecta");
+        }
+        return userMapper.convertToDTO(userEntity);
     }
 
 }

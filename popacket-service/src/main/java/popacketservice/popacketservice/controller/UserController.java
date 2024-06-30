@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import popacketservice.popacketservice.exception.ConflictException;
+import popacketservice.popacketservice.model.dto.LoginRequestDTO;
 import popacketservice.popacketservice.model.dto.UserRequestDTO;
 import popacketservice.popacketservice.model.dto.UserResponseDTO;
 import popacketservice.popacketservice.service.UserService;
@@ -27,5 +29,14 @@ public class UserController {
     public ResponseEntity<UserResponseDTO> updateUser(@Validated @RequestBody UserRequestDTO userDTO,@PathVariable("type") String type){
        UserResponseDTO updateUser = userService.updateProfileUser(userDTO,type);
        return new ResponseEntity<>(updateUser, HttpStatus.OK);
+    }
+    @PostMapping("/login")
+    public ResponseEntity<UserResponseDTO> login(@Validated @RequestBody LoginRequestDTO loginRequest) {
+        try {
+            UserResponseDTO user = userService.login(loginRequest);
+            return ResponseEntity.ok(user);
+        } catch (ConflictException ex) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
     }
 }
