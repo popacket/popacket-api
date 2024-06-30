@@ -34,7 +34,7 @@ public class PaymentService {
             payment.setPaymentDate(LocalDateTime.now());
             paymentRepository.save(payment);
             return paymentMapper.convertToDTO(payment);
+                }
         }
-    }
 
 }

@@ -17,4 +17,7 @@ public interface ShippingRateRepository extends JpaRepository<ShippingRate,Long>
 
     @Query("SELECT sr.pricePerKilometer FROM ShippingRate sr WHERE (:weight BETWEEN sr.weightMin AND sr.weightMax) AND sr.serviceType=:serviceType")
     public BigDecimal getPricePerKilometer(@Param("weight") BigDecimal weight, @Param("serviceType") String serviceType);
+
+    @Query("SELECT sr FROM ShippingRate sr WHERE (:weight BETWEEN sr.weightMin AND sr.weightMax) AND sr.serviceType=:serviceType")
+    ShippingRate findByServiceTypeAndWeight(String serviceType, BigDecimal weight);
 }
