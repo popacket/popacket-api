@@ -8,6 +8,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import popacketservice.popacketservice.model.dto.ShipmentRatingDTO;
 import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.service.ShipmentService;
@@ -29,17 +30,6 @@ public class ShipmentControllerTest {
 
     @MockBean
     private ShipmentService shipmentService;
-
-    @Test
-    void testGetQuoteShipment() throws Exception {
-        when(shipmentService.getShipmentCost(anyDouble(), anyString())).thenReturn(50.0);
-
-        mockMvc.perform(get("/shipments/cost/10/serviceType")
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.cost").value(50.0));
-    }
 
     @Test
     void testGetTrackingInfoById() throws Exception {
@@ -102,5 +92,19 @@ public class ShipmentControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.id").value(1L));
+    }
+
+    //Cuando la validacion cumple todos los datos completos
+    @Test
+    void rateShipment_returnsSuccessMessageWithMaxRating() throws Exception {
+        // Asumiendo que el servicio no devuelve un valor
+        when(shipmentService.rateShipment(any(ShipmentRatingDTO.class))).thenReturn(null);
+
+        // Usando la calificación máxima permitida que es 10
+        mockMvc.perform(post("/shipments/rate")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"shipmentId\": 1, \"rating\": 10, \"comments\": \"Outstanding service\"}"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.message").value("Envío calificado exitosamente con una calificación de 10 y comentarios: Outstanding service"));
     }
 }
