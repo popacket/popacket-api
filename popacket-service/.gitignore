@@ -15,6 +15,8 @@ target/
 
 ### IntelliJ IDEA ###
 .idea
+../.idea/
+.idea/*
 *.iws
 *.iml
 *.ipr
@@ -27,7 +29,10 @@ target/
 /.nb-gradle/
 build/
 !**/src/main/**/build/
+!**/src/main/resources/application.properties
 !**/src/test/**/build/
 
 ### VS Code ###
 .vscode/
+
+
