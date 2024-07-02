@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7961349-1ef8-44e1-bc11-c7e591793cfd" name="Changes" comment="" />
+    <list default="true" id="f7961349-1ef8-44e1-bc11-c7e591793cfd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/target/classes/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -318,7 +322,7 @@
       <workItem from="1719720895903" duration="6951000" />
       <workItem from="1719769648708" duration="1829000" />
       <workItem from="1719809535358" duration="6318000" />
-      <workItem from="1719895900294" duration="305000" />
+      <workItem from="1719895900294" duration="1354000" />
     </task>
     <servers />
   </component>
