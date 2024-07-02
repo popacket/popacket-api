@@ -1,0 +1,2 @@
+Token no enviado could not execute statement [ERROR: llave duplicada viola restricción de unicidad «uk_f90ivichjaokvmovxpnlm5nin»
+  Detail: Ya existe la llave (user_id)=(6).] [insert into password_reset_token (expiry_date,token,user_id) values (?,?,?)]; SQL [insert into password_reset_token (expiry_date,token,user_id) values (?,?,?)]; constraint [null]
