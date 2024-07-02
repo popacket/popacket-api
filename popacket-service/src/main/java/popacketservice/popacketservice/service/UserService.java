@@ -59,4 +59,8 @@ public class UserService {
         }
         throw new ConflictException("El usuario no existe");
     }
+
+    public UserResponseDTO getUserById(Long id){
+        return userMapper.convertToDTO(userRepository.findById(id).get());
+    }
 }

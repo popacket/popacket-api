@@ -34,4 +34,9 @@ public class UserController {
         UserResponseDTO user = userService.Login(userDTO);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
+
+    @GetMapping("/get-user/{id}")
+    public ResponseEntity<UserResponseDTO> getUserById(@PathVariable("id") Long id){
+        return new ResponseEntity<>(userService.getUserById(id), HttpStatus.OK);
+    }
 }

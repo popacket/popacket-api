@@ -174,37 +174,23 @@ public class ShipmentServiceTests {
         verify(deliveryPersonRepository, never()).findById(anyLong());
         verify(shipmentRepository, never()).save(any(Shipment.class));
     }
-
     @Test
-    public void getStatusShipmentById_Success() {
+    void testGetShipmentByIdSuccess() {
+        Shipment shipment = new Shipment();
+        shipment.setId(1L);
+        when(shipmentRepository.getShipmentById(1L)).thenReturn(Optional.of(shipment));
+        when(shipmentMapper.convertToDTO(shipment)).thenReturn(shipmentResponseDTO);
 
-        Long shipmentId = 1L;
-        Object[] expectedShipmentStatus = {"En camino", "2024-06-10"};
+        ShipmentResponseDTO result = shipmentService.getShipmentById(1L);
 
-        when(shipmentRepository.getStatusShipmentByIdOb(anyLong())).thenReturn(Optional.of(expectedShipmentStatus));
-
-
-        Object[] result = shipmentService.getStatusShipmentById(shipmentId);
-
-
-        assertArrayEquals(expectedShipmentStatus, result);
-        verify(shipmentRepository, times(1)).getStatusShipmentByIdOb(shipmentId);
+        assertNotNull(result);
+        assertEquals(1L, result.getId());
     }
 
     @Test
-    public void getStatusShipmentById_NotFound() {
+    void testGetShipmentByIdNotFound() {
+        when(shipmentRepository.getShipmentById(1L)).thenReturn(Optional.empty());
 
-        Long shipmentId = 1L;
-
-        when(shipmentRepository.getStatusShipmentByIdOb(anyLong())).thenReturn(Optional.empty());
-
-
-        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
-            shipmentService.getStatusShipmentById(shipmentId);
-        });
-
-        assertEquals("El id del Envio no existe", exception.getMessage());
-        verify(shipmentRepository, times(1)).getStatusShipmentByIdOb(shipmentId);
+        assertThrows(RuntimeException.class, () -> shipmentService.getShipmentById(1L));
     }
-
 }
