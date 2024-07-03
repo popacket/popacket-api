@@ -13,8 +13,15 @@ import popacketservice.popacketservice.model.dto.*;
 import popacketservice.popacketservice.model.entity.*;
 import popacketservice.popacketservice.model.entity.Package;
 import popacketservice.popacketservice.repository.*;
+import popacketservice.popacketservice.model.dto.RescheduleShipmentDTO;
+import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
+import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
+import popacketservice.popacketservice.model.entity.Shipment;
+import popacketservice.popacketservice.repository.ShipmentRepository;
 
 import java.math.BigDecimal;
+import java.util.NoSuchElementException;
+import java.time.LocalDateTime;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -42,7 +49,7 @@ public class ShipmentServiceTests {
 
     @Mock
     private DeliveryPersonRepository deliveryPersonRepository;
-  
+
     private ShipmentRequestDTO shipmentRequestDTO;
     private Shipment shipment;
     private ShipmentResponseDTO shipmentResponseDTO;
@@ -53,7 +60,7 @@ public class ShipmentServiceTests {
 
     @InjectMocks
     private ShipmentService shipmentService;
-    
+
     @BeforeEach
     public void setUp() {
 
@@ -261,4 +268,62 @@ public class ShipmentServiceTests {
         verify(shipmentRepository, never()).save(any(Shipment.class));
     }
 
+
+    // Datos exitoso actualizada la reprogramacion
+    @Test
+    void updateScheduleShipment_updatesShipmentDates() {
+        // Given las condiciones iniciales y preparamos los datos de prueba
+        Long shipmentId = 1L;
+        LocalDateTime newPickupDateTime = LocalDateTime.now().plusDays(1);
+        LocalDateTime newDeliveryDateTime = newPickupDateTime.plusDays(3);
+        RescheduleShipmentDTO rescheduleDTO = new RescheduleShipmentDTO(shipmentId, newPickupDateTime, newDeliveryDateTime);
+
+        Shipment shipment = new Shipment();
+        shipment.setId(shipmentId);
+        shipment.setPickupDateTime(LocalDateTime.now());
+        shipment.setDeliveryDateTime(LocalDateTime.now().plusDays(2));
+
+        when(shipmentRepository.findById(shipmentId)).thenReturn(Optional.of(shipment));
+
+        // When
+        shipmentService.rescheduleShipment(rescheduleDTO);
+
+        // Then los resultados esperados
+        verify(shipmentRepository).save(shipment);
+        assertEquals(newPickupDateTime, shipment.getPickupDateTime(), "La fecha de recogida debe ser actualizada correctamente");
+        assertEquals(newDeliveryDateTime, shipment.getDeliveryDateTime(), "La fecha de entrega debe ser actualizada correctamente");
+    }
+
+    // Envio no existe no se puede reprogramar
+    @Test
+    void updateScheduleShipment_throwsExceptionWhenShipmentNotFound() {
+        // Given
+        Long shipmentId = 1L;
+        RescheduleShipmentDTO rescheduleDTO = new RescheduleShipmentDTO(shipmentId, LocalDateTime.now(), LocalDateTime.now().plusDays(1));
+
+        when(shipmentRepository.findById(shipmentId)).thenReturn(Optional.empty());
+
+        // When & Then
+        assertThrows(NoSuchElementException.class, () -> shipmentService.rescheduleShipment(rescheduleDTO),
+                "Debe lanzar una excepción cuando el envío no se encuentra.");
+    }
+
+    // Verifica las fechas no se crucen
+    @Test
+    void updateScheduleShipment_throwsExceptionWhenDeliveryBeforePickup() {
+        // Given
+        Long shipmentId = 1L;
+        LocalDateTime newPickupDateTime = LocalDateTime.now();
+        LocalDateTime newDeliveryDateTime = newPickupDateTime.minusDays(1); // Incorrecto
+        RescheduleShipmentDTO rescheduleDTO = new RescheduleShipmentDTO(shipmentId, newPickupDateTime, newDeliveryDateTime);
+
+        Shipment shipment = new Shipment();
+        shipment.setId(shipmentId);
+
+        when(shipmentRepository.findById(shipmentId)).thenReturn(Optional.of(shipment));
+
+        // When & Then
+        assertThrows(IllegalArgumentException.class, () -> shipmentService.rescheduleShipment(rescheduleDTO),
+                "Debe lanzar una excepción cuando la fecha de entrega es anterior a la fecha de recogida.");
+    }
 }

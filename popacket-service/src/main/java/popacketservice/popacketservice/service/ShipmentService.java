@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import popacketservice.popacketservice.exception.ConflictException;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
+import popacketservice.popacketservice.model.dto.RescheduleShipmentDTO;
 import popacketservice.popacketservice.model.dto.ShipmentRatingDTO;
 import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
@@ -25,6 +26,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 
 public class ShipmentService {
+
 
     @Autowired
     private ShipmentRepository shipmentRepository;
@@ -114,6 +116,21 @@ public class ShipmentService {
         shipment.setRating(ratingDto.getRating());
         shipment.setComments(ratingDto.getComments());
         shipmentRepository.save(shipment);
+        return shipmentMapper.convertToDTO(shipment);
+    }
+
+    public ShipmentResponseDTO rescheduleShipment(RescheduleShipmentDTO rescheduleDTO) {
+        Shipment shipment = shipmentRepository.findById(rescheduleDTO.getPackageId())
+                .orElseThrow(() -> new NoSuchElementException("Envío no encontrado con id: " + rescheduleDTO.getPackageId()));
+
+        if (rescheduleDTO.getDeliveryDateTime().isBefore(rescheduleDTO.getPickupDateTime())) {
+            throw new IllegalArgumentException("La fecha de entrega no puede ser anterior a la fecha de recogida.");
+        }
+
+        shipment.setPickupDateTime(rescheduleDTO.getPickupDateTime());
+        shipment.setDeliveryDateTime(rescheduleDTO.getDeliveryDateTime());
+        shipmentRepository.save(shipment);
+
         return shipmentMapper.convertToDTO(shipment);
     }
 }
