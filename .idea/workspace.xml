@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7961349-1ef8-44e1-bc11-c7e591793cfd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-06-26T001026.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-06-26T001430.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-06-26T001442.200.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/ShipmentRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/ShipmentRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/LocationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/LocationRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/service/ShipmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/service/ShipmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="masterIzpo" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
