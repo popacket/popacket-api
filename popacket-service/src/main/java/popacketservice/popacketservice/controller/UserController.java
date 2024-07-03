@@ -11,6 +11,9 @@ import popacketservice.popacketservice.model.dto.UserRequestDTO;
 import popacketservice.popacketservice.model.dto.UserResponseDTO;
 import popacketservice.popacketservice.service.UserService;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/users")
 @AllArgsConstructor
@@ -31,9 +34,11 @@ public class UserController {
     }
 
     @PutMapping("/preferences/{userId}")
-    public ResponseEntity<String> updatePreferences(@PathVariable Long userId, @RequestBody UserPreferencesDTO preferencesDto) {
+    public ResponseEntity<Map<String, Object>> updatePreferences(@PathVariable Long userId, @RequestBody UserPreferencesDTO preferencesDto) {
         userService.updatePreferences(userId, preferencesDto);
-        return new ResponseEntity<>("Preferencias actualizadas correctamente.", HttpStatus.CREATED);
+        Map<String, Object> response = new HashMap<>();
+        response.put("message", "Preferencias actualizadas correctamente.");
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
 }
