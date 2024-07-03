@@ -12,6 +12,9 @@ import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.service.ShipmentService;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/shipments")
 @Data
@@ -36,6 +39,7 @@ public class ShipmentController {
     }
     @GetMapping("/tracking_2/{id}")
     public ResponseEntity<Object[]> getTrackingOb(@PathVariable("id") Long shipmentId) {
+        //ShipmentResponseDTO shipment = shipmentService.getShipmentById(shipmentId);
         Object[] shipment = shipmentService.getStatusShipmentById(shipmentId);
         return new ResponseEntity<>(shipment, HttpStatus.OK);
     }
@@ -44,16 +48,21 @@ public class ShipmentController {
         ShipmentResponseDTO shipmentResponseDTO = shipmentService.makeShipment(shipmentDTO);
         return new ResponseEntity<>(shipmentResponseDTO, HttpStatus.OK);
     }
-    @PostMapping("/updateSchedule")
+
+    @PostMapping("updateSchedule/")
     public ResponseEntity<ShipmentResponseDTO> updateScheduleShipment(@RequestBody ShipmentRequestDTO shipmentDTO) {
         ShipmentResponseDTO shipment = shipmentService.updateScheduleShipment(shipmentDTO);
         return new ResponseEntity<>(shipment, HttpStatus.OK);
     }
+
     @PostMapping("/rate")
-    public ResponseEntity<String> rateShipment(@RequestBody ShipmentRatingDTO ratingDto) {
+    public ResponseEntity<Map<String, Object>> rateShipment(@RequestBody ShipmentRatingDTO ratingDto) {
         shipmentService.rateShipment(ratingDto);
-        return ResponseEntity.ok("Envío calificado exitosamente con una calificación de " + ratingDto.getRating() + "y comentarios: " + ratingDto.getComments());
+        Map<String, Object> response = new HashMap<>();
+        response.put("message", "Envío calificado exitosamente con una calificación de " + ratingDto.getRating() + " y comentarios: " + ratingDto.getComments());
+        return ResponseEntity.ok(response);
     }
+
     @PostMapping("/cancel/{id}")
     public ResponseEntity<ShipmentResponseDTO> cancelShipment(@PathVariable("id") Long shipmentId) {
         ShipmentResponseDTO shipment = shipmentService.cancelShipmentById(shipmentId);

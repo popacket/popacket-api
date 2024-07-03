@@ -13,6 +13,7 @@ import popacketservice.popacketservice.model.dto.UserResponseDTO;
 import popacketservice.popacketservice.model.entity.User;
 import popacketservice.popacketservice.repository.UserRepository;
 
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -82,8 +83,8 @@ class UserServiceTest {
         when(userRepository.findByDocument(userRequestDTO.getDocument())).thenReturn(user);
         when(userMapper.convertToDTO(any(User.class))).thenReturn(new UserResponseDTO());
 
-        UserResponseDTO result = userService.updateProfileUser(userRequestDTO);
 
+        UserResponseDTO result = userService.updateProfileUser(userRequestDTO);
         assertNotNull(result);
         verify(userRepository).save(user);
         assertEquals("NewName", user.getName());
@@ -98,6 +99,7 @@ class UserServiceTest {
         when(userRepository.existsByEmailOrDocument(userRequestDTO.getEmail(), userRequestDTO.getDocument())).thenReturn(false);
 
         assertThrows(ConflictException.class, () -> {
+
             userService.updateProfileUser(userRequestDTO);
         });
 

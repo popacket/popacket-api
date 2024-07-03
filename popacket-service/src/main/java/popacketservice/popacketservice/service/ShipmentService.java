@@ -108,6 +108,9 @@ public class ShipmentService {
     public ShipmentResponseDTO rateShipment(ShipmentRatingDTO ratingDto) {
         Shipment shipment = shipmentRepository.findById(ratingDto.getShipmentId())
                 .orElseThrow(() -> new NoSuchElementException("Envío no encontrado con id: " + ratingDto.getShipmentId()));
+        if (ratingDto.getRating() < 1 || ratingDto.getRating() > 10) {
+            throw new IllegalArgumentException("La calificación debe estar entre 1 y 5");
+        }
         shipment.setRating(ratingDto.getRating());
         shipment.setComments(ratingDto.getComments());
         shipmentRepository.save(shipment);
