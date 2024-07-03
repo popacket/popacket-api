@@ -4,15 +4,6 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7961349-1ef8-44e1-bc11-c7e591793cfd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_06_2024_17_04__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_06_2024_17_04__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_06_2024_23_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_06_2024_23_00__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/controller/ShipmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/controller/ShipmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/service/ShipmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/service/ShipmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/test/java/popacketservice/popacketservice/service/ShipmentServiceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/test/java/popacketservice/popacketservice/service/ShipmentServiceTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/target/classes/application.properties" afterDir="false" />
-    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -166,7 +157,6 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.PopacketServiceApplication.executor": "Run",
-    "git-widget-placeholder": "feature/DeleteAdresss",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ftacp/Desktop/Transa/New_Transa/popacket-api",

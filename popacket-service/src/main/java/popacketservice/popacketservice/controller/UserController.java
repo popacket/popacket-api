@@ -8,9 +8,16 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import popacketservice.popacketservice.exception.ConflictException;
 import popacketservice.popacketservice.model.dto.LoginRequestDTO;
+import popacketservice.popacketservice.model.dto.UserPreferencesDTO;
 import popacketservice.popacketservice.model.dto.UserRequestDTO;
 import popacketservice.popacketservice.model.dto.UserResponseDTO;
 import popacketservice.popacketservice.service.UserService;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/users")
@@ -18,7 +25,7 @@ import popacketservice.popacketservice.service.UserService;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private final UserService userService;
 
     @PostMapping
     public ResponseEntity<UserResponseDTO> createUser(@Validated @RequestBody UserRequestDTO userDTO){
@@ -43,5 +50,13 @@ public class UserController {
     @GetMapping("/get-user/{id}")
     public ResponseEntity<UserResponseDTO> getUserById(@PathVariable("id") Long id){
         return new ResponseEntity<>(userService.getUserById(id), HttpStatus.OK);
+    }
+
+    @PutMapping("/preferences/{userId}")
+    public ResponseEntity<Map<String, Object>> updatePreferences(@PathVariable Long userId, @RequestBody UserPreferencesDTO preferencesDto) {
+        userService.updatePreferences(userId, preferencesDto);
+        Map<String, Object> response = new HashMap<>();
+        response.put("message", "Preferencias actualizadas correctamente.");
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 }
