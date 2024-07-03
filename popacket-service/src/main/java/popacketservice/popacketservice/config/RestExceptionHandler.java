@@ -25,7 +25,7 @@ public class RestExceptionHandler {
     public ProblemDetail handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
         ProblemDetail problemDetail =
                 ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST,
-                        "La colicitud tiene unos errores de validacion");
+                        "La solicitud tiene unos errores de validacion");
 
         Set<String> errors = new HashSet<>();
         List<FieldError> fieldErrors = ex.getFieldErrors();
