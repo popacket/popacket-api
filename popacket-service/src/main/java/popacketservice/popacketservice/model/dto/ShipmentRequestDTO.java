@@ -15,11 +15,11 @@ public class ShipmentRequestDTO {
     @NotNull(message = "El ID del paquete no puede estar vacío")
     private Long packageId;
 
-    @NotNull(message = "El ID de la ubicación de origen no puede estar vacío")
-    private Long originLocationId;
+    @NotNull(message = "La ubicación de origen no puede estar vacío")
+    private String originLocationAddress;
 
-    @NotNull(message = "El ID de la ubicación de destino no puede estar vacío")
-    private Long destinationLocationId;
+    @NotNull(message = "La ubicación de destino no puede estar vacío")
+    private String destinationLocationAddress;
 
     @NotBlank(message = "El estado del envío no puede estar vacío")
     @Size(max = 20, message = "El estado del envío no debe exceder los 20 caracteres")
