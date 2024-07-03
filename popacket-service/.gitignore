@@ -1,5 +1,5 @@
 HELP.md
-target/
+#target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
@@ -16,6 +16,7 @@ target/
 ### IntelliJ IDEA ###
 .idea
 ../.idea/
+.idea/*
 *.iws
 *.iml
 *.ipr
@@ -28,7 +29,11 @@ target/
 /.nb-gradle/
 build/
 !**/src/main/**/build/
+!**/src/main/resources/application.properties
 !**/src/test/**/build/
+!**/target/popacket-service-1.0.0.jar
 
 ### VS Code ###
 .vscode/
+
+

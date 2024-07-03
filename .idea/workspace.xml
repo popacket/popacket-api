@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f7961349-1ef8-44e1-bc11-c7e591793cfd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-14T225756.500.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-26T001026.200.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-26T001430.200.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-26T001442.200.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-26T001740.200.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-26T001818.200.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-26T002013.200.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-26T002034.200.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T004731.200.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T005557.200.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T012251.200.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T012847.200.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T014255.500.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T014433.200.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T014538.200.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T014558.200.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T014925.200.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T015425.200.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T021140.404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T021350.404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T021421.404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T021512.404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T021836.200.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T022100.200.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T022408.200.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T233613.500.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T233631.500.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-28T001701.200.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-28T001955.200.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-28T002005.200.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-28T002204.200.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/f-1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/f-2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/f-3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/f-4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/f-5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/f-6.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/f-7.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/f.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/http-client.cookies" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_06_2024_17_04_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_06_2024_17_04__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_06_2024_23_00_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_06_2024_23_00__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/popacket-service/.mvn/wrapper/javax.mail.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/popacket-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/config/CorsConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/controller/DeliveryPersonController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/controller/PackageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/controller/PaymentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/LoginRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/ShipmentRatingDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/PaymentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/service/DeliveryPersonService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/service/PackageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/service/PaymentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/popacket-service/src/test/java/popacketservice/popacketservice/service/DeliveryPersonServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/popacket-service/target/classes/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/popacket-service/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/popacket-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/popacket-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/popacket-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/popacket-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/popacket-service/target/popacket-service-1.0.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/popacket-service/target/popacket-service-1.0.0.jar.original" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/qodana.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/controller/ShipmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/controller/ShipmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/mapper/PackageMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/mapper/PackageMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/DeliveryPersonRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/DeliveryPersonRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/DeliveryPersonResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/DeliveryPersonResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/PaymentRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/PaymentRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/PaymentResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/PaymentResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/ShipmentRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/ShipmentRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/entity/DeliveryPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/entity/DeliveryPerson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/entity/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/entity/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/entity/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/entity/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/entity/Shipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/entity/Shipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/DeliveryPersonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/DeliveryPersonRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/PackageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/PackageRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/ShipmentRateRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/ShipmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/ShipmentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/ShippingRateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/ShippingRateRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/service/ShipmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/service/ShipmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/test/java/popacketservice/popacketservice/ShipmentServiceTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/test/java/popacketservice/popacketservice/UserServiceTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Izpo17F&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/popacket/popacket-api.git&quot;,
+    &quot;accountId&quot;: &quot;52a8f927-3b7c-41ef-b72b-e50835604f16&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/popacket-service/pom.xml" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="HttpClientSelectedEnvironments">
+    <file url="file://$USER_HOME$/AppData/Local/Temp/whats-new-dir/whats-new.http" environment="test" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2hRVTZx5oiyrLCaORUNzbusjHTS" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "HTTP Request.All in generated-requests.executor": "Run",
+    "HTTP Request.generated-requests | #1.executor": "Run",
+    "HTTP Request.generated-requests | #10.executor": "Run",
+    "HTTP Request.generated-requests | #11.executor": "Run",
+    "HTTP Request.generated-requests | #12.executor": "Run",
+    "HTTP Request.generated-requests | #13.executor": "Run",
+    "HTTP Request.generated-requests | #14.executor": "Run",
+    "HTTP Request.generated-requests | #18.executor": "Run",
+    "HTTP Request.generated-requests | #19.executor": "Run",
+    "HTTP Request.generated-requests | #2.executor": "Run",
+    "HTTP Request.generated-requests | #20.executor": "Run",
+    "HTTP Request.generated-requests | #24.executor": "Run",
+    "HTTP Request.generated-requests | #26.executor": "Run",
+    "HTTP Request.generated-requests | #28.executor": "Run",
+    "HTTP Request.generated-requests | #29.executor": "Run",
+    "HTTP Request.generated-requests | #3.executor": "Run",
+    "HTTP Request.generated-requests | #30.executor": "Run",
+    "HTTP Request.generated-requests | #31.executor": "Run",
+    "HTTP Request.generated-requests | #32.executor": "Run",
+    "HTTP Request.generated-requests | #34.executor": "Run",
+    "HTTP Request.generated-requests | #35.executor": "Run",
+    "HTTP Request.generated-requests | #36.executor": "Run",
+    "HTTP Request.generated-requests | #37.executor": "Run",
+    "HTTP Request.generated-requests | #38.executor": "Run",
+    "HTTP Request.generated-requests | #4.executor": "Run",
+    "HTTP Request.generated-requests | #5.executor": "Run",
+    "HTTP Request.generated-requests | #6.executor": "Run",
+    "HTTP Request.generated-requests | #7.executor": "Run",
+    "HTTP Request.generated-requests | #8.executor": "Run",
+    "JUnit.DeliveryPersonServiceTest.testRegisterDeliveryPerson_Conflict.executor": "Run",
+    "JUnit.DeliveryPersonServiceTest.testRegisterDeliveryPerson_Successful.executor": "Run",
+    "JUnit.PackageServiceTest.testGetAllPackageBySenderId_EmptyList.executor": "Run",
+    "JUnit.PackageServiceTest.testGetAllPackageBySenderId_NotFound.executor": "Run",
+    "JUnit.PackageServiceTest.testGetAllPackageBySenderId_Success.executor": "Run",
+    "JUnit.ShipmentControllerTest.testCancelShipment.executor": "Run",
+    "JUnit.ShipmentControllerTest.testGetQuoteShipment.executor": "Run",
+    "JUnit.ShipmentControllerTest.testGetTrackingInfoById.executor": "Run",
+    "JUnit.ShipmentControllerTest.testGetTrackingOb.executor": "Run",
+    "JUnit.ShipmentControllerTest.testMakeShipment.executor": "Run",
+    "JUnit.ShipmentServiceTest.cancelShipmentById_NotFound.executor": "Run",
+    "JUnit.ShipmentServiceTest.cancelShipmentById_Success.executor": "Run",
+    "JUnit.ShipmentServiceTest.getStatusShipmentById_Success (1).executor": "Run",
+    "JUnit.ShipmentServiceTest.getStatusShipmentById_Success.executor": "Run",
+    "JUnit.ShipmentServiceTest.testCancelShipmentById.executor": "Run",
+    "JUnit.ShipmentServiceTest.testCancelShipmentById_NotFound.executor": "Run",
+    "JUnit.ShipmentServiceTest.testGetShipmentCost.executor": "Run",
+    "JUnit.ShipmentServiceTest.testMakeShipment_Conflict (1).executor": "Run",
+    "JUnit.ShipmentServiceTest.testMakeShipment_Conflict.executor": "Run",
+    "JUnit.ShipmentServiceTest.testMakeShipment_DeliveryPersonNotFound.executor": "Run",
+    "JUnit.ShipmentServiceTest.testMakeShipment_DestinationLocationNotFound.executor": "Run",
+    "JUnit.ShipmentServiceTest.testMakeShipment_OriginLocationNotFound.executor": "Run",
+    "JUnit.ShipmentServiceTest.testMakeShipment_PackageNotFound.executor": "Run",
+    "JUnit.ShipmentServiceTest.testMakeShipment_Success.executor": "Run",
+    "JUnit.ShipmentServiceTest.testMakeShipment_Successful.executor": "Run",
+    "JUnit.ShipmentServiceTests.getStatusShipmentById_NotFound.executor": "Run",
+    "JUnit.ShipmentServiceTests.getStatusShipmentById_Success.executor": "Run",
+    "JUnit.ShipmentServiceTests.testCancelShipmentById.executor": "Run",
+    "JUnit.ShipmentServiceTests.testCancelShipmentById_NotFound.executor": "Run",
+    "JUnit.ShipmentServiceTests.testGetShipmentByIdNotFound.executor": "Run",
+    "JUnit.ShipmentServiceTests.testGetShipmentByIdSuccess.executor": "Run",
+    "JUnit.ShipmentServiceTests.testGetShipmentCost (1).executor": "Run",
+    "JUnit.ShipmentServiceTests.testGetShipmentCost.executor": "Run",
+    "JUnit.ShipmentServiceTests.testGetShipmentCost_NegativeWeight.executor": "Run",
+    "JUnit.ShipmentServiceTests.testGetShipmentCost_NoBasePrice.executor": "Run",
+    "JUnit.ShipmentServiceTests.testGetShipmentCost_NoPricePerKilometer.executor": "Run",
+    "JUnit.ShipmentServiceTests.testGetShipmentCost_Satisfactory.executor": "Run",
+    "JUnit.ShipmentServiceTests.testGetShipmentCost_Success.executor": "Run",
+    "JUnit.ShipmentServiceTests.testGetStatusShipmentById.executor": "Run",
+    "JUnit.ShipmentServiceTests.testGetStatusShipmentById_NotFound.executor": "Run",
+    "JUnit.ShipmentServiceTests.testMakeShipment_Conflict.executor": "Run",
+    "JUnit.ShipmentServiceTests.testMakeShipment_Successful.executor": "Run",
+    "JUnit.UserControllerTest.testUpdateUserSuccess.executor": "Run",
+    "JUnit.UserControllerTest.testUpdateUserValidationFailure.executor": "Run",
+    "JUnit.UserServiceTest.testCreateUser_UserAlreadyExists.executor": "Run",
+    "JUnit.UserServiceTest.testCreateUser_UserDoesNotExist.executor": "Run",
+    "JUnit.UserServiceTest.testUpdateProfileUser_UserDoesNotExist.executor": "Run",
+    "JUnit.UserServiceTest.testUpdateProfileUser_UserExists_UpdateName.executor": "Run",
+    "JUnit.UserServiceTest.testUpdateUserEmail.executor": "Run",
+    "JUnit.UserServiceTest.testUpdateUserLastName.executor": "Run",
+    "JUnit.UserServiceTest.testUpdateUserPhone.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.PopacketServiceApplication.executor": "Run",
+    "git-widget-placeholder": "Merging develop",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ftacp/Desktop/Transa/New_Transa/popacket-api",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+      "directory",
+      "module"
+    ]
+  }
+}]]></component>
+  <component name="QodanaReportsService">
+    <option name="descriptions">
+      <ReportDescription localRun="true" path="C:\Users\ftacp\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="47ca48e7-4e45-4b79-9688-82dbb66e64cc" reportId="popacket-api/qodana/2024-06-11" />
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ftacp\Desktop\Transa\New_Transa\popacket-api\popacket-service\.mvn\wrapper" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="popacketservice.popacketservice.service" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.PopacketServiceApplication">
+    <configuration name="generated-requests | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="2" requestIdentifier="#2" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="3" requestIdentifier="#3" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="ShipmentServiceTest.getStatusShipmentById_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="popacket-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="popacketservice.popacketservice.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="popacketservice.popacketservice.service" />
+      <option name="MAIN_CLASS_NAME" value="popacketservice.popacketservice.service.ShipmentServiceTest" />
+      <option name="METHOD_NAME" value="getStatusShipmentById_Success" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShipmentServiceTests.testGetShipmentCost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="popacket-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="popacketservice.popacketservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="popacketservice.popacketservice" />
+      <option name="MAIN_CLASS_NAME" value="popacketservice.popacketservice.ShipmentServiceTests" />
+      <option name="METHOD_NAME" value="testGetShipmentCost" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShipmentServiceTests.testGetStatusShipmentById_NotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="popacket-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="popacketservice.popacketservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="popacketservice.popacketservice" />
+      <option name="MAIN_CLASS_NAME" value="popacketservice.popacketservice.ShipmentServiceTests" />
+      <option name="METHOD_NAME" value="testGetStatusShipmentById_NotFound" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PopacketServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="popacket-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="popacketservice.popacketservice.PopacketServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ShipmentServiceTests.testGetStatusShipmentById_NotFound" />
+        <item itemvalue="JUnit.ShipmentServiceTests.testGetShipmentCost" />
+        <item itemvalue="JUnit.ShipmentServiceTest.getStatusShipmentById_Success" />
+        <item itemvalue="HTTP Request.generated-requests | #3" />
+        <item itemvalue="HTTP Request.generated-requests | #2" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f7961349-1ef8-44e1-bc11-c7e591793cfd" name="Changes" comment="" />
+      <created>1717556885280</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1717556885280</updated>
+      <workItem from="1717556886319" duration="6442000" />
+      <workItem from="1717563635877" duration="3588000" />
+      <workItem from="1717646397770" duration="4594000" />
+      <workItem from="1717730044849" duration="7205000" />
+      <workItem from="1717797644056" duration="5416000" />
+      <workItem from="1717803370177" duration="3398000" />
+      <workItem from="1717897218334" duration="13445000" />
+      <workItem from="1717981676370" duration="10364000" />
+      <workItem from="1717992681389" duration="9186000" />
+      <workItem from="1718161475682" duration="6601000" />
+      <workItem from="1718170012234" duration="703000" />
+      <workItem from="1718333713818" duration="7642000" />
+      <workItem from="1718402580011" duration="4459000" />
+      <workItem from="1718413101369" duration="9116000" />
+      <workItem from="1718514164648" duration="4417000" />
+      <workItem from="1718519090061" duration="251000" />
+      <workItem from="1718588334234" duration="3306000" />
+      <workItem from="1718592719627" duration="729000" />
+      <workItem from="1718682591324" duration="12835000" />
+      <workItem from="1718766476260" duration="9017000" />
+      <workItem from="1718779534281" duration="680000" />
+      <workItem from="1718846078433" duration="10448000" />
+      <workItem from="1718942450803" duration="2552000" />
+      <workItem from="1718946157192" duration="4618000" />
+      <workItem from="1718951182280" duration="7150000" />
+      <workItem from="1718958582210" duration="83000" />
+      <workItem from="1719007258773" duration="9648000" />
+      <workItem from="1719022160866" duration="1772000" />
+      <workItem from="1719117508998" duration="9639000" />
+      <workItem from="1719202073461" duration="4728000" />
+      <workItem from="1719207159336" duration="4899000" />
+      <workItem from="1719287313323" duration="8503000" />
+      <workItem from="1719370250054" duration="9959000" />
+      <workItem from="1719381253034" duration="236000" />
+      <workItem from="1719456322515" duration="1443000" />
+      <workItem from="1719465345445" duration="8564000" />
+      <workItem from="1719544533744" duration="6569000" />
+      <workItem from="1719613723087" duration="7983000" />
+      <workItem from="1719643865516" duration="3049000" />
+      <workItem from="1719720895903" duration="6951000" />
+      <workItem from="1719769648708" duration="1829000" />
+      <workItem from="1719809535358" duration="6318000" />
+      <workItem from="1719895900294" duration="1354000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
