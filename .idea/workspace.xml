@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7961349-1ef8-44e1-bc11-c7e591793cfd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="f7961349-1ef8-44e1-bc11-c7e591793cfd" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,8 +14,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Dockerfile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
