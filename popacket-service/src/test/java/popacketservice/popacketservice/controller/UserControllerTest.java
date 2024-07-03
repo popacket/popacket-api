@@ -30,6 +30,7 @@ public class UserControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
+    ///Credenciales correctas
     @Test
     void login_successful() throws Exception {
         LoginRequestDTO loginRequest = new LoginRequestDTO("user@example.com", "correctPassword");
@@ -46,7 +47,7 @@ public class UserControllerTest {
                 .andExpect(jsonPath("$.pass").doesNotExist()); // Make sure this matches your actual response
     }
 
-
+    //Credenciales incorrectas
     @Test
     void login_failure_due_to_incorrect_password() throws Exception {
         LoginRequestDTO loginRequest = new LoginRequestDTO("user@example.com", "incorrectPassword");
