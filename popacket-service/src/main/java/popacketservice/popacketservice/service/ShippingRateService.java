@@ -9,6 +9,8 @@ import popacketservice.popacketservice.model.dto.ShippingRateResponseDTO;
 import popacketservice.popacketservice.model.entity.ShippingRate;
 import popacketservice.popacketservice.repository.ShippingRateRepository;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class ShippingRateService {
@@ -33,5 +35,8 @@ public class ShippingRateService {
                     shippingRate.getBasePrice().doubleValue(),shippingRate.getPricePerKilometer().doubleValue()
             ));
         }
+    }
+    public List<ShippingRateResponseDTO> getAllShippingRates(){
+        return shippingRateMapper.convertToListDto(shippingRateRepository.findAll());
     }
 }

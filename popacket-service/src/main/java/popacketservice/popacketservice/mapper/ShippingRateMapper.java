@@ -22,7 +22,7 @@ public class ShippingRateMapper {
     public ShippingRateResponseDTO convertToDto(ShippingRate shippingRate){
         return modelMapper.map(shippingRate, ShippingRateResponseDTO.class);
     }
-    public List<ShippingRateResponseDTO> convertToDto(List<ShippingRate> shippingRates){
+    public List<ShippingRateResponseDTO> convertToListDto(List<ShippingRate> shippingRates){
         return shippingRates.stream()
                 .map(this::convertToDto)
                 .toList();
