@@ -11,6 +11,8 @@ import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.service.ShipmentService;
 
+import java.util.NoSuchElementException;
+
 @RestController
 @RequestMapping("/shipments")
 @Data
@@ -55,9 +57,11 @@ public class ShipmentController {
         try {
             ShipmentResponseDTO shipment = shipmentService.updateScheduleShipment(shipmentDTO);
             return ResponseEntity.ok(shipment);
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         } catch (Exception e) {
-            // Puedes personalizar el manejo de excepciones dependiendo de los tipos de errores esperados
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
+
 }
