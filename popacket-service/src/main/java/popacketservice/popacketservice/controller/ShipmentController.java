@@ -49,11 +49,6 @@ public class ShipmentController {
         return new ResponseEntity<>(shipmentResponseDTO, HttpStatus.OK);
     }
 
-    @PostMapping("/cancel/{id}")
-    public ResponseEntity<ShipmentResponseDTO> cancelShipment(@PathVariable("id") Long shipmentId) {
-        ShipmentResponseDTO shipment = shipmentService.cancelShipmentById(shipmentId);
-        return new ResponseEntity<>(shipment, HttpStatus.OK);
-    }
     @PostMapping("updateSchedule/")
     public ResponseEntity<ShipmentResponseDTO> updateScheduleShipment(@RequestBody ShipmentRequestDTO shipmentDTO) {
         ShipmentResponseDTO shipment = shipmentService.updateScheduleShipment(shipmentDTO);
@@ -66,5 +61,11 @@ public class ShipmentController {
         Map<String, Object> response = new HashMap<>();
         response.put("message", "Envío calificado exitosamente con una calificación de " + ratingDto.getRating() + " y comentarios: " + ratingDto.getComments());
         return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/cancel/{id}")
+    public ResponseEntity<ShipmentResponseDTO> cancelShipment(@PathVariable("id") Long shipmentId) {
+        ShipmentResponseDTO shipment = shipmentService.cancelShipmentById(shipmentId);
+        return new ResponseEntity<>(shipment, HttpStatus.OK);
     }
 }

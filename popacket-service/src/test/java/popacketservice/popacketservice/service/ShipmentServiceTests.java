@@ -7,16 +7,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import popacketservice.popacketservice.exception.ConflictException;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
-import popacketservice.popacketservice.model.dto.ShipmentRatingDTO;
-import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
-import popacketservice.popacketservice.model.entity.Shipment;
-import popacketservice.popacketservice.repository.ShipmentRepository;
 import popacketservice.popacketservice.model.dto.*;
 import popacketservice.popacketservice.model.entity.*;
 import popacketservice.popacketservice.model.entity.Package;
 import popacketservice.popacketservice.repository.*;
-
 
 import java.math.BigDecimal;
 import java.util.NoSuchElementException;
@@ -142,6 +138,75 @@ public class ShipmentServiceTests {
         // Verificación
         assertEquals(15.00, cost);
     }
+    @Test
+    void testMakeShipment_Successful() {
+        when(shipmentRepository.ifExistsByPackageID(shipmentRequestDTO.getPackageId())).thenReturn(false);
+        when(locationRepository.findById(shipmentRequestDTO.getDestinationLocationId())).thenReturn(Optional.of(destinationLocation));
+        when(locationRepository.findById(shipmentRequestDTO.getOriginLocationId())).thenReturn(Optional.of(originLocation));
+        when(packageRepository.findById(shipmentRequestDTO.getPackageId())).thenReturn(Optional.of(pack));
+        when(deliveryPersonRepository.findById(shipmentRequestDTO.getDeliveryPersonId())).thenReturn(Optional.of(deliveryPerson));
+        when(shipmentMapper.convertToEntity(shipmentRequestDTO)).thenReturn(shipment);
+        when(shipmentRepository.save(any(Shipment.class))).thenReturn(shipment);
+        when(shipmentMapper.convertToDTO(shipment)).thenReturn(shipmentResponseDTO);
+
+        ShipmentResponseDTO result = shipmentService.makeShipment(shipmentRequestDTO);
+
+        assertNotNull(result);
+        assertEquals(shipmentResponseDTO, result);
+        verify(shipmentRepository, times(1)).ifExistsByPackageID(shipmentRequestDTO.getPackageId());
+        verify(locationRepository, times(1)).findById(shipmentRequestDTO.getDestinationLocationId());
+        verify(locationRepository, times(1)).findById(shipmentRequestDTO.getOriginLocationId());
+        verify(packageRepository, times(1)).findById(shipmentRequestDTO.getPackageId());
+        verify(deliveryPersonRepository, times(1)).findById(shipmentRequestDTO.getDeliveryPersonId());
+        verify(shipmentRepository, times(1)).save(shipment);
+    }
+
+    @Test
+    void testMakeShipment_Conflict() {
+        when(shipmentRepository.ifExistsByPackageID(shipmentRequestDTO.getPackageId())).thenReturn(true);
+
+        ConflictException exception = assertThrows(ConflictException.class, () ->
+                shipmentService.makeShipment(shipmentRequestDTO));
+
+        assertEquals("El envio ya se encuentra registrado", exception.getMessage());
+        verify(shipmentRepository, times(1)).ifExistsByPackageID(shipmentRequestDTO.getPackageId());
+        verify(locationRepository, never()).findById(anyLong());
+        verify(packageRepository, never()).findById(anyLong());
+        verify(deliveryPersonRepository, never()).findById(anyLong());
+        verify(shipmentRepository, never()).save(any(Shipment.class));
+    }
+
+    @Test
+    public void getStatusShipmentById_Success() {
+
+        Long shipmentId = 1L;
+        Object[] expectedShipmentStatus = {"En camino", "2024-06-10"};
+
+        when(shipmentRepository.getStatusShipmentByIdOb(anyLong())).thenReturn(Optional.of(expectedShipmentStatus));
+
+
+        Object[] result = shipmentService.getStatusShipmentById(shipmentId);
+
+
+        assertArrayEquals(expectedShipmentStatus, result);
+        verify(shipmentRepository, times(1)).getStatusShipmentByIdOb(shipmentId);
+    }
+
+    @Test
+    public void getStatusShipmentById_NotFound() {
+
+        Long shipmentId = 1L;
+
+        when(shipmentRepository.getStatusShipmentByIdOb(anyLong())).thenReturn(Optional.empty());
+
+
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
+            shipmentService.getStatusShipmentById(shipmentId);
+        });
+
+        assertEquals("El id del Envio no existe", exception.getMessage());
+        verify(shipmentRepository, times(1)).getStatusShipmentByIdOb(shipmentId);
+    }
 
     //Ecenario exitoso cuandos se encuentra todos los datos completdos exitosamente
     @Test
@@ -195,4 +260,5 @@ public class ShipmentServiceTests {
         });
         verify(shipmentRepository, never()).save(any(Shipment.class));
     }
+
 }
