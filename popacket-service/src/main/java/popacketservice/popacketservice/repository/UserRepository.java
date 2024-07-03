@@ -6,8 +6,11 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import popacketservice.popacketservice.model.entity.User;
 
+import java.util.Optional;
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
+
     @Query("SELECT COUNT(u) > 0 FROM User u WHERE u.email=:email or u.document=:document")
     boolean existsByEmailOrDocument(@Param("email") String email,@Param("document") String document);
 
@@ -18,5 +21,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
     User findByEmail(@Param("email") String email);
 
     @Query("SELECT COUNT(u) > 0 FROM User u WHERE u.email=:email")
-    boolean exisByEmail(@Param("email") String email);
+    boolean existsByEmail(@Param("email") String email);
+
+    @Query("SELECT COUNT(u) > 0 FROM User u WHERE u.email = :email AND u.pass = :pass")
+    boolean existsByEmailAndPassword(@Param("email") String email, @Param("pass") String pass);
+
 }

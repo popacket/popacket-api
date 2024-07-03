@@ -1,0 +1,697 @@
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 65
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+
+{
+  "username": "izpo1117@gmail.com",
+  "password": "123456789"
+}
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 65
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+
+{
+  "username": "izpo1117@gmail.com",
+  "password": "123456789"
+}
+
+###
+
+POST http://localhost:8080/api/v1/auth/send-email
+Content-Type: application/json
+Content-Length: 139
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+
+{
+  "username": "fvalverdev1@upao.edu.pe",
+  "subject": "PruebaXd5.0",
+  "body": "Su envio su entregado en la direccion que se le indico"
+}
+
+<> 2024-06-28T002204.200.txt
+
+###
+
+POST http://localhost:8080/api/v1/auth/send-email
+Content-Type: application/json
+Content-Length: 150
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+
+{
+  "username": "pasmadm1@upao.edu.pe",
+  "subject": "PruebaXd4.0",
+  "body": "Si este correo llega la conezxion de correos en el api esta correcta"
+}
+
+<> 2024-06-28T002005.200.txt
+
+###
+
+POST http://localhost:8080/api/v1/auth/send-email
+Content-Type: application/json
+Content-Length: 150
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+
+{
+  "username": "pasmadm1@upao.edu.pe",
+  "subject": "PruebaXd3.0",
+  "body": "Si este correo llega la conezxion de correos en el api esta correcta"
+}
+
+<> 2024-06-28T001955.200.txt
+
+###
+
+POST http://localhost:8080/api/v1/auth/send-email
+Content-Type: application/json
+Content-Length: 151
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+
+{
+  "username": "dchantac1@upao.edu.pe",
+  "subject": "PruebaXd3.0",
+  "body": "Si este correo llega la conezxion de correos en el api esta correcta"
+}
+
+<> 2024-06-28T001701.200.txt
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 65
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+
+{
+  "username": "izpo1117@gmail.com",
+  "password": "123456789"
+}
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 65
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+
+{
+  "username": "izpo1117@gmail.com",
+  "password": "123456789"
+}
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 65
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+
+{
+  "username": "izpo1117@gmail.com",
+  "password": "123456789"
+}
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 65
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+
+{
+  "username": "izpo1117@gmail.com",
+  "password": "123456789"
+}
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 64
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+
+{
+  "username": "izpo1117gmail.com",
+  "password": "123456789"
+}
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 65
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+
+{
+  "username": "izpo1117@gmail.com",
+  "password": "123456789"
+}
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 65
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+
+{
+  "username": "izpo1117@gmail.com",
+  "password": "123456789"
+}
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 68
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+
+{
+  "username": "ponce.1714.frp@gmail.com",
+  "password": "Ponce1"
+}
+
+<> 2024-06-27T233631.500.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 68
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+
+{
+  "username": "ponce.1714.frp@gmail.com",
+  "password": "Ponce1"
+}
+
+<> 2024-06-27T233613.500.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 68
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+
+{
+  "username": "ponce.1714.frp@gmail.com",
+  "password": "Ponce1"
+}
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 68
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+
+{
+  "username": "ponce.1714.frp@gmail.com",
+  "password": "Ponce1"
+}
+
+###
+
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+Content-Length: 68
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+
+{
+  "username": "ponce.1714.frp@gmail.com",
+  "password": "Ponce1"
+}
+
+###
+
+POST http://localhost:8080/api/v1/auth/reset-password/fd8fed4a-bedf-490d-bec7-cf9606bc1abf/perrogato
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+content-length: 0
+
+<> 2024-06-27T022408.200.txt
+
+###
+
+POST http://localhost:8080/api/v1/auth/forgot-password/pabloasmad15@gmail.com
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+content-length: 0
+
+<> f-7.txt
+
+###
+
+POST http://localhost:8080/api/v1/auth/reset-password/02dd72bf-6897-4493-8518-09427e61653e/123456789
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+content-length: 0
+
+<> 2024-06-27T022100.200.txt
+
+###
+
+POST http://localhost:8080/api/v1/auth/forgot-password/izpo1117@gmail.com
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+content-length: 0
+
+<> f-6.txt
+
+###
+
+POST http://localhost:8080/api/v1/auth/reset-password/189e5602-6008-4775-9112-f9c10ef9a577/123456789
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+content-length: 0
+
+<> 2024-06-27T021836.200.txt
+
+###
+
+POST http://localhost:8080/api/v1/auth/forgot-password/carlosjaredlescano28@gmail.com
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+content-length: 0
+
+<> f-5.txt
+
+###
+
+POST http://localhost:8080/api/v1/auth/forgot-password/izpo1117@gmail.com
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+content-length: 0
+
+<> f-4.txt
+
+###
+
+POST http://localhost:8080/auth/reset-password/02dd72bf-6897-4493-8518-09427e61653e/Ponce1234569789
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-06-27T021512.404.html
+
+###
+
+POST http://localhost:8080/auth/reset-password/02dd72bf-6897-4493-8518-09427e61653e/Ponce1234569789
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-06-27T021421.404.html
+
+###
+
+POST http://localhost:8080/reset-password/02dd72bf-6897-4493-8518-09427e61653e/Ponce1234569789
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-06-27T021350.404.html
+
+###
+
+POST http://localhost:8080/api/v1/auth/forgot-password/izpo1117@gmail.com
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+content-length: 0
+
+<> f-3.txt
+
+###
+
+POST http://localhost:8080/api/v1/auth/forgot-password/ponce.1714.frp@gmail.com
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+content-length: 0
+
+<> f-2.txt
+
+###
+
+POST http://localhost:8080/reset-password/b16f0d7b-f7c4-4db0-928c-f9511b4ab359/Izpo1234567
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-06-27T021140.404.html
+
+###
+
+POST http://localhost:8080/api/v1/auth/forgot-password/ponce.1714.frp@gmail.com
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+content-length: 0
+
+<> f-1.txt
+
+###
+
+POST http://localhost:8080/api/v1/auth/reset-password/f93f06b8-ada5-4c1d-86d0-871c9775e3c9/Ponce1
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+content-length: 0
+
+<> 2024-06-27T015425.200.txt
+
+###
+
+POST http://localhost:8080/api/v1/auth/forgot-password/ponce.1714.frp@gmail.com
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+content-length: 0
+
+<> f.txt
+
+###
+
+POST http://localhost:8080/api/v1/auth/forgot-password?email=ponce.1714.frp@gmail.comContent-Type: application/x-www-form-urlencoded
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+content-length: 0
+
+<> 2024-06-27T014925.200.txt
+
+###
+
+POST http://localhost:8080/api/v1/auth/forgot-password?email=ponce.1714.frp@gmail.comContent-Type: application/x-www-form-urlencoded
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+content-length: 0
+
+<> 2024-06-27T014558.200.txt
+
+###
+
+POST http://localhost:8080/api/v1/auth/forgot-password?email=ponce.1714.frp@gmail.comContent-Type: application/x-www-form-urlencoded
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+content-length: 0
+
+<> 2024-06-27T014538.200.txt
+
+###
+
+POST http://localhost:8080/api/v1/auth/forgot-password?email=izpo1117@gmail.comContent-Type: application/x-www-form-urlencoded
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+content-length: 0
+
+<> 2024-06-27T014433.200.txt
+
+###
+
+POST http://localhost:8080/api/v1/auth/forgot-password?email=izpo1117@gmail.comContent-Type: application/x-www-form-urlencoded
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+content-length: 0
+
+<> 2024-06-27T014255.500.json
+
+###
+
+POST http://localhost:8080/api/v1/auth/forgot-password?email=izpo1117@gmail.comContent-Type: application/x-www-form-urlencoded
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+content-length: 0
+
+<> 2024-06-27T012847.200.txt
+
+###
+
+POST http://localhost:8080/api/v1/auth/forgot-password?email=izpo1117@gmail.comContent-Type: application/x-www-form-urlencoded
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+content-length: 0
+
+<> 2024-06-27T012251.200.txt
+
+###
+
+POST http://localhost:8080/api/v1/auth/send-email
+Content-Type: application/json
+Content-Length: 121
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+
+{
+  "username": "ponce.1714.frp@gmail.com",
+  "subject": "PruebaXd2.0",
+  "body": "Pruebapopacketdesdeapijava2.0 Jared"
+}
+
+<> 2024-06-27T005557.200.txt
+
+###
+
+POST http://localhost:8080/api/v1/auth/send-email
+Content-Type: application/json
+Content-Length: 103
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+
+{
+  "username": "izpo1117@gmail.com",
+  "subject": "PruebaXd",
+  "body": "Pruebapopacketdesdeapijava"
+}
+
+<> 2024-06-27T004731.200.txt
+
+###
+
+# @no-cookie-jar
+POST http://localhost:8080/api/v1/auth/send-email
+Content-Type: application/json
+Content-Length: 65
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "to": "izpo1117@gmail.com",
+  "subject": "p",
+  "text": "p"
+}
+
+<> 2024-06-26T002034.200.txt
+
+###
+
+# @no-cookie-jar
+POST http://localhost:8080/api/v1/auth/send-email
+Content-Type: application/json
+Content-Length: 65
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "to": "izpo1117@gmail.com",
+  "subject": "p",
+  "text": "p"
+}
+
+<> 2024-06-26T002013.200.txt
+
+###
+
+# @no-cookie-jar
+POST http://localhost:8080/api/v1/auth/send-email
+Content-Type: application/json
+Content-Length: 65
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "to": "izpo1117@gmail.com",
+  "subject": "p",
+  "text": "p"
+}
+
+<> 2024-06-26T001818.200.txt
+
+###
+
+# @no-cookie-jar
+POST http://localhost:8080/api/v1/auth/send-email
+Content-Type: application/json
+Content-Length: 78
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "to": "izpo1117@gmail.com",
+  "subject": "prueba",
+  "text": "prueba xd"
+}
+
+<> 2024-06-26T001740.200.txt
+
+###
+
+# @no-cookie-jar
+POST http://localhost:8080/api/v1/auth/send-email
+Content-Type: application/json
+Content-Length: 78
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "to": "izpo1117@gmail.com",
+  "subject": "prueba",
+  "text": "prueba xd"
+}
+
+<> 2024-06-26T001442.200.txt
+
+###
+
+# @no-cookie-jar
+POST http://localhost:8080/api/v1/auth/send-email
+Content-Type: application/json
+Content-Length: 77
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "to": "izpo117@gmail.com",
+  "subject": "prueba",
+  "text": "prueba xd"
+}
+
+<> 2024-06-26T001430.200.txt
+
+###
+
+POST http://localhost:8080/api/v1/auth/send-email
+Content-Type: application/json
+Content-Length: 77
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=DF7D9A1979759775ECF60BB3F01B5DCA
+
+{
+  "to": "izpo117@gmail.com",
+  "subject": "prueba",
+  "text": "prueba xd"
+}
+
+<> 2024-06-26T001026.200.txt
+
+###
+
