@@ -5,100 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7961349-1ef8-44e1-bc11-c7e591793cfd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-14T225756.500.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-26T001026.200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-26T001430.200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-26T001442.200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-26T001740.200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-26T001818.200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-26T002013.200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-26T002034.200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T004731.200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T005557.200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T012251.200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T012847.200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T014255.500.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T014433.200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T014538.200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T014558.200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T014925.200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T015425.200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T021140.404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T021350.404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T021421.404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T021512.404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T021836.200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T022100.200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T022408.200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T233613.500.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-27T233631.500.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-28T001701.200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-28T001955.200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-28T002005.200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/2024-06-28T002204.200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/f-1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/f-2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/f-3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/f-4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/f-5.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/f-6.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/f-7.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/f.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/http-client.cookies" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_06_2024_17_04_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_06_2024_17_04__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_06_2024_23_00_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_06_2024_23_00__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/popacket-service/.mvn/wrapper/javax.mail.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/popacket-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/controller/DeliveryPersonController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/LoginRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/ShipmentRatingDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/service/DeliveryPersonService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/popacket-service/src/test/java/popacketservice/popacketservice/controller/UserControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/popacket-service/src/test/java/popacketservice/popacketservice/service/DeliveryPersonServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/popacket-service/target/classes/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/popacket-service/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/popacket-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/popacket-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/popacket-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/popacket-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/popacket-service/target/popacket-service-1.0.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/popacket-service/target/popacket-service-1.0.0.jar.original" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/qodana.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/config/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/config/CorsConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/config/RestExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/config/RestExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/controller/PackageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/controller/PackageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_06_2024_17_04__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_06_2024_17_04__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_06_2024_23_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_06_2024_23_00__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/controller/ShipmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/controller/ShipmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/DeliveryPersonRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/DeliveryPersonRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/DeliveryPersonResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/DeliveryPersonResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/ShipmentRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/ShipmentRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/ShipmentResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/ShipmentResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/entity/DeliveryPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/entity/DeliveryPerson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/entity/Shipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/entity/Shipment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/DeliveryPersonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/DeliveryPersonRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/PackageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/PackageRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/ShipmentRateRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/ShipmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/ShipmentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/ShippingRateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/ShippingRateRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/service/PackageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/service/PackageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/service/ShipmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/service/ShipmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/test/java/popacketservice/popacketservice/controller/PackageControllerIntegrationTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/test/java/popacketservice/popacketservice/controller/ShipmentControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/test/java/popacketservice/popacketservice/controller/ShipmentControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/test/java/popacketservice/popacketservice/service/PackageServiceTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/test/java/popacketservice/popacketservice/service/PaymentServiceTests.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/popacket-service/src/test/java/popacketservice/popacketservice/service/ShipmentServiceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/test/java/popacketservice/popacketservice/service/ShipmentServiceTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/popacket-service/src/test/java/popacketservice/popacketservice/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/test/java/popacketservice/popacketservice/service/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="feature/RescheduleShipment" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -218,6 +131,9 @@
     "JUnit.ShipmentServiceTest.testMakeShipment_PackageNotFound.executor": "Run",
     "JUnit.ShipmentServiceTest.testMakeShipment_Success.executor": "Run",
     "JUnit.ShipmentServiceTest.testMakeShipment_Successful.executor": "Run",
+    "JUnit.ShipmentServiceTests.deleteShipment.executor": "Run",
+    "JUnit.ShipmentServiceTests.deleteShipment_ShipmentNotFound.executor": "Run",
+    "JUnit.ShipmentServiceTests.deleteShipment_Successful.executor": "Run",
     "JUnit.ShipmentServiceTests.getStatusShipmentById_NotFound.executor": "Run",
     "JUnit.ShipmentServiceTests.getStatusShipmentById_Success.executor": "Run",
     "JUnit.ShipmentServiceTests.testCancelShipmentById.executor": "Run",
@@ -250,7 +166,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.PopacketServiceApplication.executor": "Run",
-    "git-widget-placeholder": "Merging feature/RescheduleShipment",
+    "git-widget-placeholder": "feature/DeleteAdresss",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ftacp/Desktop/Transa/New_Transa/popacket-api",
@@ -282,14 +198,40 @@
       <recent name="popacketservice.popacketservice.service" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.PopacketServiceApplication">
-    <configuration name="generated-requests | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="2" requestIdentifier="#2" runType="Run single request">
-      <method v="2" />
+  <component name="RunManager" selected="JUnit.ShipmentControllerTest.deleteShipment_NotFound">
+    <configuration name="ShipmentControllerTest.deleteShipment_NotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="popacket-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="popacketservice.popacketservice.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="popacketservice.popacketservice.controller" />
+      <option name="MAIN_CLASS_NAME" value="popacketservice.popacketservice.controller.ShipmentControllerTest" />
+      <option name="METHOD_NAME" value="deleteShipment_NotFound" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="generated-requests | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="3" requestIdentifier="#3" runType="Run single request">
-      <method v="2" />
+    <configuration name="ShipmentControllerTest.deleteShipment_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="popacket-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="popacketservice.popacketservice.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="popacketservice.popacketservice.controller" />
+      <option name="MAIN_CLASS_NAME" value="popacketservice.popacketservice.controller.ShipmentControllerTest" />
+      <option name="METHOD_NAME" value="deleteShipment_Success" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="ShipmentServiceTest.getStatusShipmentById_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShipmentServiceTests.deleteShipment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="popacket-service" />
       <extension name="coverage">
         <pattern>
@@ -298,40 +240,40 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="popacketservice.popacketservice.service" />
-      <option name="MAIN_CLASS_NAME" value="popacketservice.popacketservice.service.ShipmentServiceTest" />
-      <option name="METHOD_NAME" value="getStatusShipmentById_Success" />
+      <option name="MAIN_CLASS_NAME" value="popacketservice.popacketservice.service.ShipmentServiceTests" />
+      <option name="METHOD_NAME" value="deleteShipment(java.lang.Long)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShipmentServiceTests.testGetShipmentCost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShipmentServiceTests.deleteShipment_ShipmentNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="popacket-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="popacketservice.popacketservice.*" />
+          <option name="PATTERN" value="popacketservice.popacketservice.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="popacketservice.popacketservice" />
-      <option name="MAIN_CLASS_NAME" value="popacketservice.popacketservice.ShipmentServiceTests" />
-      <option name="METHOD_NAME" value="testGetShipmentCost" />
+      <option name="PACKAGE_NAME" value="popacketservice.popacketservice.service" />
+      <option name="MAIN_CLASS_NAME" value="popacketservice.popacketservice.service.ShipmentServiceTests" />
+      <option name="METHOD_NAME" value="deleteShipment_ShipmentNotFound" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShipmentServiceTests.testGetStatusShipmentById_NotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShipmentServiceTests.deleteShipment_Successful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="popacket-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="popacketservice.popacketservice.*" />
+          <option name="PATTERN" value="popacketservice.popacketservice.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="popacketservice.popacketservice" />
-      <option name="MAIN_CLASS_NAME" value="popacketservice.popacketservice.ShipmentServiceTests" />
-      <option name="METHOD_NAME" value="testGetStatusShipmentById_NotFound" />
+      <option name="PACKAGE_NAME" value="popacketservice.popacketservice.service" />
+      <option name="MAIN_CLASS_NAME" value="popacketservice.popacketservice.service.ShipmentServiceTests" />
+      <option name="METHOD_NAME" value="deleteShipment_Successful" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -347,11 +289,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ShipmentServiceTests.testGetStatusShipmentById_NotFound" />
-        <item itemvalue="JUnit.ShipmentServiceTests.testGetShipmentCost" />
-        <item itemvalue="JUnit.ShipmentServiceTest.getStatusShipmentById_Success" />
-        <item itemvalue="HTTP Request.generated-requests | #3" />
-        <item itemvalue="HTTP Request.generated-requests | #2" />
+        <item itemvalue="JUnit.ShipmentControllerTest.deleteShipment_NotFound" />
+        <item itemvalue="JUnit.ShipmentControllerTest.deleteShipment_Success" />
+        <item itemvalue="JUnit.ShipmentServiceTests.deleteShipment_ShipmentNotFound" />
+        <item itemvalue="JUnit.ShipmentServiceTests.deleteShipment" />
+        <item itemvalue="JUnit.ShipmentServiceTests.deleteShipment_Successful" />
       </list>
     </recent_temporary>
   </component>

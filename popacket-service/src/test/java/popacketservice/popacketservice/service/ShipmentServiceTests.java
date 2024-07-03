@@ -326,4 +326,33 @@ public class ShipmentServiceTests {
         assertThrows(IllegalArgumentException.class, () -> shipmentService.rescheduleShipment(rescheduleDTO),
                 "Debe lanzar una excepción cuando la fecha de entrega es anterior a la fecha de recogida.");
     }
+
+    //Eliminaciond de envio completa
+    @Test
+    public void deleteShipment_Successful() {
+        // Given
+        Long shipmentId = 1L;
+        Shipment existingShipment = new Shipment();
+        existingShipment.setId(shipmentId);
+        when(shipmentRepository.findById(shipmentId)).thenReturn(Optional.of(existingShipment));
+
+        // When
+        shipmentService.deleteShipment(shipmentId);
+
+        // Then
+        verify(shipmentRepository, times(1)).delete(existingShipment);
+    }
+
+    //Error al intentar eliminar el envio
+    @Test
+    public void deleteShipment_ShipmentNotFound() {
+        // Given
+        Long shipmentId = 999L; // Non-existent ID
+        when(shipmentRepository.findById(shipmentId)).thenReturn(Optional.empty());
+
+        // When & Then
+        Exception exception = assertThrows(NoSuchElementException.class, () -> shipmentService.deleteShipment(shipmentId));
+        assertEquals("Envío no encontrado con id: " + shipmentId, exception.getMessage());
+        verify(shipmentRepository, never()).delete(any(Shipment.class));
+    }
 }

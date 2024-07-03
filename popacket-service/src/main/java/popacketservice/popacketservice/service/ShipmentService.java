@@ -133,4 +133,12 @@ public class ShipmentService {
 
         return shipmentMapper.convertToDTO(shipment);
     }
+
+    public void deleteShipment(Long shipmentId) {
+        Shipment shipment = shipmentRepository.findById(shipmentId)
+                .orElseThrow(() -> new NoSuchElementException("Envío no encontrado con id: " + shipmentId));
+
+        shipmentRepository.delete(shipment);
+    }
+
 }

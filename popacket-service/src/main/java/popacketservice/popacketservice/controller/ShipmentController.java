@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import popacketservice.popacketservice.model.dto.ShipmentRatingDTO;
-import popacketservice.popacketservice.model.dto.RescheduleShipmentDTO;
-import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
-import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
+import popacketservice.popacketservice.model.dto.*;
 import popacketservice.popacketservice.service.ShipmentService;
 
 import java.util.HashMap;
@@ -83,6 +80,22 @@ public class ShipmentController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<Map<String, Object>> deleteShipment(@RequestBody DeleteShipmentDTO deleteShipmentDTO) {
+        Map<String, Object> response = new HashMap<>();
+        try {
+            shipmentService.deleteShipment(deleteShipmentDTO.getShipmentId());
+            response.put("message", "Envío eliminado correctamente.");
+            return ResponseEntity.ok(response);
+        } catch (NoSuchElementException e) {
+            response.put("error", "Envío no encontrado.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+        } catch (Exception e) {
+            response.put("error", "Error interno del servidor.");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
 }
