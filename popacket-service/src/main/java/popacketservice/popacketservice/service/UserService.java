@@ -8,12 +8,14 @@ import org.springframework.transaction.annotation.Transactional;
 import popacketservice.popacketservice.exception.ConflictException;
 import popacketservice.popacketservice.mapper.UserMapper;
 import popacketservice.popacketservice.model.dto.LoginRequestDTO;
+import popacketservice.popacketservice.model.dto.UserPreferencesDTO;
 import popacketservice.popacketservice.model.dto.UserRequestDTO;
 import popacketservice.popacketservice.model.dto.UserResponseDTO;
 import popacketservice.popacketservice.model.entity.User;
 import popacketservice.popacketservice.repository.UserRepository;
 
 import java.time.LocalDate;
+import java.util.NoSuchElementException;
 
 @Service
 @AllArgsConstructor
@@ -93,5 +95,14 @@ public class UserService {
 
     public UserResponseDTO getUserById(Long id){
         return userMapper.convertToDTO(userRepository.findById(id).get());
+    }
+
+    public User updatePreferences(Long userId, UserPreferencesDTO preferences) {
+        User user = userRepository.findById(userId).orElseThrow(() ->
+                new NoSuchElementException("Usuario no encontrado con ID: " + userId));
+        user.setDefaultShippingAddress(preferences.getDefaultShippingAddress());
+        user.setPreferredPaymentMethod(preferences.getPreferredPaymentMethod());
+        user.setPreferredShippingType(preferences.getPreferredShippingType());
+        return userRepository.save(user);
     }
 }
