@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/Email")
+@RequestMapping("/email")
 public class EmailController {
 
     @Autowired
@@ -22,6 +22,7 @@ public class EmailController {
 
     @PostMapping("/forgot-password/{email}")
     public ResponseEntity<String> forgotPassword(@PathVariable("email") String email) {
+        System.out.println(email);
         return ResponseEntity.ok(passwordResetService.initiatePasswordReset(email));
     }
 
@@ -31,9 +32,5 @@ public class EmailController {
         return ResponseEntity.ok("Password reset successful");
     }
 
-    @PostMapping("/send-email")
-    public ResponseEntity<String> sendEmail(@RequestBody EmailRequestDTO email) {
-        String response = emailService.sendEmail(email.getTo(), email.getSubject(), email.getText());
-        return new ResponseEntity<>(response, HttpStatus.OK);
-    }
+
 }
