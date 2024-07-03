@@ -82,7 +82,7 @@ class UserServiceTest {
         when(userRepository.findByDocument(userRequestDTO.getDocument())).thenReturn(user);
         when(userMapper.convertToDTO(any(User.class))).thenReturn(new UserResponseDTO());
 
-        UserResponseDTO result = userService.updateProfileUser(userRequestDTO, "name");
+        UserResponseDTO result = userService.updateProfileUser(userRequestDTO);
 
         assertNotNull(result);
         verify(userRepository).save(user);
@@ -98,7 +98,7 @@ class UserServiceTest {
         when(userRepository.existsByEmailOrDocument(userRequestDTO.getEmail(), userRequestDTO.getDocument())).thenReturn(false);
 
         assertThrows(ConflictException.class, () -> {
-            userService.updateProfileUser(userRequestDTO, "name");
+            userService.updateProfileUser(userRequestDTO);
         });
 
         verify(userRepository, never()).save(any(User.class));
@@ -119,7 +119,7 @@ class UserServiceTest {
         when(userRepository.findByDocument(userRequestDTO.getDocument())).thenReturn(user);
         when(userMapper.convertToDTO(any(User.class))).thenReturn(new UserResponseDTO());
 
-        UserResponseDTO result = userService.updateProfileUser(userRequestDTO,"lastName");
+        UserResponseDTO result = userService.updateProfileUser(userRequestDTO);
 
         assertNotNull(result);
         verify(userRepository).save(user);
@@ -138,7 +138,7 @@ class UserServiceTest {
         when(userRepository.findByDocument(userRequestDTO.getDocument())).thenReturn(user);
         when(userMapper.convertToDTO(any(User.class))).thenReturn(new UserResponseDTO());
 
-        UserResponseDTO result = userService.updateProfileUser(userRequestDTO, "phone");
+        UserResponseDTO result = userService.updateProfileUser(userRequestDTO);
 
         assertNotNull(result);
         verify(userRepository).save(user);
@@ -157,7 +157,7 @@ class UserServiceTest {
         when(userRepository.findByDocument(userRequestDTO.getDocument())).thenReturn(user);
         when(userMapper.convertToDTO(any(User.class))).thenReturn(new UserResponseDTO());
 
-        UserResponseDTO result = userService.updateProfileUser(userRequestDTO,"email");
+        UserResponseDTO result = userService.updateProfileUser(userRequestDTO);
 
         assertNotNull(result);
         verify(userRepository).save(user);
