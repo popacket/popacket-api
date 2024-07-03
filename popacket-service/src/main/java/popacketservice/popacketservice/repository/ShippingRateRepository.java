@@ -20,4 +20,10 @@ public interface ShippingRateRepository extends JpaRepository<ShippingRate,Long>
 
     @Query("SELECT sr FROM ShippingRate sr WHERE (:weight BETWEEN sr.weightMin AND sr.weightMax) AND sr.serviceType=:serviceType")
     ShippingRate findByServiceTypeAndWeight(String serviceType, BigDecimal weight);
+
+    @Query("SELECT COUNT(sr)>0 FROM ShippingRate sr WHERE sr.basePrice=:basePrice and sr.pricePerKilometer=:pricePerKilometer")
+    boolean existsByBasePriceAndPricePerKilometer(@Param("basePrice") Double basePrice,@Param("pricePerKilometer") Double PricePerKilometer);
+
+    @Query("SELECT sr FROM ShippingRate sr  WHERE sr.basePrice=:basePrice and sr.pricePerKilometer=:pricePerKilometer")
+    ShippingRate getByBasePriceAndPricePerKilometer(@Param("basePrice") Double basePrice,@Param("pricePerKilometer") Double PricePerKilometer);
 }

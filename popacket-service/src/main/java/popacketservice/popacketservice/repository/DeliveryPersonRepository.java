@@ -6,6 +6,9 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import popacketservice.popacketservice.model.entity.DeliveryPerson;
 
+import java.util.List;
+import java.util.Optional;
+
 @Repository
 public interface DeliveryPersonRepository extends JpaRepository<DeliveryPerson, Long> {
 
@@ -14,4 +17,7 @@ public interface DeliveryPersonRepository extends JpaRepository<DeliveryPerson, 
 
     @Query("SELECT COUNT(d) > 0 FROM DeliveryPerson d WHERE d.name=:name and d.phone=:phone")
     boolean existsByNameAndPhone(@Param("name") String name,@Param("phone") String phone);
+
+    @Query("SELECT d FROM DeliveryPerson d WHERE d.name=:name and d.phone=:phone")
+    Optional<DeliveryPerson> getDeliveryPersonByPhoneAndName(@Param("name") String name,@Param("phone") String phone);
 }
