@@ -49,4 +49,8 @@ public class PackageService {
         List<Package> packages = packageRepository.findByRecipientId(recipientId);
         return packageMapper.convertToListDTO(packages);
     }
+
+    public List<PackageResponseDTO> getPackagesBySenderAndStatus(Long senderId, String status) {
+        return packageMapper.convertToListDTO(packageRepository.findByIdAndStatus(senderId, status));
+    }
 }

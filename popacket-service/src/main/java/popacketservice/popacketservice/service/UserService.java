@@ -4,7 +4,6 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import popacketservice.popacketservice.exception.ConflictException;
 import popacketservice.popacketservice.mapper.UserMapper;
 import popacketservice.popacketservice.model.dto.LoginRequestDTO;
@@ -38,48 +37,18 @@ public class UserService {
         }
     }
 
-    public UserResponseDTO updateProfileUser(@NotNull UserRequestDTO user, String type) {
+    public UserResponseDTO updateProfileUser(@NotNull UserRequestDTO user) {
         if (userRepository.existsByEmailOrDocument(user.getEmail(), user.getDocument())) {
-            switch (type) {
-                case "name":
-                    return updateUserName(user);
-                case "lastName":
-                    return updateUserLastName(user);
-                case "phone":
-                    return updateUserPhone(user);
-                case "email":
-                    return updateUserEmail(user);
-            }
-        } else {
-         throw new ConflictException("El usuario no existe");
+            User userTemp = userRepository.findByDocument(user.getDocument());
+            userTemp.setPhone(user.getPhone());
+            userTemp.setEmail(user.getEmail());
+            userTemp.setName(user.getName());
+            userTemp.setPass(user.getPass());
+            userRepository.save(userTemp);
+            return userMapper.convertToDTO(userTemp);
+            } else {
+            throw new ConflictException("El usuario no existe");
         }
-        return userMapper.convertToDTO(userRepository.findByDocument(user.getDocument()));
-    }
-
-    //Configurar Perfil (metodos Privados)
-    private UserResponseDTO updateUserName(@NotNull UserRequestDTO user) {
-            User user1 = userRepository.findByDocument(user.getDocument());
-            user1.setName(user.getName());
-            userRepository.save(user1);
-            return userMapper.convertToDTO(user1);
-    }
-    private UserResponseDTO updateUserLastName(@NotNull UserRequestDTO user) {
-            User user1 = userRepository.findByDocument(user.getDocument());
-            user1.setLastName(user.getLastName());
-            userRepository.save(user1);
-            return userMapper.convertToDTO(user1);
-    }
-    private UserResponseDTO updateUserPhone(@NotNull UserRequestDTO user) {
-            User user1 = userRepository.findByDocument(user.getDocument());
-            user1.setPhone(user.getPhone());
-            userRepository.save(user1);
-            return userMapper.convertToDTO(user1);
-    }
-    private UserResponseDTO updateUserEmail(@NotNull UserRequestDTO user) {
-        User user1 = userRepository.findByDocument(user.getDocument());
-        user1.setEmail(user.getEmail());
-        userRepository.save(user1);
-        return userMapper.convertToDTO(user1);
     }
 
     public UserResponseDTO Login(@NotNull LoginRequestDTO user) {
@@ -89,5 +58,9 @@ public class UserService {
             return userMapper.convertToDTO(userRepository.findByDocument(userEntity.getDocument()));
         }
         throw new ConflictException("El usuario no existe");
+    }
+
+    public UserResponseDTO getUserById(Long id){
+        return userMapper.convertToDTO(userRepository.findById(id).get());
     }
 }
