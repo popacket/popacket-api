@@ -1,0 +1,61 @@
+Index: popacket-service/src/main/java/popacketservice/popacketservice/controller/AuthController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package popacketservice.popacketservice.controller;\r\n\r\nimport popacketservice.popacketservice.service.PasswordResetService;\r\nimport popacketservice.popacketservice.service.EmailService;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.http.ResponseEntity;\r\nimport org.springframework.web.bind.annotation.*;\r\n\r\n@RestController\r\n@RequestMapping(\"/auth\")\r\npublic class AuthController {\r\n\r\n    @Autowired\r\n    private PasswordResetService passwordResetService;\r\n\r\n    @Autowired\r\n    private EmailService emailService;\r\n\r\n    @PostMapping(\"/forgot-password\")\r\n    public ResponseEntity<String> forgotPassword(@RequestParam String email) {\r\n        passwordResetService.initiatePasswordReset(email);\r\n        return ResponseEntity.ok(\"Password reset link sent\");\r\n    }\r\n\r\n    @PostMapping(\"/reset-password\")\r\n    public ResponseEntity<String> resetPassword(@RequestParam String token, @RequestParam String newPassword) {\r\n        passwordResetService.resetPassword(token, newPassword);\r\n        return ResponseEntity.ok(\"Password reset successful\");\r\n    }\r\n\r\n\r\n    @GetMapping(\"/send\")\r\n    public ResponseEntity<String> sendEmail(@RequestParam String to, @RequestParam String subject, @RequestParam String text) {\r\n        emailService.sendEmail(to, subject, text);\r\n        return ResponseEntity.ok(\"Email sent successfully\");\r\n    }\r\n}
+===================================================================
+diff --git a/popacket-service/src/main/java/popacketservice/popacketservice/controller/AuthController.java b/popacket-service/src/main/java/popacketservice/popacketservice/controller/AuthController.java
+--- a/popacket-service/src/main/java/popacketservice/popacketservice/controller/AuthController.java	
++++ b/popacket-service/src/main/java/popacketservice/popacketservice/controller/AuthController.java	
+@@ -1,5 +1,6 @@
+ package popacketservice.popacketservice.controller;
+ 
++import org.springframework.http.HttpStatus;
+ import popacketservice.popacketservice.service.PasswordResetService;
+ import popacketservice.popacketservice.service.EmailService;
+ import org.springframework.beans.factory.annotation.Autowired;
+@@ -32,6 +33,6 @@
+     @GetMapping("/send")
+     public ResponseEntity<String> sendEmail(@RequestParam String to, @RequestParam String subject, @RequestParam String text) {
+         emailService.sendEmail(to, subject, text);
+-        return ResponseEntity.ok("Email sent successfully");
++        return new ResponseEntity<>("Mensaje Enviado con exito", HttpStatus.OK);
+     }
+ }
+\ No newline at end of file
+Index: popacket-service/src/main/java/popacketservice/popacketservice/service/EmailService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package popacketservice.popacketservice.service;\r\n\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.mail.SimpleMailMessage;\r\nimport org.springframework.mail.javamail.JavaMailSender;\r\nimport org.springframework.stereotype.Service;\r\n\r\n@Service\r\npublic class EmailService {\r\n    @Autowired\r\n    private JavaMailSender mailSender;\r\n\r\n    public void sendEmail(String to, String subject, String text) {\r\n        SimpleMailMessage message = new SimpleMailMessage();\r\n        message.setFrom(\"popacketservice@gmail.com\");\r\n        message.setTo(to);\r\n        message.setSubject(subject);\r\n        message.setText(text);\r\n        mailSender.send(message);\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/popacket-service/src/main/java/popacketservice/popacketservice/service/EmailService.java b/popacket-service/src/main/java/popacketservice/popacketservice/service/EmailService.java
+--- a/popacket-service/src/main/java/popacketservice/popacketservice/service/EmailService.java	
++++ b/popacket-service/src/main/java/popacketservice/popacketservice/service/EmailService.java	
+@@ -5,17 +5,25 @@
+ import org.springframework.mail.javamail.JavaMailSender;
+ import org.springframework.stereotype.Service;
+ 
++import static org.hibernate.sql.ast.SqlTreeCreationLogger.LOGGER;
++
+ @Service
+ public class EmailService {
+     @Autowired
+-    private JavaMailSender mailSender;
++    public JavaMailSender mailSender;
+ 
+     public void sendEmail(String to, String subject, String text) {
+         SimpleMailMessage message = new SimpleMailMessage();
+-        message.setFrom("popacketservice@gmail.com");
++        message.setFrom("ponce.1714.frp@gmail.com");
+         message.setTo(to);
+         message.setSubject(subject);
+         message.setText(text);
+-        mailSender.send(message);
++        try {
++            mailSender.send(message);
++        } catch (Exception e) {
++            // Log exception details for troubleshooting
++            LOGGER.error("Error sending email: ", e);
++            throw e; // Re-throw exception for handling at the controller level
++        }
+     }
+ }
