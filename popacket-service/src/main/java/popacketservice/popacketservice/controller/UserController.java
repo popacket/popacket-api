@@ -16,9 +16,6 @@ import popacketservice.popacketservice.service.UserService;
 import java.util.HashMap;
 import java.util.Map;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @RestController
 @RequestMapping("/users")
 @AllArgsConstructor
