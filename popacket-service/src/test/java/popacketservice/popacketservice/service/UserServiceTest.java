@@ -8,11 +8,15 @@ import org.mockito.MockitoAnnotations;
 import popacketservice.popacketservice.exception.ConflictException;
 import popacketservice.popacketservice.mapper.UserMapper;
 import popacketservice.popacketservice.model.dto.LoginRequestDTO;
+import popacketservice.popacketservice.model.dto.UserPreferencesDTO;
 import popacketservice.popacketservice.model.dto.UserRequestDTO;
 import popacketservice.popacketservice.model.dto.UserResponseDTO;
 import popacketservice.popacketservice.model.entity.User;
 import popacketservice.popacketservice.repository.UserRepository;
 
+
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -222,5 +226,39 @@ class UserServiceTest {
 
         assertEquals("La contraseña es incorrecta", exception.getMessage());
         verify(userRepository).findByEmail(email);
+    }
+
+    //Cuando el usuario existe guarda la preferencias segun su Id
+    @Test
+    void updatePreferences_Successful() {
+        // Given
+        Long userId = 1L;
+        UserPreferencesDTO preferencesDTO = new UserPreferencesDTO("123 Street", "Credit Card", "Standard");
+        User user = new User();
+        user.setId(userId);
+        when(userRepository.findById(userId)).thenReturn(Optional.of(user));
+
+        // When
+        userService.updatePreferences(userId, preferencesDTO);
+
+        // Then
+        verify(userRepository).save(user);
+        assertEquals("123 Street", user.getDefaultShippingAddress());
+        assertEquals("Credit Card", user.getPreferredPaymentMethod());
+        assertEquals("Standard", user.getPreferredShippingType());
+    }
+
+    //Cuando el usuario NO existe y este lanza una exception
+    @Test
+    void updatePreferences_UserNotFound() {
+        // Given
+        Long userId = 1L;
+        UserPreferencesDTO preferencesDTO = new UserPreferencesDTO("123 Street", "Credit Card", "Standard");
+        when(userRepository.findById(userId)).thenReturn(Optional.empty());
+
+        // When & Then
+        assertThrows(NoSuchElementException.class, () -> {
+            userService.updatePreferences(userId, preferencesDTO);
+        });
     }
 }
