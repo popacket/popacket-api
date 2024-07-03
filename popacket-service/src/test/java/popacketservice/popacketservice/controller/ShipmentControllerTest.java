@@ -8,21 +8,17 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import popacketservice.popacketservice.model.dto.RescheduleShipmentDTO;
-import popacketservice.popacketservice.model.dto.ShipmentRatingDTO;
-import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
-import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
+import popacketservice.popacketservice.model.dto.*;
 import popacketservice.popacketservice.service.ShipmentService;
 
 import java.time.LocalDateTime;
 import java.util.NoSuchElementException;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doThrow;
 import static org.mockito.ArgumentMatchers.anyDouble;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -158,5 +154,30 @@ public class ShipmentControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(rescheduleDto)))
                 .andExpect(status().isNotFound()); // Esperamos un estado 404 No encontrado
+    }
+    @Test
+    public void deleteShipment_Success() throws Exception {
+        DeleteShipmentDTO deleteShipmentDTO = new DeleteShipmentDTO(1L);
+        mockMvc.perform(delete("/shipments/delete")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"shipmentId\":1}"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.message").value("Envío eliminado correctamente."));
+
+        verify(shipmentService).deleteShipment(1L);
+    }
+
+    @Test
+    public void deleteShipment_NotFound() throws Exception {
+        DeleteShipmentDTO deleteShipmentDTO = new DeleteShipmentDTO(999L);
+        doThrow(new NoSuchElementException("Envío no encontrado.")).when(shipmentService).deleteShipment(999L);
+
+        mockMvc.perform(delete("/shipments/delete")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"shipmentId\":999}"))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.error").value("Envío no encontrado."));
+
+        verify(shipmentService).deleteShipment(999L);
     }
 }

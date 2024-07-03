@@ -4,7 +4,6 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7961349-1ef8-44e1-bc11-c7e591793cfd" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="feature/RescheduleShipment" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -123,6 +122,9 @@
     "JUnit.ShipmentServiceTest.testMakeShipment_PackageNotFound.executor": "Run",
     "JUnit.ShipmentServiceTest.testMakeShipment_Success.executor": "Run",
     "JUnit.ShipmentServiceTest.testMakeShipment_Successful.executor": "Run",
+    "JUnit.ShipmentServiceTests.deleteShipment.executor": "Run",
+    "JUnit.ShipmentServiceTests.deleteShipment_ShipmentNotFound.executor": "Run",
+    "JUnit.ShipmentServiceTests.deleteShipment_Successful.executor": "Run",
     "JUnit.ShipmentServiceTests.getStatusShipmentById_NotFound.executor": "Run",
     "JUnit.ShipmentServiceTests.getStatusShipmentById_Success.executor": "Run",
     "JUnit.ShipmentServiceTests.testCancelShipmentById.executor": "Run",
@@ -155,7 +157,6 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.PopacketServiceApplication.executor": "Run",
-    "git-widget-placeholder": "develop",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ftacp/Desktop/Transa/New_Transa/popacket-api",
@@ -187,14 +188,40 @@
       <recent name="popacketservice.popacketservice.service" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.PopacketServiceApplication">
-    <configuration name="generated-requests | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="2" requestIdentifier="#2" runType="Run single request">
-      <method v="2" />
+  <component name="RunManager" selected="JUnit.ShipmentControllerTest.deleteShipment_NotFound">
+    <configuration name="ShipmentControllerTest.deleteShipment_NotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="popacket-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="popacketservice.popacketservice.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="popacketservice.popacketservice.controller" />
+      <option name="MAIN_CLASS_NAME" value="popacketservice.popacketservice.controller.ShipmentControllerTest" />
+      <option name="METHOD_NAME" value="deleteShipment_NotFound" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="generated-requests | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="3" requestIdentifier="#3" runType="Run single request">
-      <method v="2" />
+    <configuration name="ShipmentControllerTest.deleteShipment_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="popacket-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="popacketservice.popacketservice.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="popacketservice.popacketservice.controller" />
+      <option name="MAIN_CLASS_NAME" value="popacketservice.popacketservice.controller.ShipmentControllerTest" />
+      <option name="METHOD_NAME" value="deleteShipment_Success" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="ShipmentServiceTest.getStatusShipmentById_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShipmentServiceTests.deleteShipment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="popacket-service" />
       <extension name="coverage">
         <pattern>
@@ -203,40 +230,40 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="popacketservice.popacketservice.service" />
-      <option name="MAIN_CLASS_NAME" value="popacketservice.popacketservice.service.ShipmentServiceTest" />
-      <option name="METHOD_NAME" value="getStatusShipmentById_Success" />
+      <option name="MAIN_CLASS_NAME" value="popacketservice.popacketservice.service.ShipmentServiceTests" />
+      <option name="METHOD_NAME" value="deleteShipment(java.lang.Long)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShipmentServiceTests.testGetShipmentCost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShipmentServiceTests.deleteShipment_ShipmentNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="popacket-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="popacketservice.popacketservice.*" />
+          <option name="PATTERN" value="popacketservice.popacketservice.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="popacketservice.popacketservice" />
-      <option name="MAIN_CLASS_NAME" value="popacketservice.popacketservice.ShipmentServiceTests" />
-      <option name="METHOD_NAME" value="testGetShipmentCost" />
+      <option name="PACKAGE_NAME" value="popacketservice.popacketservice.service" />
+      <option name="MAIN_CLASS_NAME" value="popacketservice.popacketservice.service.ShipmentServiceTests" />
+      <option name="METHOD_NAME" value="deleteShipment_ShipmentNotFound" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShipmentServiceTests.testGetStatusShipmentById_NotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShipmentServiceTests.deleteShipment_Successful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="popacket-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="popacketservice.popacketservice.*" />
+          <option name="PATTERN" value="popacketservice.popacketservice.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="popacketservice.popacketservice" />
-      <option name="MAIN_CLASS_NAME" value="popacketservice.popacketservice.ShipmentServiceTests" />
-      <option name="METHOD_NAME" value="testGetStatusShipmentById_NotFound" />
+      <option name="PACKAGE_NAME" value="popacketservice.popacketservice.service" />
+      <option name="MAIN_CLASS_NAME" value="popacketservice.popacketservice.service.ShipmentServiceTests" />
+      <option name="METHOD_NAME" value="deleteShipment_Successful" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -252,11 +279,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ShipmentServiceTests.testGetStatusShipmentById_NotFound" />
-        <item itemvalue="JUnit.ShipmentServiceTests.testGetShipmentCost" />
-        <item itemvalue="JUnit.ShipmentServiceTest.getStatusShipmentById_Success" />
-        <item itemvalue="HTTP Request.generated-requests | #3" />
-        <item itemvalue="HTTP Request.generated-requests | #2" />
+        <item itemvalue="JUnit.ShipmentControllerTest.deleteShipment_NotFound" />
+        <item itemvalue="JUnit.ShipmentControllerTest.deleteShipment_Success" />
+        <item itemvalue="JUnit.ShipmentServiceTests.deleteShipment_ShipmentNotFound" />
+        <item itemvalue="JUnit.ShipmentServiceTests.deleteShipment" />
+        <item itemvalue="JUnit.ShipmentServiceTests.deleteShipment_Successful" />
       </list>
     </recent_temporary>
   </component>
