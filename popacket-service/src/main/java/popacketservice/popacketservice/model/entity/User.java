@@ -38,4 +38,8 @@ public class User {
     private String preferredPaymentMethod;
     @Column(name="preferred_shipping_type", nullable = true)
     private String preferredShippingType;
+
+    @Column
+    private String resetToken;
+    private LocalDate tokenCreationDate;
 }
