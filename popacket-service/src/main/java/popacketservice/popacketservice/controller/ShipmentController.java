@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import popacketservice.popacketservice.model.dto.RescheduleShipmentDTO;
 import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.service.ShipmentService;
@@ -52,15 +53,17 @@ public class ShipmentController {
         return new ResponseEntity<>(shipmentResponseDTO, HttpStatus.OK);
     }
 
-    @PostMapping("/update-schedule")
-    public ResponseEntity<ShipmentResponseDTO> updateScheduleShipment(@RequestBody ShipmentRequestDTO shipmentDTO) {
+    @PostMapping("/reschedule")
+    public ResponseEntity<ShipmentResponseDTO> rescheduleShipment(@RequestBody RescheduleShipmentDTO rescheduleDTO) {
         try {
-            ShipmentResponseDTO shipment = shipmentService.updateScheduleShipment(shipmentDTO);
+            ShipmentResponseDTO shipment = shipmentService.rescheduleShipment(rescheduleDTO);
             return ResponseEntity.ok(shipment);
         } catch (NoSuchElementException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
 

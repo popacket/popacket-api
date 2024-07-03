@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import popacketservice.popacketservice.exception.ConflictException;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
+import popacketservice.popacketservice.model.dto.RescheduleShipmentDTO;
 import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.model.entity.*;
@@ -92,16 +93,17 @@ public class ShipmentService {
             return shipmentMapper.convertToDTO(savedShipment);}
     }
 
-    public ShipmentResponseDTO updateScheduleShipment(ShipmentRequestDTO shipmentRequestDTO) {
-        Shipment shipment = shipmentRepository.findById(shipmentRequestDTO.getPackageId())  // Asegúrate de que este ID sea correcto
-                .orElseThrow(() -> new NoSuchElementException("Envío no encontrado con id: "+ shipmentRequestDTO.getPackageId()));
+    public ShipmentResponseDTO rescheduleShipment(RescheduleShipmentDTO rescheduleDTO) {
+        Shipment shipment = shipmentRepository.findById(rescheduleDTO.getPackageId())
+                .orElseThrow(() -> new NoSuchElementException("Envío no encontrado con id: " + rescheduleDTO.getPackageId()));
 
-        if (shipmentRequestDTO.getDeliveryDateTime().isBefore(shipmentRequestDTO.getPickupDateTime())) {
+        if (rescheduleDTO.getDeliveryDateTime().isBefore(rescheduleDTO.getPickupDateTime())) {
             throw new IllegalArgumentException("La fecha de entrega no puede ser anterior a la fecha de recogida.");
         }
-        shipment.setPickupDateTime(shipmentRequestDTO.getPickupDateTime());
-        shipment.setDeliveryDateTime(shipmentRequestDTO.getDeliveryDateTime());
-        shipmentRepository.save(shipment);  // Verifica que se esté llamando save()
+
+        shipment.setPickupDateTime(rescheduleDTO.getPickupDateTime());
+        shipment.setDeliveryDateTime(rescheduleDTO.getDeliveryDateTime());
+        shipmentRepository.save(shipment);
 
         return shipmentMapper.convertToDTO(shipment);
     }
