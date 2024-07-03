@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -24,7 +25,7 @@ public class RestExceptionHandler {
     public ProblemDetail handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
         ProblemDetail problemDetail =
                 ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST,
-                        "La colicitud tiene unos errores de validacion");
+                        "La solicitud tiene unos errores de validacion");
 
         Set<String> errors = new HashSet<>();
         List<FieldError> fieldErrors = ex.getFieldErrors();
@@ -55,5 +56,10 @@ public class RestExceptionHandler {
     @ExceptionHandler(ConflictException.class)
     public ProblemDetail handleConflictException(ConflictException ex) {
         return ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, ex.getMessage());
+    }
+
+    @ExceptionHandler(NoSuchElementException.class)
+    public ResponseEntity<String> handleNoSuchElementException(NoSuchElementException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
 }

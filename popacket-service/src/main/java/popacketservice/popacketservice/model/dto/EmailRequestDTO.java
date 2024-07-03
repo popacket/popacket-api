@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class LoginRequestDTO {
-
+public class EmailRequestDTO {
     @NotNull
     @Email
-    private String username;
+    private String to;
 
-    @NotNull
-    private String password;
+    private String subject;
+
+    private String text;
 }
