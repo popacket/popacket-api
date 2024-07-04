@@ -70,8 +70,8 @@ public class ShipmentServiceTests {
 
         shipmentRequestDTO = new ShipmentRequestDTO();
         shipmentRequestDTO.setPackageId(1L);
-        shipmentRequestDTO.setOriginLocationId(1L);
-        shipmentRequestDTO.setDestinationLocationId(2L);
+        shipmentRequestDTO.setOriginLocationAddress("Origin Address");
+        shipmentRequestDTO.setDestinationLocationAddress("Destination Address");
         shipmentRequestDTO.setDeliveryPersonId(1L);
 
         shipment = new Shipment();
@@ -152,8 +152,8 @@ public class ShipmentServiceTests {
     @Test
     void testMakeShipment_Successful() {
         when(shipmentRepository.ifExistsByPackageID(shipmentRequestDTO.getPackageId())).thenReturn(false);
-        when(locationRepository.findById(shipmentRequestDTO.getDestinationLocationId())).thenReturn(Optional.of(destinationLocation));
-        when(locationRepository.findById(shipmentRequestDTO.getOriginLocationId())).thenReturn(Optional.of(originLocation));
+        when(locationRepository.getLocationByAddress(shipmentRequestDTO.getDestinationLocationAddress())).thenReturn(Optional.of(destinationLocation));
+        when(locationRepository.getLocationByAddress(shipmentRequestDTO.getOriginLocationAddress())).thenReturn(Optional.of(originLocation));
         when(packageRepository.findById(shipmentRequestDTO.getPackageId())).thenReturn(Optional.of(pack));
         when(deliveryPersonRepository.findById(shipmentRequestDTO.getDeliveryPersonId())).thenReturn(Optional.of(deliveryPerson));
         when(shipmentMapper.convertToEntity(shipmentRequestDTO)).thenReturn(shipment);
@@ -165,8 +165,8 @@ public class ShipmentServiceTests {
         assertNotNull(result);
         assertEquals(shipmentResponseDTO, result);
         verify(shipmentRepository, times(1)).ifExistsByPackageID(shipmentRequestDTO.getPackageId());
-        verify(locationRepository, times(1)).findById(shipmentRequestDTO.getDestinationLocationId());
-        verify(locationRepository, times(1)).findById(shipmentRequestDTO.getOriginLocationId());
+        verify(locationRepository, times(1)).getLocationByAddress(shipmentRequestDTO.getDestinationLocationAddress());
+        verify(locationRepository, times(1)).getLocationByAddress(shipmentRequestDTO.getOriginLocationAddress());
         verify(packageRepository, times(1)).findById(shipmentRequestDTO.getPackageId());
         verify(deliveryPersonRepository, times(1)).findById(shipmentRequestDTO.getDeliveryPersonId());
         verify(shipmentRepository, times(1)).save(shipment);

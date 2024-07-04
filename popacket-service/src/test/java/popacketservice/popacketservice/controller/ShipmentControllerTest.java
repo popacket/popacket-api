@@ -87,8 +87,8 @@ public class ShipmentControllerTest {
     void testMakeShipment() throws Exception {
         ShipmentRequestDTO shipmentRequestDTO = new ShipmentRequestDTO();
         shipmentRequestDTO.setPackageId(1L);
-        shipmentRequestDTO.setOriginLocationId(1L);
-        shipmentRequestDTO.setDestinationLocationId(2L);
+        shipmentRequestDTO.setOriginLocationAddress("origin addres");
+        shipmentRequestDTO.setDestinationLocationAddress("Destination address");
         shipmentRequestDTO.setDeliveryPersonId(1L);
 
         ShipmentResponseDTO shipmentResponseDTO = new ShipmentResponseDTO();

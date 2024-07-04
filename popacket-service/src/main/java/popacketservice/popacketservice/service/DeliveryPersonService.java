@@ -11,6 +11,8 @@ import popacketservice.popacketservice.model.dto.DeliveryPersonResponseDTO;
 import popacketservice.popacketservice.model.entity.DeliveryPerson;
 import popacketservice.popacketservice.repository.DeliveryPersonRepository;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class DeliveryPersonService {
@@ -29,6 +31,10 @@ public class DeliveryPersonService {
         }else {
             throw new ConflictException("El Delivery Person Ya existe en el sistema");
         }
+    }
+
+    public List<DeliveryPerson> getAllDeliveryPersons() {
+        return deliveryPersonRepository.findAll();
     }
 
     public String deleteDeliveryPersonById(Long deliveryPersonId) {
