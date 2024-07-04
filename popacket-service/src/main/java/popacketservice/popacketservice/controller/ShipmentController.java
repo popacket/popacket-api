@@ -85,4 +85,12 @@ public class ShipmentController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+
+    @PutMapping("/update-destination/{shipmentId}/{newDestinationId}")
+    public ResponseEntity<ShipmentResponseDTO> updateShipmentDestination(
+            @PathVariable Long shipmentId,
+            @PathVariable Long newDestinationId) {
+        ShipmentResponseDTO shipmentResponse = shipmentService.updateShipmentDestination(shipmentId, newDestinationId);
+        return new ResponseEntity<>(shipmentResponse, HttpStatus.OK);
+    }
 }

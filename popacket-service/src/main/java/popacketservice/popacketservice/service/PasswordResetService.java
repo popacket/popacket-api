@@ -23,7 +23,7 @@ public class PasswordResetService {
     private EmailService emailService;
 
     public String initiatePasswordReset(String email) {
-        if (userRepository.exisByEmail(email)) {
+        if (userRepository.existsByEmail(email)) {
             User user = userRepository.findByEmail(email);
             try {
                 String token = UUID.randomUUID().toString();
