@@ -10,6 +10,10 @@ import java.util.Optional;
 
 @Repository
 public interface LocationRepository extends JpaRepository<Location, Long> {
+
+    @Query("SELECT COUNT(l)>0 FROM Location l WHERE l.address=:address")
+    boolean existsByAddress(@Param("address") String address);
+
     @Query("SELECT l FROM Location l WHERE l.address=:address")
     Optional<Location> getLocationByAddress(@Param("address") String address);
 }
