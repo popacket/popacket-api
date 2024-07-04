@@ -8,6 +8,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import popacketservice.popacketservice.exception.ConflictException;
+import popacketservice.popacketservice.exception.ResourceNotFoundException;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
 import popacketservice.popacketservice.model.dto.*;
 import popacketservice.popacketservice.model.entity.*;
@@ -25,6 +26,9 @@ import java.time.LocalDateTime;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.verify;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -325,5 +329,73 @@ public class ShipmentServiceTests {
         // When & Then
         assertThrows(IllegalArgumentException.class, () -> shipmentService.rescheduleShipment(rescheduleDTO),
                 "Debe lanzar una excepción cuando la fecha de entrega es anterior a la fecha de recogida.");
+    }
+
+    @Test
+    void updateShipmentDestination_Success() {
+        // Datos de prueba
+        Long shipmentId = 1L;
+        Long newDestinationId = 2L;
+
+        Location newDestination = new Location();
+        newDestination.setId(newDestinationId);
+
+        Shipment existingShipment = new Shipment();
+        existingShipment.setId(shipmentId);
+        existingShipment.setDestinationLocation(originLocation); // Estado inicial
+
+        Shipment updatedShipment = new Shipment();
+        updatedShipment.setId(shipmentId);
+        updatedShipment.setDestinationLocation(newDestination); // Estado después de la actualización
+
+        ShipmentResponseDTO expectedDTO = new ShipmentResponseDTO();
+        expectedDTO.setId(shipmentId);
+        expectedDTO.setDestinationLocationId(newDestinationId);
+
+        // Configurar comportamientos de los mocks
+        when(shipmentRepository.findById(shipmentId)).thenReturn(Optional.of(existingShipment));
+        when(locationRepository.findById(newDestinationId)).thenReturn(Optional.of(newDestination));
+        when(shipmentRepository.save(any(Shipment.class))).thenReturn(updatedShipment);
+        when(shipmentMapper.convertToDTO(updatedShipment)).thenReturn(expectedDTO); // Asegurarse de devolver un DTO no nulo
+
+        // Ejecutar la prueba
+        ShipmentResponseDTO result = shipmentService.updateShipmentDestination(shipmentId, newDestinationId);
+
+        // Verificación de los resultados
+        assertNotNull(result, "El resultado no debe ser nulo.");
+        assertEquals(newDestinationId, result.getDestinationLocationId(), "El ID de la ubicación de destino debe ser actualizado correctamente.");
+        verify(shipmentRepository).save(updatedShipment); // Verificar que el envío se guarda con la nueva ubicación
+        verify(shipmentMapper).convertToDTO(updatedShipment); // Verificar la conversión a DTO
+    }
+
+    @Test
+    void updateShipmentDestination_ShipmentNotFound_ThrowsException() {
+        // Datos de prueba
+        Long shipmentId = 1L;
+        Long newDestinationId = 2L;
+
+        // Configurar comportamientos de los mocks
+        when(shipmentRepository.findById(shipmentId)).thenReturn(Optional.empty());
+
+        // Ejecutar la prueba y verificar la excepción
+        assertThrows(ResourceNotFoundException.class, () -> shipmentService.updateShipmentDestination(shipmentId, newDestinationId),
+                "Debe lanzar ResourceNotFoundException si el envío no existe.");
+    }
+
+    @Test
+    void updateShipmentDestination_DestinationNotFound_ThrowsException() {
+        // Datos de prueba
+        Long shipmentId = 1L;
+        Long newDestinationId = 2L;
+        Shipment existingShipment = new Shipment();
+        existingShipment.setId(shipmentId);
+
+        // Configurar comportamientos de los mocks
+        when(shipmentRepository.findById(shipmentId)).thenReturn(Optional.of(existingShipment));
+        when(locationRepository.findById(newDestinationId)).thenReturn(Optional.empty());
+
+        // Ejecutar la prueba y verificar la excepción
+        assertThrows(ResourceNotFoundException.class, () -> shipmentService.updateShipmentDestination(shipmentId, newDestinationId),
+                "Debe lanzar ResourceNotFoundException si la ubicación de destino no existe.");
     }
 }

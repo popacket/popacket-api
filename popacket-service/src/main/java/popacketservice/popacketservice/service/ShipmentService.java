@@ -5,7 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import popacketservice.popacketservice.exception.ConflictException;
+import popacketservice.popacketservice.exception.ResourceNotFoundException;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
 import popacketservice.popacketservice.model.dto.RescheduleShipmentDTO;
 import popacketservice.popacketservice.model.dto.ShipmentRatingDTO;
@@ -26,7 +28,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 
 public class ShipmentService {
-
 
     @Autowired
     private ShipmentRepository shipmentRepository;
@@ -132,5 +133,19 @@ public class ShipmentService {
         shipmentRepository.save(shipment);
 
         return shipmentMapper.convertToDTO(shipment);
+    }
+
+    @Transactional
+    public ShipmentResponseDTO updateShipmentDestination(Long shipmentId, Long newDestinationId) {
+        Shipment shipment = shipmentRepository.findById(shipmentId)
+                .orElseThrow(() -> new ResourceNotFoundException("Envío no encontrado con ID: " + shipmentId));
+
+        Location newDestination = locationRepository.findById(newDestinationId)
+                .orElseThrow(() -> new ResourceNotFoundException("Ubicación de destino no encontrada con ID: " + newDestinationId));
+
+        shipment.setDestinationLocation(newDestination);
+        Shipment updatedShipment = shipmentRepository.save(shipment);
+
+        return shipmentMapper.convertToDTO(updatedShipment);
     }
 }
