@@ -15,6 +15,7 @@ import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 import popacketservice.popacketservice.service.ShipmentService;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.NoSuchElementException;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -159,4 +160,23 @@ public class ShipmentControllerTest {
                         .content(objectMapper.writeValueAsString(rescheduleDto)))
                 .andExpect(status().isNotFound()); // Esperamos un estado 404 No encontrado
     }
+
+    @Test
+    void testUpdateShipmentDestination() throws Exception {
+        Long shipmentId = 1L;
+        Long newDestinationId = 3L;
+
+        ShipmentResponseDTO shipmentResponseDTO = new ShipmentResponseDTO();
+        shipmentResponseDTO.setId(shipmentId);
+        shipmentResponseDTO.setDestinationLocationId(newDestinationId);
+
+        when(shipmentService.updateShipmentDestination(shipmentId, newDestinationId))
+                .thenReturn(shipmentResponseDTO);
+
+        mockMvc.perform(put("/shipments/update-destination/" + shipmentId + "/" + newDestinationId)
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.destinationLocationId").value(newDestinationId));
+    }
+
 }
