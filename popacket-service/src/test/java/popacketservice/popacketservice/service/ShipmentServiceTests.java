@@ -184,35 +184,30 @@ public class ShipmentServiceTests {
     }
 
     @Test
-    public void getStatusShipmentById_Success() {
+    void testGetShipmentByIdSuccess() {
+        shipment = new Shipment();
+        shipment.setId(1L);
+        shipmentResponseDTO = new ShipmentResponseDTO();
+        shipmentResponseDTO.setId(1L);
 
-        Long shipmentId = 1L;
-        Object[] expectedShipmentStatus = {"En camino", "2024-06-10"};
+        when(shipmentRepository.getShipmentById(1L)).thenReturn(Optional.of(shipment));
+        when(shipmentMapper.convertToDTO(shipment)).thenReturn(shipmentResponseDTO);
 
-        when(shipmentRepository.getStatusShipmentByIdOb(anyLong())).thenReturn(Optional.of(expectedShipmentStatus));
+        ShipmentResponseDTO result = shipmentService.getShipmentById(1L);
 
-
-        Object[] result = shipmentService.getStatusShipmentById(shipmentId);
-
-
-        assertArrayEquals(expectedShipmentStatus, result);
-        verify(shipmentRepository, times(1)).getStatusShipmentByIdOb(shipmentId);
+        assertNotNull(result);
+        assertEquals(1L, result.getId());
+        // Verifica otros campos según sea necesario
     }
 
     @Test
-    public void getStatusShipmentById_NotFound() {
-
-        Long shipmentId = 1L;
-
-        when(shipmentRepository.getStatusShipmentByIdOb(anyLong())).thenReturn(Optional.empty());
-
-
-        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
-            shipmentService.getStatusShipmentById(shipmentId);
-        });
-
-        assertEquals("El id del Envio no existe", exception.getMessage());
-        verify(shipmentRepository, times(1)).getStatusShipmentByIdOb(shipmentId);
+    void testGetShipmentByIdNotFound() {
+        shipment = new Shipment();
+        shipment.setId(1L);
+        shipmentResponseDTO = new ShipmentResponseDTO();
+        shipmentResponseDTO.setId(1L);
+        when(shipmentRepository.getShipmentById(1L)).thenReturn(Optional.empty());
+        assertThrows(NoSuchElementException.class, () -> shipmentService.getShipmentById(1L));
     }
 
     //Ecenario exitoso cuandos se encuentra todos los datos completdos exitosamente

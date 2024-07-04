@@ -11,6 +11,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import popacketservice.popacketservice.exception.ConflictException;
 import popacketservice.popacketservice.model.dto.LoginRequestDTO;
 import popacketservice.popacketservice.model.dto.UserPreferencesDTO;
+import popacketservice.popacketservice.model.dto.UserRequestDTO;
 import popacketservice.popacketservice.model.dto.UserResponseDTO;
 import popacketservice.popacketservice.service.UserService;
 import popacketservice.popacketservice.model.entity.User;
@@ -40,6 +41,29 @@ public class UserControllerTest {
     private ObjectMapper objectMapper;
 
     private User user;
+    private UserRequestDTO userRequestDTO;
+    private UserResponseDTO userResponseDTO;
+
+    @BeforeEach
+    void setUp() {
+        userRequestDTO = new UserRequestDTO();
+        userRequestDTO.setDocument("12345678");
+        userRequestDTO.setName("Test");
+        userRequestDTO.setLastName("User");
+        userRequestDTO.setEmail("test@example.com");
+        userRequestDTO.setPass("password");
+        userRequestDTO.setPhone("123456789");
+
+        userResponseDTO = new UserResponseDTO();
+        userResponseDTO.setId(1L);
+        userResponseDTO.setDocument("12345678");
+        userResponseDTO.setName("Test");
+        userResponseDTO.setLastName("User");
+        userResponseDTO.setEmail("test@example.com");
+        userResponseDTO.setPass("password");
+        userResponseDTO.setPhone("123456789");
+        userResponseDTO.setIsAdmin(false);
+    }
 
     ///Credenciales correctas
     @Test
@@ -100,5 +124,28 @@ public class UserControllerTest {
                         .content(objectMapper.writeValueAsString(preferencesDto)))
                 .andDo(print())
                 .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void testUpdateUserSuccess() throws Exception {
+        when(userService.updateProfileUser(any(UserRequestDTO.class))).thenReturn(userResponseDTO);
+
+        mockMvc.perform(post("/users/configure_user")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(userRequestDTO)))
+                .andExpect(status().isOk())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(content().json(objectMapper.writeValueAsString(userResponseDTO)));
+    }
+
+    @Test
+    void testUpdateUserConflict() throws Exception {
+        when(userService.updateProfileUser(any(UserRequestDTO.class)))
+                .thenThrow(new ConflictException("El usuario no existe"));
+
+        mockMvc.perform(post("/users/configure_user")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(userRequestDTO)))
+                .andExpect(status().isConflict());
     }
 }
