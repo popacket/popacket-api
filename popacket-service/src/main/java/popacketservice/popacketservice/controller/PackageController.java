@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import popacketservice.popacketservice.model.dto.PackageDestinationDTO;
 import popacketservice.popacketservice.model.dto.PackageRequestDTO;
 import popacketservice.popacketservice.model.dto.PackageResponseDTO;
 import popacketservice.popacketservice.service.PackageService;
@@ -33,6 +34,12 @@ public class PackageController {
     @GetMapping("/by-recipient/{recipientId}")
     public ResponseEntity<List<PackageResponseDTO>> getPackagesByRecipient(@PathVariable Long recipientId) {
         List<PackageResponseDTO> packages = packageService.getPackagesByRecipient(recipientId);
+        return new ResponseEntity<>(packages, HttpStatus.OK);
+    }
+
+    @GetMapping("/destination-addresses")
+    public ResponseEntity<List<PackageDestinationDTO>> getAllDestinationAddressesWithId() {
+        List<PackageDestinationDTO> packages = packageService.getAllDestinationAddressesWithId();
         return new ResponseEntity<>(packages, HttpStatus.OK);
     }
 }

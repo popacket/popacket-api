@@ -6,12 +6,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import popacketservice.popacketservice.exception.ResourceNotFoundException;
 import popacketservice.popacketservice.mapper.PackageMapper;
+import popacketservice.popacketservice.model.dto.PackageDestinationDTO;
 import popacketservice.popacketservice.model.dto.PackageRequestDTO;
 import popacketservice.popacketservice.model.dto.PackageResponseDTO;
 import popacketservice.popacketservice.model.entity.Package;
 import popacketservice.popacketservice.model.entity.User;
 import popacketservice.popacketservice.repository.PackageRepository;
 import popacketservice.popacketservice.repository.UserRepository;
+import java.util.stream.Collectors;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -48,5 +50,13 @@ public class PackageService {
     public List<PackageResponseDTO> getPackagesByRecipient(Long recipientId) {
         List<Package> packages = packageRepository.findByRecipientId(recipientId);
         return packageMapper.convertToListDTO(packages);
+    }
+
+    @Transactional(readOnly = true)
+    public List<PackageDestinationDTO> getAllDestinationAddressesWithId() {
+        List<Package> packages = packageRepository.findAll();
+        return packages.stream()
+                .map(pkg -> new PackageDestinationDTO(pkg.getId(), pkg.getDestinationAddress()))
+                .collect(Collectors.toList());
     }
 }

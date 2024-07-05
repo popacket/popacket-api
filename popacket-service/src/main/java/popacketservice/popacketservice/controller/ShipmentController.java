@@ -52,9 +52,4 @@ public class ShipmentController {
         return new ResponseEntity<>(shipmentResponseDTO, HttpStatus.OK);
     }
 
-    @GetMapping("/ListDestinationLocation")
-    public ResponseEntity<List<ShipmentResponseDTO>> getAllShipmentAddreses() {
-        List<ShipmentResponseDTO> adresses = shipmentService.getAllShipmentAddresses();
-        return new ResponseEntity<>(adresses, HttpStatus.OK);
-    }
 }

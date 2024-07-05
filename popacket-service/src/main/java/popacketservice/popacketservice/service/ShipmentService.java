@@ -106,10 +106,4 @@ public class ShipmentService {
             return shipmentMapper.convertToDTO(savedShipment);}
     }
 
-    public List<ShipmentResponseDTO> getAllShipmentAddresses() {
-        List<Shipment> shipments = shipmentRepository.findAll();
-        return shipmentMapper.convertToListDTO(shipments);
-    }
-
-
 }
