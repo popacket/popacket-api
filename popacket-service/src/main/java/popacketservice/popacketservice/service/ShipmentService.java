@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import popacketservice.popacketservice.exception.ConflictException;
+import popacketservice.popacketservice.exception.ResourceNotFoundException;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
 import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
@@ -77,9 +78,9 @@ public class ShipmentService {
         return shipmentMapper.convertToDTO(shipmentTemp);
     }
 
-    public ShipmentResponseDTO makeShipment(ShipmentRequestDTO shipmentRequestDTO){
+    public ShipmentResponseDTO makeShipment(ShipmentRequestDTO shipmentRequestDTO) {
         boolean resp = shipmentRepository.ifExistsByPackageID(shipmentRequestDTO.getPackageId());
-        if(resp){
+        if (resp) {
             throw new ConflictException("El envio ya se encuentra registrado");
         } else {
 
@@ -100,15 +101,18 @@ public class ShipmentService {
 
             Shipment savedShipment = shipmentRepository.save(shipment);
 
-            return shipmentMapper.convertToDTO(savedShipment);}
+            return shipmentMapper.convertToDTO(savedShipment);
+        }
     }
 
-    public ShipmentResponseDTO requestReturn(Long id) {
-        Shipment shipment = shipmentRepository.getShipmentById(id).orElseThrow(
-                () -> new RuntimeException("Envio no encontrado con el id ingresado: " + id)
-        );
-        shipment.setReturnRequested(true);
+    public void requestReturn(Long shipmentId) {
+        Shipment shipment = shipmentRepository.findById(shipmentId).orElseThrow(() -> new ResourceNotFoundException("Envío no encontrado"));
+
+        if (shipment.getReturnRequested().equals("solicitado")) {
+            throw new ConflictException("El retorno ya ha sido solicitado para este envío.");
+        }
+
+        shipment.setReturnRequested("solicitado");
         shipmentRepository.save(shipment);
-        return shipmentMapper.convertToDTO(shipment);
     }
 }

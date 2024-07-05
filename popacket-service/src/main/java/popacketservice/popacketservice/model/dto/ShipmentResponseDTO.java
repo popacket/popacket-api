@@ -19,5 +19,5 @@ public class ShipmentResponseDTO {
     private LocalDateTime deliveryDateTime;
     private Long deliveryPersonId;
     private Long shippingRateId;
-    private boolean returnRequested;
+    private String returnRequested;
 }

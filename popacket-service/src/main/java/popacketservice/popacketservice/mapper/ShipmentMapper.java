@@ -16,7 +16,9 @@ public class ShipmentMapper {
     private final ModelMapper modelMapper;
 
     public Shipment convertToEntity(ShipmentRequestDTO shipmentRequestDTO) {
-        return modelMapper.map(shipmentRequestDTO, Shipment.class);
+        Shipment shipment = modelMapper.map(shipmentRequestDTO, Shipment.class);
+        shipment.setReturnRequested("no solicitado");
+        return shipment;
     }
 
     public ShipmentResponseDTO convertToDTO(Shipment shipment) {

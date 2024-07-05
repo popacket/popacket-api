@@ -50,9 +50,9 @@ public class ShipmentController {
         return new ResponseEntity<>(shipmentResponseDTO, HttpStatus.OK);
     }
     @PostMapping("/return/{id}")
-    public ResponseEntity<ShipmentResponseDTO> requestReturn(@PathVariable("id") Long shipmentId) {
-        ShipmentResponseDTO shipment = shipmentService.requestReturn(shipmentId);
-        return new ResponseEntity<>(shipment, HttpStatus.OK);
+    public ResponseEntity<Void> requestReturn(@PathVariable Long id) {
+        shipmentService.requestReturn(id);
+        return ResponseEntity.ok().build();
     }
 
 }
