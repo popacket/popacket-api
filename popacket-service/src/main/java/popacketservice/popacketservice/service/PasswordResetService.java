@@ -33,8 +33,8 @@ public class PasswordResetService {
                 passwordResetToken.setExpiryDate(LocalDateTime.now().plusHours(1));
                 tokenRepository.save(passwordResetToken);
 
-                String resetLink = "http://localhost:8080/api/v1/Email/reset-password/" + token + "/{Ingrese aqui su nueva contraseña}";
-                emailService.sendEmail(user.getEmail(), "Password Reset Request \uD83D\uDD12", "Click the link to reset your password: " + resetLink);
+                String resetLink = "COPIE Y PEGUE ESTE TOKEN EN TU FORMULARIO: " + token ;
+                emailService.sendEmail(user.getEmail(), "Password Reset Request \uD83D\uDD12", "¿COMO RESTABLECER TU CONTRASEÑA?: " + resetLink);
                 return "Token enviado exitosamente";
             } catch (Exception e) {
                 e.printStackTrace();
