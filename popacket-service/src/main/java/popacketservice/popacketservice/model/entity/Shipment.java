@@ -46,7 +46,7 @@ public class Shipment {
     @JoinColumn(name = "shipping_rate_id")
     private ShippingRate shippingRate;
 
-    @Column(name= "return_requested", nullable = false)
+    @Column(name= "return_requested")
     private boolean returnRequested;
 
 }
