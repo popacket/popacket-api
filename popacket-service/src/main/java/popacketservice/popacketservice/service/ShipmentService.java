@@ -79,9 +79,9 @@ public class ShipmentService {
         if(resp){
             throw new ConflictException("El envio ya se encuentra registrado");
         } else {
-            Location destinationLocation = locationRepository.getLocationByAddress(shipmentRequestDTO.getDestinationLocationAddress())
+            Location destinationLocation = locationRepository.findById(shipmentRequestDTO.getDestinationLocationAddress())
                     .orElseThrow(() -> new RuntimeException("Destino no encontrado"));
-            Location originLocation = locationRepository.getLocationByAddress(shipmentRequestDTO.getOriginLocationAddress())
+            Location originLocation = locationRepository.findById(shipmentRequestDTO.getOriginLocationAddress())
                     .orElseThrow(() -> new RuntimeException("Origen no encontrado"));
             Package pack = packageRepository.findById(shipmentRequestDTO.getPackageId())
                     .orElseThrow(() -> new RuntimeException("Paquete no encontrado"));
