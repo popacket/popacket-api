@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7961349-1ef8-44e1-bc11-c7e591793cfd" name="Changes" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-06-26T001740.200.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-06-26T001818.200.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2024-06-26T002013.200.txt" beforeDir="false" />
@@ -26,6 +27,13 @@
       <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/ShippingRateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/repository/ShippingRateRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/popacket-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/popacket-service/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/target/classes/application.properties" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_06_2024_17_04__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_06_2024_17_04__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_06_2024_23_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17_06_2024_23_00__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/ShipmentRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/model/dto/ShipmentRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/service/ShipmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/popacket-service/src/main/java/popacketservice/popacketservice/service/ShipmentService.java" afterDir="false" />
+>>>>>>> develop
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +44,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+<<<<<<< HEAD
         <option value="Dockerfile" />
+=======
+>>>>>>> develop
         <option value="Class" />
       </list>
     </option>
@@ -89,6 +100,7 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -193,6 +205,108 @@
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;HTTP Request.All in generated-requests.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #10.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #11.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #12.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #13.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #14.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #18.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #19.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #20.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #24.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #26.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #28.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #29.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #3.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #30.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #31.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #32.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #34.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #35.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #36.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #37.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #38.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #4.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #5.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #6.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #7.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #8.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DeliveryPersonServiceTest.testRegisterDeliveryPerson_Conflict.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DeliveryPersonServiceTest.testRegisterDeliveryPerson_Successful.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PackageServiceTest.testGetAllPackageBySenderId_EmptyList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PackageServiceTest.testGetAllPackageBySenderId_NotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PackageServiceTest.testGetAllPackageBySenderId_Success.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentControllerTest.testCancelShipment.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentControllerTest.testGetQuoteShipment.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentControllerTest.testGetTrackingInfoById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentControllerTest.testGetTrackingOb.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentControllerTest.testMakeShipment.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTest.cancelShipmentById_NotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTest.cancelShipmentById_Success.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTest.getStatusShipmentById_Success (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTest.getStatusShipmentById_Success.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTest.testCancelShipmentById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTest.testCancelShipmentById_NotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTest.testGetShipmentCost.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTest.testMakeShipment_Conflict (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTest.testMakeShipment_Conflict.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTest.testMakeShipment_DeliveryPersonNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTest.testMakeShipment_DestinationLocationNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTest.testMakeShipment_OriginLocationNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTest.testMakeShipment_PackageNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTest.testMakeShipment_Success.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTest.testMakeShipment_Successful.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTests.getStatusShipmentById_NotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTests.getStatusShipmentById_Success.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTests.testCancelShipmentById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTests.testCancelShipmentById_NotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTests.testGetShipmentByIdNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTests.testGetShipmentByIdSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTests.testGetShipmentCost (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTests.testGetShipmentCost.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTests.testGetShipmentCost_NegativeWeight.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTests.testGetShipmentCost_NoBasePrice.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTests.testGetShipmentCost_NoPricePerKilometer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTests.testGetShipmentCost_Satisfactory.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTests.testGetShipmentCost_Success.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTests.testGetStatusShipmentById.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTests.testGetStatusShipmentById_NotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTests.testMakeShipment_Conflict.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShipmentServiceTests.testMakeShipment_Successful.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserControllerTest.testUpdateUserSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserControllerTest.testUpdateUserValidationFailure.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.testCreateUser_UserAlreadyExists.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.testCreateUser_UserDoesNotExist.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.testUpdateProfileUser_UserDoesNotExist.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.testUpdateProfileUser_UserExists_UpdateName.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.testUpdateUserEmail.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.testUpdateUserLastName.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.testUpdateUserPhone.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.PopacketServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ftacp/Desktop/Transa/New_Transa/popacket-api&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+>>>>>>> develop
   },
   "keyToStringList": {
     "ChangesTree.GroupingKeys": [
@@ -215,10 +329,10 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.PopacketServiceApplication">
-    <configuration name="generated-requests | #38" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="38" requestIdentifier="#38" runType="Run single request">
+    <configuration name="generated-requests | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="2" requestIdentifier="#2" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests | #39" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="39" requestIdentifier="#39" runType="Run single request">
+    <configuration name="generated-requests | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="3" requestIdentifier="#3" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="generated-requests | #41" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="41" requestIdentifier="#41" runType="Run single request">
@@ -240,11 +354,19 @@
     </configuration>
     <recent_temporary>
       <list>
+<<<<<<< HEAD
         <item itemvalue="HTTP Request.generated-requests | #43" />
         <item itemvalue="HTTP Request.generated-requests | #42" />
         <item itemvalue="HTTP Request.generated-requests | #41" />
         <item itemvalue="HTTP Request.generated-requests | #38" />
         <item itemvalue="HTTP Request.generated-requests | #39" />
+=======
+        <item itemvalue="JUnit.ShipmentServiceTests.testGetStatusShipmentById_NotFound" />
+        <item itemvalue="JUnit.ShipmentServiceTests.testGetShipmentCost" />
+        <item itemvalue="JUnit.ShipmentServiceTest.getStatusShipmentById_Success" />
+        <item itemvalue="HTTP Request.generated-requests | #3" />
+        <item itemvalue="HTTP Request.generated-requests | #2" />
+>>>>>>> develop
       </list>
     </recent_temporary>
   </component>
@@ -306,9 +428,14 @@
       <workItem from="1719720895903" duration="6951000" />
       <workItem from="1719769648708" duration="1829000" />
       <workItem from="1719809535358" duration="6318000" />
+<<<<<<< HEAD
       <workItem from="1719895900294" duration="4173000" />
       <workItem from="1719975954678" duration="7023000" />
       <workItem from="1719987194829" duration="6620000" />
+=======
+      <workItem from="1719895900294" duration="1354000" />
+      <workItem from="1720226400207" duration="908000" />
+>>>>>>> develop
     </task>
     <servers />
   </component>

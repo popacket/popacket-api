@@ -18,5 +18,5 @@ public class ShipmentResponseDTO {
     private LocalDateTime pickupDateTime;
     private LocalDateTime deliveryDateTime;
     private Long deliveryPersonId;
-    private Long shippingRateId;
+
 }

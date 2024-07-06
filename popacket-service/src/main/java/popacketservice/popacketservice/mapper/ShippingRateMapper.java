@@ -2,9 +2,7 @@ package popacketservice.popacketservice.mapper;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import popacketservice.popacketservice.model.dto.ShippingRateResponseDTO;
 import popacketservice.popacketservice.model.entity.ShippingRate;
@@ -24,7 +22,8 @@ public class ShippingRateMapper {
     public ShippingRateResponseDTO convertToDto(ShippingRate shippingRate){
         return modelMapper.map(shippingRate, ShippingRateResponseDTO.class);
     }
-    public List<ShippingRateResponseDTO> convertToDto(List<ShippingRate> shippingRates){
+    public List<ShippingRateResponseDTO> convertToListDto(List<ShippingRate> shippingRates){
+
         return shippingRates.stream()
                 .map(this::convertToDto)
                 .toList();

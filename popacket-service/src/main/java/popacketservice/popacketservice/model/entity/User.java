@@ -32,4 +32,10 @@ public class User {
     private Boolean isAdmin = false;
     @Column(name="created_at")
     private LocalDate createAt;
+    @Column(name="default_shipping_address", nullable = true)
+    private String defaultShippingAddress;
+    @Column(name="preferred_payment_method", nullable = true)
+    private String preferredPaymentMethod;
+    @Column(name="preferred_shipping_type", nullable = true)
+    private String preferredShippingType;
 }

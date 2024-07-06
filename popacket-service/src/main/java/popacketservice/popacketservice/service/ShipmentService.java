@@ -5,14 +5,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import popacketservice.popacketservice.exception.ConflictException;
+import popacketservice.popacketservice.exception.ResourceNotFoundException;
 import popacketservice.popacketservice.mapper.ShipmentMapper;
+import popacketservice.popacketservice.model.dto.RescheduleShipmentDTO;
 import popacketservice.popacketservice.model.dto.ShipmentRatingDTO;
 import popacketservice.popacketservice.model.dto.ShipmentRequestDTO;
 import popacketservice.popacketservice.model.dto.ShipmentResponseDTO;
 
 import popacketservice.popacketservice.model.entity.*;
 import popacketservice.popacketservice.model.entity.Package;
+import popacketservice.popacketservice.model.entity.Location;
 import popacketservice.popacketservice.repository.*;
 
 import java.math.BigDecimal;
@@ -75,9 +79,9 @@ public class ShipmentService {
         if(resp){
             throw new ConflictException("El envio ya se encuentra registrado");
         } else {
-            Location destinationLocation = locationRepository.getLocationByAddress(shipmentRequestDTO.getDestinationLocationAddress())
+            Location destinationLocation = locationRepository.findById(shipmentRequestDTO.getDestinationLocationAddress())
                     .orElseThrow(() -> new RuntimeException("Destino no encontrado"));
-            Location originLocation = locationRepository.getLocationByAddress(shipmentRequestDTO.getOriginLocationAddress())
+            Location originLocation = locationRepository.findById(shipmentRequestDTO.getOriginLocationAddress())
                     .orElseThrow(() -> new RuntimeException("Origen no encontrado"));
             Package pack = packageRepository.findById(shipmentRequestDTO.getPackageId())
                     .orElseThrow(() -> new RuntimeException("Paquete no encontrado"));
@@ -108,9 +112,41 @@ public class ShipmentService {
     public ShipmentResponseDTO rateShipment(ShipmentRatingDTO ratingDto) {
         Shipment shipment = shipmentRepository.findById(ratingDto.getShipmentId())
                 .orElseThrow(() -> new NoSuchElementException("Envío no encontrado con id: " + ratingDto.getShipmentId()));
+        if (ratingDto.getRating() < 1 || ratingDto.getRating() > 10) {
+            throw new IllegalArgumentException("La calificación debe estar entre 1 y 5");
+        }
         shipment.setRating(ratingDto.getRating());
         shipment.setComments(ratingDto.getComments());
         shipmentRepository.save(shipment);
         return shipmentMapper.convertToDTO(shipment);
+    }
+
+    public ShipmentResponseDTO rescheduleShipment(RescheduleShipmentDTO rescheduleDTO) {
+        Shipment shipment = shipmentRepository.findById(rescheduleDTO.getPackageId())
+                .orElseThrow(() -> new NoSuchElementException("Envío no encontrado con id: " + rescheduleDTO.getPackageId()));
+
+        if (rescheduleDTO.getDeliveryDateTime().isBefore(rescheduleDTO.getPickupDateTime())) {
+            throw new IllegalArgumentException("La fecha de entrega no puede ser anterior a la fecha de recogida.");
+        }
+
+        shipment.setPickupDateTime(rescheduleDTO.getPickupDateTime());
+        shipment.setDeliveryDateTime(rescheduleDTO.getDeliveryDateTime());
+        shipmentRepository.save(shipment);
+
+        return shipmentMapper.convertToDTO(shipment);
+    }
+
+    @Transactional
+    public ShipmentResponseDTO updateShipmentDestination(Long shipmentId, Long newDestinationId) {
+        Shipment shipment = shipmentRepository.findById(shipmentId)
+                .orElseThrow(() -> new ResourceNotFoundException("Envío no encontrado con ID: " + shipmentId));
+
+        Location newDestination = locationRepository.findById(newDestinationId)
+                .orElseThrow(() -> new ResourceNotFoundException("Ubicación de destino no encontrada con ID: " + newDestinationId));
+
+        shipment.setDestinationLocation(newDestination);
+        Shipment updatedShipment = shipmentRepository.save(shipment);
+
+        return shipmentMapper.convertToDTO(updatedShipment);
     }
 }
