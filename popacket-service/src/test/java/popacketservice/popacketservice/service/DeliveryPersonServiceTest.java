@@ -57,7 +57,7 @@ public class DeliveryPersonServiceTest {
         when(deliveryPersonRepository.save(any(DeliveryPerson.class))).thenReturn(deliveryPerson);
         when(deliveryPersonMapper.convertToDTO(deliveryPerson)).thenReturn(deliveryPersonResponseDTO);
 
-        DeliveryPersonResponseDTO result = deliveryPersonService.RegisterDeliveryPerson(deliveryPersonRequestDTO);
+        DeliveryPersonResponseDTO result = deliveryPersonService.registerDeliveryPerson(deliveryPersonRequestDTO);
 
         assertNotNull(result);
         assertEquals(deliveryPersonResponseDTO, result);
@@ -71,7 +71,7 @@ public class DeliveryPersonServiceTest {
         when(deliveryPersonRepository.existsByNameAndPhone(deliveryPerson.getName(), deliveryPerson.getPhone())).thenReturn(true);
 
         ConflictException exception = assertThrows(ConflictException.class, () ->
-                deliveryPersonService.RegisterDeliveryPerson(deliveryPersonRequestDTO));
+                deliveryPersonService.registerDeliveryPerson(deliveryPersonRequestDTO));
 
         assertEquals("El Delivery Person Ya existe en el sistema", exception.getMessage());
         verify(deliveryPersonRepository, times(1)).existsByNameAndPhone(deliveryPerson.getName(), deliveryPerson.getPhone());
