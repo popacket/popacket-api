@@ -1,1 +1,6 @@
 popacketservice\popacketservice\PopacketServiceApplicationTests.class
+popacketservice\popacketservice\controller\ShipmentControllerTest.class
+popacketservice\popacketservice\controller\UserControllerTest.class
+popacketservice\popacketservice\service\DeliveryPersonServiceTest.class
+popacketservice\popacketservice\service\ShipmentServiceTests.class
+popacketservice\popacketservice\service\UserServiceTest.class
